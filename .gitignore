@@ -1,0 +1,21 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+.trace-output/
+.venv/
+.env
+*.egg-info/
+build/
+dist/
+
+# Model weights, event traces, benchmark output and local credentials.
+models/
+data/raw/
+data/runs/
+*.safetensors
+*.pt
+*.pth
+*.gguf
+*.jsonl
