@@ -1,0 +1,50 @@
+# Local KV Cache Feasibility Implementation Plan
+
+> **For Luna (executor):** Work through the checked steps in order. This is a local feasibility study, not an engine optimization or a production performance claim. Sol wrote this plan; no GPU experiment has been run for it.
+
+**Goal:** Determine whether the local stock vLLM service exhibits repeatable prefix-cache eviction under a small KV budget, whether the resulting hot-request latency gap is measurable, and how much improvement a future retention policy could plausibly capture.
+
+**Architecture:** Serve the existing model with the unmodified vLLM 0.30.0 installation. A deterministic client sends one hot prompt, an immediate repeat, a scan of distinct cold prompts, and two more hot requests; it records streaming time to first token (TTFT), full request time, token counts, and `/metrics` counter deltas. The final warm hot request is an **ideal-retention proxy for the preceding post-scan request**, not an implemented policy or a valid end-to-end speedup result.
+
+**Tech stack:** WSL Ubuntu 24.04; `/home/kzh/ai-infra-pilot/.venv/bin/python` (Torch 2.13.0+cu130, CUDA available); stock vLLM 0.30.0; `/home/kzh/ai-infra-pilot/model-ms` (Qwen3ForCausalLM, 28 layers, 8 KV heads, approximately 4.06 GB of BF16 weights); RTX 4060 Laptop, 8188 MiB. Repository: `/mnt/d/Chatgpt/llm-kv-cache-lab` (`D:\Chatgpt\llm-kv-cache-lab`). These are checked local facts, not benchmark outcomes.
+
+---
+
+## File map and limits
+
+- Create `scripts/kv_feasibility.py`: deterministic workload generation, local HTTP streaming client, metrics snapshots, run metadata and JSONL output. Use the standard library for HTTP/SSE if practical. Do not copy `D:\Chatgpt\ai-infra-pilot\cache_pressure_probe.py`; it is read-only background.
+- Create `tests/test_kv_feasibility.py`: CPU-only checks for distinct cold prefixes, stable prompt lengths/order, metric parsing and summary arithmetic.
+- Write ignored run artifacts only under `data/runs/kv-feasibility/`: one config and one request/metrics JSONL per repetition plus a summary. The repository already ignores `data/runs/` and `*.jsonl`.
+- Do not change vLLM, model weights, `kv_cache_lab/events.py`, or existing documentation for this feasibility gate. No cloud, commit, or push is needed.
+
+## Task 1: Build and validate the tiny workload client
+
+- [ ] Add `scripts/kv_feasibility.py` with `prepare`, `run`, and `summarize` commands. `prepare` uses the installed model tokenizer to make a fixed hot prompt and 14 cold prompts, each 352–416 tokens; each cold prompt starts with a unique identifier before any shared text. Save seed, prompt SHA-256 hashes, actual token lengths, and the ordered manifest. Reject any prompt above 512 tokens; request `max_tokens=1`, `temperature=0`, concurrency 1. Do not print full prompt text into result logs.
+- [ ] `run` calls the local `/v1/completions` endpoint with `stream=true`, records monotonic start/first generated-token/end timestamps, response status, and server-reported prompt/output token counts where available. Scrape `/metrics` before and after each request and record deltas for `vllm:prefix_cache_hits`, `vllm:prefix_cache_queries`, `vllm:prompt_tokens_cached`, and `vllm:prompt_tokens`; accept Prometheus counter names with `_total` suffix and sum matching labeled series. Wait briefly for counters to reflect the completed request, then fail visibly if required counters are missing or non-monotonic. The installed vLLM source defines prefix hits/queries in **tokens**, not requests.
+- [ ] Fix the request order: `hot_first`, `hot_immediate`, `cold_00` … `cold_13`, `hot_after_scan`, `hot_repeated_again`. The last request should be warm if the post-scan request repopulated the cache. Save raw request rows rather than just aggregate percentages.
+- [ ] Add CPU tests for manifest reproducibility, no common first 16-token cache block among cold prompts, counter-delta parsing, and the summary formulas. Run: `cd /mnt/d/Chatgpt/llm-kv-cache-lab && /home/kzh/ai-infra-pilot/.venv/bin/python -m unittest discover -s tests -v`. Expected: all tests pass without starting vLLM or using a GPU.
+- [ ] Prepare once from WSL: `cd /mnt/d/Chatgpt/llm-kv-cache-lab && /home/kzh/ai-infra-pilot/.venv/bin/python scripts/kv_feasibility.py prepare --model /home/kzh/ai-infra-pilot/model-ms --cold-count 14 --seed 20260927 --output data/runs/kv-feasibility/manifest.json`. Expected: 18 ordered entries, hot prompts identical, each cold first 16-token block distinct, all input lengths within the specified bounds.
+
+## Task 2: Run three independent stock-vLLM service repetitions
+
+- [ ] First confirm at least 6.5 GiB GPU memory is free and no competing GPU job is active. Start the **installed, unmodified** service from WSL with the command below. Check `/health`, `/v1/models`, and `/metrics` before replay. Record the command, vLLM/model identity, GPU state, cache budget and server logs. The 256 MiB KV limit is a deliberate pressure condition; it is **not** the normal deployment default.
+
+  ```bash
+  /home/kzh/ai-infra-pilot/.venv/bin/vllm serve /home/kzh/ai-infra-pilot/model-ms --host 127.0.0.1 --port 8000 --served-model-name kv-feasibility --max-model-len 1024 --max-num-seqs 2 --block-size 16 --kv-cache-memory-bytes 268435456 --gpu-memory-utilization 0.85 --enforce-eager --enable-prefix-caching
+  ```
+- [ ] For each of three repetitions, stop the service and start a fresh process so the cache begins empty; run the identical manifest once, sequentially. Use `cd /mnt/d/Chatgpt/llm-kv-cache-lab && /home/kzh/ai-infra-pilot/.venv/bin/python scripts/kv_feasibility.py run --base-url http://127.0.0.1:8000 --model kv-feasibility --manifest data/runs/kv-feasibility/manifest.json --output data/runs/kv-feasibility/run-01.jsonl`, changing only the output name to `run-02.jsonl` and `run-03.jsonl`. Expected: 18 successful request rows per run and available counter deltas. Exclude startup/model-load and health-check time from request timing. Preserve every raw row and failure. If startup is out of memory, choose **128 MiB KV for all repetitions** and record the change; do not silently vary memory settings between repetitions. Keep all requests below the 1024-token context limit.
+- [ ] Treat the first run as a setup check only if parameters need adjustment. If 14 cold prompts do not evict the hot prefix, increase the cold count once to 24 **before** the three measured fresh-process repetitions, using one fixed manifest. Do not tune on measured repetitions or selectively discard slow/failed runs.
+- [ ] Verify that `hot_first` has few cached tokens, `hot_immediate` and `hot_repeated_again` have high cache-hit fractions, cold prompts have low hit fractions, and `hot_after_scan` loses most of its hot-prefix hits. Investigate counter timing if HTTP completion and `/metrics` disagree; never substitute an inferred hit for a missing metric.
+
+## Task 3: Quantify the gap and issue a go/no-go decision
+
+- [ ] Run `cd /mnt/d/Chatgpt/llm-kv-cache-lab && /home/kzh/ai-infra-pilot/.venv/bin/python scripts/kv_feasibility.py summarize --runs data/runs/kv-feasibility/run-01.jsonl data/runs/kv-feasibility/run-02.jsonl data/runs/kv-feasibility/run-03.jsonl --output data/runs/kv-feasibility/summary.json`. Expected: per-run raw TTFT and total time for every phase; median and range across the three independent runs; hit fraction = hit tokens / queried tokens; and the post-scan versus final-warm paired TTFT gap. Do not report P95/P99 from three observations.
+- [ ] Calculate a clearly labeled **upper-bound control / ideal-retention proxy** per run: `max(0, TTFT(hot_after_scan) - TTFT(hot_repeated_again))`. Divide by `TTFT(hot_after_scan)` for the affected hot-request fraction and by the sum of all measured request TTFTs for this exact 18-request mix. This is a best-case, no-cost approximation, **not a strict mathematical bound** or an actual policy result; the real policy may gain less or regress. Its two requests occur at different positions, so order effects remain a limitation. Show the un-clamped signed gap too.
+- [ ] Accept **reproducible pressure** only if all 3 runs have `hot_immediate` hit fraction >= 0.70, `hot_after_scan` <= 0.20, and `hot_repeated_again` >= 0.70, with no OOM or failed request. Accept a **measurable local latency gap** only if the paired post-scan TTFT is at least 10% slower than final-warm in all 3 runs and the smallest absolute gap exceeds 2x the range of the three final-warm TTFTs. Otherwise report “not resolved at this budget,” including negative or noisy results.
+- [ ] State the outcome as one of: **go** (pressure and latency gap both pass), **pressure only** (eviction passes but latency does not), or **no-go/inconclusive** (pressure or measurement fails). Retain all three raw runs and the exact configuration. A go result authorizes a later small, switchable eviction-policy experiment; it does not itself show a policy improvement.
+
+## Interpretation and expected range
+
+The previous `cache_pressure_probe.py` is a **single synthetic offline probe**, not a real-service performance result. This plan's three-run experiment uses a real local vLLM HTTP service and real model weights, but its controlled prompts remain synthetic. Report conclusions only for this hardware, model, cache limit, and request mix; do not present them as production throughput or general service gains.
+
+Before measurement, the defensible planning expectation is **possibly zero or negative real-policy gain**; if a repeatable gap exists, a future policy's affected-hot-request gain is plausibly between 0 and the measured ideal-retention proxy, and its full-mix gain is likely small because only one of 18 requests is deliberately made vulnerable. Use **0–5% full-mix TTFT reduction as a hypothesis to test, not a result or guarantee**; replace it with the measured per-run proxy and uncertainty after execution. Do not claim a numerical improvement from the old probe or from this upper-bound control as though a strategy had been implemented.

@@ -49,6 +49,7 @@ python -m unittest discover -s tests -v
 - [设计概览](docs/设计概览.md)
 - [实验方案](docs/实验方案.md)
 - [开发路线](docs/开发路线.md)
+- [本地可行性实验（2026-09-27）](docs/feasibility-results-2026-09-27.md)：原版 vLLM 上的缓存压力验证；尚未实现改进策略。
 
 ## 参考背景
 
