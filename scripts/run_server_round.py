@@ -16,6 +16,8 @@ def main():
     p.add_argument('--output', required=True)
     p.add_argument('--minutes', type=float, default=45)
     p.add_argument('--repeats', type=int, default=5)
+    p.add_argument('--decision-screen', action='store_true',
+                   help='Prioritize core scenes, add original repeat and short-output checks')
     a = p.parse_args()
     if not 1 <= a.repeats <= 5 or not 1 <= a.minutes <= 60:
         p.error('repeats 1..5 and minutes 1..60 required')
@@ -32,19 +34,31 @@ def main():
             order = ['stock','reuse2'] if rep % 2 == 0 else ['reuse2','stock']
             for policy in order:
                 plan.append({'rep':rep, 'scene':scene, 'kv_mib':mib, 'policy':policy,
-                             'manifest': f'{scene}-{rep}.jsonl'})
+                             'manifest': f'{scene}-{rep}.jsonl', 'output_tokens':32,
+                             'group_first': policy==order[0], 'group_size':2})
+        if a.decision_screen and rep==0:
+            plan.append({'rep':0,'scene':'hot_scan','kv_mib':128,'policy':'stock',
+                         'manifest':'hot_scan-0.jsonl','output_tokens':32,
+                         'name':'0-hot_scan-stock-repeat','group_first':True,'group_size':1})
+            for scene,mib in [('hot_scan',128),('mixed_zipf',256)]:
+                for policy in ['stock','reuse2']:
+                    plan.append({'rep':0,'scene':scene,'kv_mib':mib,'policy':policy,
+                                 'manifest':f'{scene}-0.jsonl','output_tokens':1,
+                                 'name':f'0-{scene}-short-{policy}',
+                                 'group_first':policy=='stock','group_size':2})
     (out / 'plan.json').write_text(json.dumps(plan, indent=2))
     outcomes = []
     try:
         for i, item in enumerate(plan):
             remaining = deadline-time.monotonic()
             # Do not begin a pair unless enough time remains for two capped runs.
-            if i % 2 == 0 and remaining < 360:
+            if item['group_first'] and remaining < 180*item['group_size']:
                 break
-            name = f"{item['rep']}-{item['scene']}-{item['policy']}"
+            name = item.get('name',f"{item['rep']}-{item['scene']}-{item['policy']}")
             cmd = [sys.executable, str(root/'scripts/server_benchmark.py'),
                    '--model',a.model,'--manifest',str(Path(a.prepared)/item['manifest']),
-                   '--output',str(out/name),'--policy',item['policy'],'--kv-mib',str(item['kv_mib'])]
+                   '--output',str(out/name),'--policy',item['policy'],'--kv-mib',str(item['kv_mib']),
+                   '--output-tokens',str(item['output_tokens'])]
             print(f'Start {name}; remaining {remaining/60:.1f} minutes', flush=True)
             with (out/f'{name}.log').open('x') as log:
                 process = subprocess.Popen(cmd, cwd=root, env=env, stdout=log, stderr=subprocess.STDOUT,

@@ -125,6 +125,42 @@ class AnalyzeServerRoundTests(unittest.TestCase):
         self.assertEqual(result["runs"]["case-stock"]["status"], "invalid_completed_artifact")
         self.assertEqual(result["pairs"], [])
 
+    def test_original_repeat_reports_elapsed_change_and_cache_consistency(self):
+        original_rows = [
+            self.row("r1", "p1", 100, 60, 10.0, "o1"),
+            self.row("r2", "p2", 120, 80, 20.0, "o2"),
+        ]
+        repeat_rows = [
+            self.row("r1", "p1", 100, 60, 11.0, "o1"),
+            self.row("r2", "p2", 120, 80, 25.0, "o2"),
+        ]
+        self.write_run("0-hot_scan-stock", "completed", original_rows)
+        self.write_run("0-hot_scan-stock-repeat", "completed", repeat_rows)
+
+        result = analyze(self.root)
+
+        self.assertEqual(len(result["original_repeats"]), 1)
+        repeat = result["original_repeats"][0]
+        self.assertEqual(repeat["original"], "0-hot_scan-stock")
+        self.assertEqual(repeat["repeat"], "0-hot_scan-stock-repeat")
+        self.assertAlmostEqual(repeat["elapsed_change_percent"], 20.0)
+        self.assertTrue(repeat["cached_tokens_identical"])
+
+    def test_original_repeat_marks_cache_counter_mismatch(self):
+        self.write_run(
+            "0-hot_scan-stock", "completed",
+            [self.row("r1", "p1", 100, 60, 10.0, "o1")],
+        )
+        self.write_run(
+            "0-hot_scan-stock-repeat", "completed",
+            [self.row("r1", "p1", 100, 59, 11.0, "o1")],
+        )
+
+        result = analyze(self.root)
+
+        self.assertEqual(len(result["original_repeats"]), 1)
+        self.assertFalse(result["original_repeats"][0]["cached_tokens_identical"])
+
 
 if __name__ == "__main__":
     unittest.main()

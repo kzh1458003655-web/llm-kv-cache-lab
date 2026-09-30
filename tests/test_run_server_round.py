@@ -23,7 +23,7 @@ class RunServerRoundTests(unittest.TestCase):
     def tearDown(self):
         self.temp_dir.cleanup()
 
-    def invoke(self, *, repeats=1, minutes=45):
+    def invoke(self, *, repeats=1, minutes=45, decision_screen=False):
         argv = [
             "run_server_round.py",
             "--model", str(self.root / "model"),
@@ -32,6 +32,8 @@ class RunServerRoundTests(unittest.TestCase):
             "--minutes", str(minutes),
             "--repeats", str(repeats),
         ]
+        if decision_screen:
+            argv.append("--decision-screen")
         with patch.object(sys, "argv", argv), contextlib.redirect_stdout(io.StringIO()):
             run_server_round.main()
 
@@ -115,6 +117,45 @@ class RunServerRoundTests(unittest.TestCase):
 
         popen.assert_not_called()
         self.assertEqual(sentinel.read_text(encoding="utf-8"), "preserve")
+
+    def test_decision_screen_plan_has_23_runs_consistent_pairs_and_short_checks(self):
+        processes = [self.completed_process(45000 + index) for index in range(23)]
+        with patch("scripts.run_server_round.subprocess.Popen", side_effect=processes) as popen, \
+             patch("scripts.run_server_round.subprocess.run"):
+            self.invoke(repeats=3, decision_screen=True)
+
+        plan = json.loads((self.output / "plan.json").read_text(encoding="utf-8"))
+        self.assertEqual(len(plan), 23)
+        self.assertEqual(popen.call_count, 23)
+        self.assertEqual(sum(item["output_tokens"] == 1 for item in plan), 4)
+        self.assertEqual(sum(item["output_tokens"] == 32 for item in plan), 19)
+
+        grouped = {}
+        for item in plan:
+            if item["group_size"] == 2:
+                key = (item["rep"], item["scene"], item["output_tokens"])
+                grouped.setdefault(key, []).append(item)
+        self.assertEqual(len(grouped), 11)  # 9 core pairs plus 2 short pairs.
+        for members in grouped.values():
+            self.assertEqual(len(members), 2)
+            self.assertEqual({item["policy"] for item in members}, {"stock", "reuse2"})
+            self.assertEqual(members[0]["manifest"], members[1]["manifest"])
+            self.assertEqual(members[0]["output_tokens"], members[1]["output_tokens"])
+
+        stock_repeat = next(item for item in plan if item.get("name") == "0-hot_scan-stock-repeat")
+        original_stock = next(
+            item for item in plan
+            if item["rep"] == 0 and item["scene"] == "hot_scan"
+            and item["policy"] == "stock" and item["output_tokens"] == 32
+        )
+        self.assertEqual(stock_repeat["manifest"], original_stock["manifest"])
+        self.assertEqual(stock_repeat["output_tokens"], original_stock["output_tokens"])
+
+        called_commands = [call_args.args[0] for call_args in popen.call_args_list]
+        self.assertEqual(
+            [command[command.index("--output-tokens") + 1] for command in called_commands],
+            [str(item["output_tokens"]) for item in plan],
+        )
 
 
 if __name__ == "__main__":

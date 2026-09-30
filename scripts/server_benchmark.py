@@ -14,6 +14,7 @@ def main():
     p.add_argument('--output', required=True)
     p.add_argument('--policy', choices=['stock', 'reuse2'], required=True)
     p.add_argument('--kv-mib', type=int, required=True)
+    p.add_argument('--output-tokens', type=int, choices=[1,32], default=32)
     a = p.parse_args()
     out = Path(a.output)
     out.mkdir(parents=True, exist_ok=False)
@@ -28,6 +29,7 @@ def main():
                'mode': 'serial offline, diagnostic event hooks disabled',
                'timing_definition': 'synchronized generate call duration; NOT streaming TTFT',
                'success_count': 0, 'request_count': len(rows),
+               'output_tokens_per_request': a.output_tokens,
                'manifest_sha256': hashlib.sha256(Path(a.manifest).read_bytes()).hexdigest()}
     diagnostics = None
     try:
@@ -47,7 +49,7 @@ def main():
                   kv_cache_memory_bytes=a.kv_mib * 1024**2,
                   enable_prefix_caching=True, mamba_cache_mode='align',
                   safetensors_load_strategy='lazy')
-        params = SamplingParams(temperature=0, max_tokens=32, ignore_eos=True)
+        params = SamplingParams(temperature=0, max_tokens=a.output_tokens, ignore_eos=True)
         # Same-length warmup before measurement; remove warmup cache and counters.
         llm.generate([rows[0]['prompt']], params, use_tqdm=False)
         llm.generate([rows[0]['prompt']], params, use_tqdm=False)

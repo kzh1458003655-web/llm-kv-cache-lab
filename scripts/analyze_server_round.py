@@ -26,7 +26,16 @@ def analyze(root):
             'p95_generate_ms':durations[min(len(durations)-1,int(.95*(len(durations)-1)))] if durations else None,
             'sum_generate_ms':sum(durations), 'rows':rows}
     pairs=[]
+    original_repeats=[]
     for name, run in runs.items():
+        if name.endswith('-stock-repeat'):
+            original=runs.get(name[:-7])
+            if original and original['status']=='completed' and run['status']=='completed':
+                if [(r['request_id'],r['prompt_sha256']) for r in original['rows']] != [(r['request_id'],r['prompt_sha256']) for r in run['rows']]:
+                    raise ValueError('original repeat manifest mismatch')
+                original_repeats.append({'original':name[:-7],'repeat':name,
+                    'elapsed_change_percent':100*(run['sum_generate_ms']/original['sum_generate_ms']-1),
+                    'cached_tokens_identical':run['cached_tokens']==original['cached_tokens']})
         if not name.endswith('-stock'):
             continue
         other = runs.get(name[:-5]+'reuse2')
@@ -51,7 +60,7 @@ def analyze(root):
         'elapsed_change_percent_range':[min(x['elapsed_change_percent'] for x in group),max(x['elapsed_change_percent'] for x in group)],
         'cached_token_gains':[x['cached_token_gain'] for x in group]}
         for scene,group in scenes.items()}
-    return {'runs':runs,'pairs':pairs,'repeat_summary':repeated,'limitations':[
+    return {'runs':runs,'pairs':pairs,'original_repeats':original_repeats,'repeat_summary':repeated,'limitations':[
         'Serial offline measurements are not TTFT or online throughput.',
         'Explicit small KV budgets study pressure; do not represent the GPU default cache.',
         'Report variation between independent repeats; individual requests are correlated.',
