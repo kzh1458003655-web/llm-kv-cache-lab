@@ -1,0 +1,14 @@
+{
+  "run": "run01-http",
+  "status": "initialization_failed",
+  "request_count": 0,
+  "runner": "V2",
+  "observer_enabled": true,
+  "error_type": "torch.OutOfMemoryError",
+  "allocation_mib": 486,
+  "reported_gpu_free_gib": 5.31,
+  "torch_allocated_gib": 1.53,
+  "torch_reserved_unused_mib": 65.81,
+  "stage": "model construction: ParallelLMHead weight allocation",
+  "conclusion": "No prefix-cache experiment executed; root cause not established"
+}

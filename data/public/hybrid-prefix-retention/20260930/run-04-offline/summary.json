@@ -1,0 +1,6 @@
+{
+  "mode": "offline single process; diagnostic hooks enabled",
+  "status": "completed",
+  "success_count": 4,
+  "interpretation": "Synthetic availability smoke only; durations are not TTFT or stable performance measurements."
+}

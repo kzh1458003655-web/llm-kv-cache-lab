@@ -19,3 +19,6 @@ data/runs/
 *.pth
 *.gguf
 *.jsonl
+
+# Reviewed, reproducible public experiments (raw local runs remain ignored).
+!data/public/**/*.jsonl

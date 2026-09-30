@@ -1,0 +1,21 @@
+{"type": "cache_config", "num_pool_blocks": 20, "hash_block_size": 544, "groups": [{"id": 0, "spec": "MambaSpec", "block_size": 544, "layer_count": 6}, {"id": 1, "spec": "MambaSpec", "block_size": 544, "layer_count": 6}, {"id": 2, "spec": "MambaSpec", "block_size": 544, "layer_count": 6}, {"id": 3, "spec": "FullAttentionSpec", "block_size": 544, "layer_count": 6}], "relative_ns": 46224943838}
+{"type": "lookup", "request_id": "0-be0824dd", "prompt_tokens": 1467, "cached_tokens": 0, "shared_prefix_boundary": 0, "relative_ns": 47527525633}
+{"type": "cache_registration_observed", "request_id": "0-be0824dd", "group_id": 0, "entries": [], "relative_ns": 47538670344}
+{"type": "cache_registration_observed", "request_id": "0-be0824dd", "group_id": 1, "entries": [], "relative_ns": 47546758252}
+{"type": "cache_registration_observed", "request_id": "0-be0824dd", "group_id": 2, "entries": [], "relative_ns": 47553963300}
+{"type": "cache_registration_observed", "request_id": "0-be0824dd", "group_id": 3, "entries": [{"block_id": 4, "key": "41269d8a15d33a96882a126601321878cbb3faa8a7ad2e697131097d748ce21c00000003", "group_id": 3, "prefix_end": 544}], "relative_ns": 47568828091}
+{"type": "cache_registration_observed", "request_id": "0-be0824dd", "group_id": 0, "entries": [{"block_id": 5, "key": "a130a0779ccc463cf9fa411587e5d712239d86558d90573e1285e48f1628d3b700000000", "group_id": 0, "prefix_end": 1088}], "relative_ns": 47676299691}
+{"type": "cache_registration_observed", "request_id": "0-be0824dd", "group_id": 1, "entries": [{"block_id": 6, "key": "a130a0779ccc463cf9fa411587e5d712239d86558d90573e1285e48f1628d3b700000001", "group_id": 1, "prefix_end": 1088}], "relative_ns": 47684676161}
+{"type": "cache_registration_observed", "request_id": "0-be0824dd", "group_id": 2, "entries": [{"block_id": 7, "key": "a130a0779ccc463cf9fa411587e5d712239d86558d90573e1285e48f1628d3b700000002", "group_id": 2, "prefix_end": 1088}], "relative_ns": 47692799745}
+{"type": "cache_registration_observed", "request_id": "0-be0824dd", "group_id": 3, "entries": [{"block_id": 8, "key": "a130a0779ccc463cf9fa411587e5d712239d86558d90573e1285e48f1628d3b700000003", "group_id": 3, "prefix_end": 1088}], "relative_ns": 47701299173}
+{"type": "lookup", "request_id": "1-bff3cedd", "prompt_tokens": 1468, "cached_tokens": 1088, "shared_prefix_boundary": 0, "relative_ns": 48849482382}
+{"type": "lookup", "request_id": "2-893c27d2", "prompt_tokens": 1467, "cached_tokens": 0, "shared_prefix_boundary": 0, "relative_ns": 49302119797}
+{"type": "cache_registration_observed", "request_id": "2-893c27d2", "group_id": 0, "entries": [], "relative_ns": 49309722255}
+{"type": "cache_registration_observed", "request_id": "2-893c27d2", "group_id": 1, "entries": [], "relative_ns": 49318829189}
+{"type": "cache_registration_observed", "request_id": "2-893c27d2", "group_id": 2, "entries": [], "relative_ns": 49328908807}
+{"type": "cache_registration_observed", "request_id": "2-893c27d2", "group_id": 3, "entries": [{"block_id": 12, "key": "96b96162f52e5d20d12662c26538311848234db38d42bdc01b2fa346b5e8b72e00000003", "group_id": 3, "prefix_end": 544}], "relative_ns": 49338724172}
+{"type": "cache_registration_observed", "request_id": "2-893c27d2", "group_id": 0, "entries": [{"block_id": 3, "key": "d5fff9f451755f5e8c75af3e7e018f56c9959313f0925bb14357f11b3e9b022400000000", "group_id": 0, "prefix_end": 1088}], "relative_ns": 49394933239}
+{"type": "cache_registration_observed", "request_id": "2-893c27d2", "group_id": 1, "entries": [{"block_id": 2, "key": "d5fff9f451755f5e8c75af3e7e018f56c9959313f0925bb14357f11b3e9b022400000001", "group_id": 1, "prefix_end": 1088}], "relative_ns": 49403521087}
+{"type": "cache_registration_observed", "request_id": "2-893c27d2", "group_id": 2, "entries": [{"block_id": 1, "key": "d5fff9f451755f5e8c75af3e7e018f56c9959313f0925bb14357f11b3e9b022400000002", "group_id": 2, "prefix_end": 1088}], "relative_ns": 49410694077}
+{"type": "cache_registration_observed", "request_id": "2-893c27d2", "group_id": 3, "entries": [{"block_id": 13, "key": "d5fff9f451755f5e8c75af3e7e018f56c9959313f0925bb14357f11b3e9b022400000003", "group_id": 3, "prefix_end": 1088}], "relative_ns": 49416681776}
+{"type": "lookup", "request_id": "3-b0fac79e", "prompt_tokens": 1466, "cached_tokens": 1088, "shared_prefix_boundary": 0, "relative_ns": 49929964066}

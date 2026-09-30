@@ -1,0 +1,62 @@
+[
+  {
+    "utc": "2026-09-30T11:47:57.2516917Z",
+    "free_physical_kib": 1392840,
+    "free_commit_kib": 2905396,
+    "total_commit_kib": 39335328
+  },
+  {
+    "utc": "2026-09-30T11:48:00.6031458Z",
+    "free_physical_kib": 1128088,
+    "free_commit_kib": 2704064,
+    "total_commit_kib": 39335328
+  },
+  {
+    "utc": "2026-09-30T11:48:04.7933621Z",
+    "free_physical_kib": 892184,
+    "free_commit_kib": 2496920,
+    "total_commit_kib": 39335328
+  },
+  {
+    "utc": "2026-09-30T11:48:07.6527922Z",
+    "free_physical_kib": 1028392,
+    "free_commit_kib": 2741672,
+    "total_commit_kib": 39335328
+  },
+  {
+    "utc": "2026-09-30T11:48:10.4515448Z",
+    "free_physical_kib": 1135616,
+    "free_commit_kib": 2881324,
+    "total_commit_kib": 39335328
+  },
+  {
+    "utc": "2026-09-30T11:48:13.2761262Z",
+    "free_physical_kib": 1069984,
+    "free_commit_kib": 2785792,
+    "total_commit_kib": 39335328
+  },
+  {
+    "utc": "2026-09-30T11:48:16.1083440Z",
+    "free_physical_kib": 1047964,
+    "free_commit_kib": 2750828,
+    "total_commit_kib": 39335328
+  },
+  {
+    "utc": "2026-09-30T11:48:18.9511599Z",
+    "free_physical_kib": 1008464,
+    "free_commit_kib": 2785868,
+    "total_commit_kib": 39335328
+  },
+  {
+    "utc": "2026-09-30T11:48:22.3253685Z",
+    "free_physical_kib": 989464,
+    "free_commit_kib": 2574472,
+    "total_commit_kib": 39335328
+  },
+  {
+    "utc": "2026-09-30T11:48:25.2377703Z",
+    "free_physical_kib": 877632,
+    "free_commit_kib": 2495184,
+    "total_commit_kib": 39335328
+  }
+]

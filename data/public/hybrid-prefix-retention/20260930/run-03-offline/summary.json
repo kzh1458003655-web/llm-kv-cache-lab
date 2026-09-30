@@ -1,0 +1,8 @@
+{
+  "mode": "offline single process; diagnostic hooks enabled",
+  "status": "failed",
+  "success_count": 0,
+  "interpretation": "Synthetic availability smoke only; durations are not TTFT or stable performance measurements.",
+  "error_type": "RuntimeError",
+  "error": "Could not find nvcc and default cuda_home='/usr/local/cuda' doesn't exist"
+}

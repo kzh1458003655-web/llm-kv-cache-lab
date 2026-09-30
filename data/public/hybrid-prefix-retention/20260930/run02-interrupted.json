@@ -1,0 +1,12 @@
+{
+  "run": "run02-http",
+  "status": "operator_interrupted",
+  "request_count": 0,
+  "runner": "V1",
+  "observer_enabled": false,
+  "stage": "loading safetensors",
+  "observed_windows_free_physical_kib": 544964,
+  "observed_windows_free_commit_kib": 225972,
+  "reason": "Stopped after observing near-exhausted host commit headroom",
+  "conclusion": "No serving or prefix-cache result; runner and instrumentation both changed so this is not a controlled runner comparison"
+}
