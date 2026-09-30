@@ -1,66 +1,76 @@
-# 面向大语言模型推理的 KV Cache 管理策略优化与可视化系统
+# 面向混合注意力模型的前缀缓存管理模块设计与实现
 
-毕业设计项目：在成熟推理引擎上观察 KV Cache 的生命周期，修改一种可复用缓存的管理策略，并用真实模型、可重复的工作负载和可视化系统评估其影响。
+本科毕业设计项目，基于真实 vLLM 开发前缀缓存管理模块。在缓存容量有限时，根据复用价值决定哪些缓存优先保留、哪些优先回收，减少重复计算，并记录策略的开销和适用边界。
 
-> 当前状态：已进行真实 vLLM 模型实验，并实现一个可切换的混合模型缓存保留原型。2026-09-30 的小规模压力对照观察到缓存复用改善，**尚未证明稳定性能收益或生产负载优势；Web 页面尚未实现。**
+> 当前状态：开题前已完成机制原型和初步实验，正式模块待开发。2026-09-30 完成 19 次独立运行、2432 个成功请求；热点场景观察到复用与耗时改善，混合负载收益不一致，并有一次 p95 退化记录。完整结果见[服务器初步实验](data/public/hybrid-prefix-retention/server-20260930/README.md)。
 
-- [混合模型前缀缓存可用性实验与公开数据](data/public/hybrid-prefix-retention/20260930/README.md)
-- [保留原型、公开文档对照与容量边界](data/public/hybrid-prefix-retention/20260930-pressure/README.md)
+## 毕业设计任务书
 
-## 项目目标
+[任务书：课题目标、工作内容、完成标准与进度](docs/毕业设计任务书.md)
 
-真实模型推理 → 缓存事件采集 → 前缀复用与淘汰策略分析 → 一项策略改动 → 同条件 Benchmark → 可视化展示。
+题目使用“设计与实现”，主体为缓存管理模块。具体工作包括策略接口、保留信息生命周期、缓存组关系、原生回收流程接入，以及行为观测与验收评测。
 
-重点是对实际推理系统中的缓存管理行为进行修改和验证，不重新实现完整推理引擎，也不预设改进策略一定在所有工作负载上优于原版。
+## 主体工作
 
-## 毕设主体范围
+1. 梳理混合模型的注意力 KV、状态检查点及 vLLM 缓存组的数据路径。
+2. 将原型整理为可配置、可切换的缓存管理模块，限定候选扫描数量和附加记录开销。
+3. 以基于复用次数的 `reuse2` 为基础，参考 Marconi 的复用可能性、计算收益与内存成本，实现至少一种候选保留策略。
+4. 正确处理缓存淘汰、重置和对象再分配，沿用原生引用计数与匹配规则。
+5. 用固定序列对照原版与候选策略，检查输出、缓存行为、冷请求开销和尾延迟。
+6. 提供源码、配置、测量数据、复现说明及论文材料；时间线或 Web 页面可作为辅助展示。
 
-1. 在 WSL/Linux 上运行 vLLM 和一个可在实验硬件上稳定运行的 Qwen 等开源模型。
-2. 采集请求、KV Block 分配/释放、前缀命中和缓存淘汰事件；区分运行中使用的块与可复用的空闲缓存块。
-3. 以开启 Prefix Cache 的原版 vLLM 为主要 Baseline，实现一种可切换的缓存管理策略。
-4. 用无共享请求、固定共享前缀、多轮对话三类工作负载进行重复实验；长文档问答或 RAG 请求作为扩展。
-5. 测量复用/重新计算的 Token 数、TTFT、吞吐及必要的显存指标，并报告收益和退化场景。
-6. 提供模型交互、缓存事件回放与策略对比的 Web Demo。实时数据和回放数据会明确标注。
+## 已有实验说明
 
-CUDA 算子、多卡、CPU/GPU Offloading 和 Prefill/Decode 分离不属于毕设最低完成范围。
+- 模型：Qwen3.5-0.8B；原型支持锁定版本 vLLM 0.30.0。
+- 服务器实验：19 次完整独立运行，9 组策略对照，2432 个成功请求。
+- 热点加一次性请求、生成 32 token：命中 token 从 52,224 增至 69,632，累计生成调用耗时降低 4.07%。
+- 三组热点短输出耗时均降低；混合文档收益方向不一致；缓存充足时命中量相同。
+- 一组热点短输出 p95 耗时约增加 20.3%，原因待归因。
+- 九组策略对照的输出 token 哈希匹配 1152/1152；完整正确性和稳定性检查属于后续验收。
+
+以上是公开文档配合构造访问顺序、串行离线生成的结果。当前测量采用固定配置与 eager 模式，计时为同步后的 `generate` 调用耗时；正式服务评测需要独立记录 TTFT、吞吐及基线调参情况。
 
 ## 仓库结构
 
 ```text
-kv_cache_lab/          缓存事件格式与后续分析模块
-tests/                 无 GPU 单元测试
-docs/设计概览.md         系统模块及边界
-docs/实验方案.md         Baseline、工作负载与测量约定
-docs/开发路线.md         分阶段交付与完成标准
-.github/workflows/     CPU 单元测试 CI
+kv_cache_lab/          缓存事件、诊断观察器与保留策略原型
+scripts/               负载准备、真实引擎实验与结果分析
+server-kit/            单卡实验的环境准备和运行说明
+data/public/           可公开的配置、测量记录与结果
+tests/                 CPU 单元测试
+docs/毕业设计任务书.md    当前题目、主体范围与完成标准
+docs/设计概览.md         模块设计与已有实现状态
+docs/实验方案.md         验收场景、指标口径与对照约定
+docs/开发路线.md         后续工程阶段及交付物
 ```
 
-## 当前可运行内容
+## 使用说明
 
-需要 Python 3.10+。在仓库根目录执行：
+CPU 工具需要 Python 3.10+。已有单元测试的运行命令：
 
 ```bash
 python -m unittest discover -s tests -v
 ```
 
-需要检查覆盖率时，先安装开发依赖，再运行 `python -m coverage run -m unittest discover -s tests` 和 `python -m coverage report -m`。
+真实推理需要单独配置 Linux/WSL、GPU 和固定依赖；参见[单卡实验准备](server-kit/README.md)。正式计时与诊断事件采集应分开运行，逐事件日志写入会影响耗时。
 
-`kv_cache_lab.events` 提供标准化的缓存事件和 JSONL 读写，供后续引擎埋点、Benchmark 和页面回放共用。它**不是**已完成的 vLLM 集成。
+`kv_cache_lab.events` 提供标准化事件格式；`hybrid_observer` 提供真实缓存诊断；`hybrid_retention_prototype` 提供基于复用次数的原型。原型尚待整理为正式模块，具体状态见[设计概览](docs/设计概览.md)。
 
-## 文档
+## 文档与数据
 
-- [服务器初步实验与定题结论（2026-09-30）](data/public/hybrid-prefix-retention/server-20260930)：19 次完整运行、2432 请求；热点收益、混合负载边界及尾延迟退化均保留。服务器已执行关机。
-
-- [单卡服务器实验准备](server-kit/README.md)：固定 0.8B 模型、三场景、最多五轮成对对照；上传包在本机制作，服务器未租用时只做本地预检。
-- [固定负载审核信息](data/public/hybrid-prefix-retention/server-prepared-20260930)：完整来源哈希、种子及请求哈希，不含原始文档和完整提示。
-
+- [毕业设计任务书](docs/毕业设计任务书.md)
 - [设计概览](docs/设计概览.md)
 - [实验方案](docs/实验方案.md)
 - [开发路线](docs/开发路线.md)
-- [本地可行性实验（2026-09-27）](docs/feasibility-results-2026-09-27.md)：原版 vLLM 上的缓存压力验证；尚未实现改进策略。
+- [服务器初步实验及公开数据（2026-09-30）](data/public/hybrid-prefix-retention/server-20260930/README.md)
+- [本地混合模型前缀缓存可用性实验](data/public/hybrid-prefix-retention/20260930/README.md)
+- [本地保留原型与容量边界实验](data/public/hybrid-prefix-retention/20260930-pressure/README.md)
+- [服务器负载准备审核](data/public/hybrid-prefix-retention/server-prepared-20260930)
+- [租卡前本地预检](data/public/hybrid-prefix-retention/server-preflight-20260930/README.md)
+- [较早的全注意力模型可行性实验（历史记录）](docs/feasibility-results-2026-09-27.md)
 
-## 参考背景
+## 参考资料
 
-- [vLLM / PagedAttention](https://arxiv.org/abs/2309.06180)：分页式 KV Cache 和推理服务。
-- [SGLang / RadixAttention](https://arxiv.org/abs/2312.07104)：前缀复用与结构化推理程序。
-- MemServe、ShuffleInfer：后续跨设备缓存、调度与分离式推理扩展背景，不作为本阶段实现承诺。
+- [Marconi](https://arxiv.org/abs/2411.19379)：混合模型缓存的准入与淘汰思路；当前 `reuse2` 是轻量原型，完整论文复现待单独实现与验证。
+- [vLLM / PagedAttention](https://arxiv.org/abs/2309.06180)：分页式 KV Cache 和推理服务背景。
+- [SGLang / RadixAttention](https://arxiv.org/abs/2312.07104)：前缀复用与结构化推理程序背景。
