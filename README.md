@@ -49,6 +49,8 @@ python -m unittest discover -s tests -v
 
 ## 文档
 
+- [服务器初步实验与定题结论（2026-09-30）](data/public/hybrid-prefix-retention/server-20260930)：19 次完整运行、2432 请求；热点收益、混合负载边界及尾延迟退化均保留。服务器已执行关机。
+
 - [单卡服务器实验准备](server-kit/README.md)：固定 0.8B 模型、三场景、最多五轮成对对照；上传包在本机制作，服务器未租用时只做本地预检。
 - [固定负载审核信息](data/public/hybrid-prefix-retention/server-prepared-20260930)：完整来源哈希、种子及请求哈希，不含原始文档和完整提示。
 

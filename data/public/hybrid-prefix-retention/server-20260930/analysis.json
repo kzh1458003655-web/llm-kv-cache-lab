@@ -1,0 +1,334 @@
+{
+  "runs": {
+    "0-hot_scan-reuse2": {
+      "status": "completed",
+      "n": 128,
+      "cached_tokens": 69632,
+      "input_tokens": 186251,
+      "p50_generate_ms": 806.195289,
+      "p95_generate_ms": 857.271728,
+      "sum_generate_ms": 103678.716818
+    },
+    "0-hot_scan-short-reuse2": {
+      "status": "completed",
+      "n": 128,
+      "cached_tokens": 69632,
+      "input_tokens": 186251,
+      "p50_generate_ms": 82.776659,
+      "p95_generate_ms": 125.646475,
+      "sum_generate_ms": 10740.328388
+    },
+    "0-hot_scan-short-stock": {
+      "status": "completed",
+      "n": 128,
+      "cached_tokens": 52224,
+      "input_tokens": 186251,
+      "p50_generate_ms": 118.771901,
+      "p95_generate_ms": 124.105107,
+      "sum_generate_ms": 11772.373457
+    },
+    "0-hot_scan-stock": {
+      "status": "completed",
+      "n": 128,
+      "cached_tokens": 52224,
+      "input_tokens": 186251,
+      "p50_generate_ms": 868.953254,
+      "p95_generate_ms": 884.073914,
+      "sum_generate_ms": 108077.582325
+    },
+    "0-hot_scan-stock-repeat": {
+      "status": "completed",
+      "n": 128,
+      "cached_tokens": 52224,
+      "input_tokens": 186251,
+      "p50_generate_ms": 873.024441,
+      "p95_generate_ms": 883.84748,
+      "sum_generate_ms": 108409.499451
+    },
+    "0-mixed_zipf-reuse2": {
+      "status": "completed",
+      "n": 128,
+      "cached_tokens": 36992,
+      "input_tokens": 186304,
+      "p50_generate_ms": 844.140881,
+      "p95_generate_ms": 856.416839,
+      "sum_generate_ms": 105764.688524
+    },
+    "0-mixed_zipf-short-reuse2": {
+      "status": "completed",
+      "n": 128,
+      "cached_tokens": 36992,
+      "input_tokens": 186304,
+      "p50_generate_ms": 118.0396695,
+      "p95_generate_ms": 121.796145,
+      "sum_generate_ms": 12657.194535999999
+    },
+    "0-mixed_zipf-short-stock": {
+      "status": "completed",
+      "n": 128,
+      "cached_tokens": 30464,
+      "input_tokens": 186304,
+      "p50_generate_ms": 119.9471375,
+      "p95_generate_ms": 125.013099,
+      "sum_generate_ms": 13356.999114
+    },
+    "0-mixed_zipf-stock": {
+      "status": "completed",
+      "n": 128,
+      "cached_tokens": 30464,
+      "input_tokens": 186304,
+      "p50_generate_ms": 829.13462,
+      "p95_generate_ms": 843.068997,
+      "sum_generate_ms": 104458.84581
+    },
+    "0-roomy_control-reuse2": {
+      "status": "completed",
+      "n": 128,
+      "cached_tokens": 82688,
+      "input_tokens": 186304,
+      "p50_generate_ms": 781.687838,
+      "p95_generate_ms": 865.749431,
+      "sum_generate_ms": 103957.292983
+    },
+    "0-roomy_control-stock": {
+      "status": "completed",
+      "n": 128,
+      "cached_tokens": 82688,
+      "input_tokens": 186304,
+      "p50_generate_ms": 777.7960495,
+      "p95_generate_ms": 860.951228,
+      "sum_generate_ms": 103179.629537
+    },
+    "1-hot_scan-short-reuse2": {
+      "status": "completed",
+      "n": 128,
+      "cached_tokens": 70720,
+      "input_tokens": 186368,
+      "p50_generate_ms": 46.654642499999994,
+      "p95_generate_ms": 125.350978,
+      "sum_generate_ms": 10588.426904
+    },
+    "1-hot_scan-short-stock": {
+      "status": "completed",
+      "n": 128,
+      "cached_tokens": 53312,
+      "input_tokens": 186368,
+      "p50_generate_ms": 120.45738750000001,
+      "p95_generate_ms": 124.362956,
+      "sum_generate_ms": 11800.862975
+    },
+    "1-mixed_zipf-short-reuse2": {
+      "status": "completed",
+      "n": 128,
+      "cached_tokens": 44608,
+      "input_tokens": 186324,
+      "p50_generate_ms": 121.7932515,
+      "p95_generate_ms": 125.885017,
+      "sum_generate_ms": 12557.411298
+    },
+    "1-mixed_zipf-short-stock": {
+      "status": "completed",
+      "n": 128,
+      "cached_tokens": 43520,
+      "input_tokens": 186324,
+      "p50_generate_ms": 119.2234575,
+      "p95_generate_ms": 123.982423,
+      "sum_generate_ms": 12402.659157
+    },
+    "2-hot_scan-short-reuse2": {
+      "status": "completed",
+      "n": 128,
+      "cached_tokens": 69632,
+      "input_tokens": 186258,
+      "p50_generate_ms": 91.520081,
+      "p95_generate_ms": 151.630528,
+      "sum_generate_ms": 11430.777623
+    },
+    "2-hot_scan-short-stock": {
+      "status": "completed",
+      "n": 128,
+      "cached_tokens": 53312,
+      "input_tokens": 186258,
+      "p50_generate_ms": 120.90006149999999,
+      "p95_generate_ms": 126.036547,
+      "sum_generate_ms": 11869.724277
+    },
+    "2-mixed_zipf-short-reuse2": {
+      "status": "completed",
+      "n": 128,
+      "cached_tokens": 44608,
+      "input_tokens": 186328,
+      "p50_generate_ms": 121.82417050000001,
+      "p95_generate_ms": 125.195861,
+      "sum_generate_ms": 12522.537176
+    },
+    "2-mixed_zipf-short-stock": {
+      "status": "completed",
+      "n": 128,
+      "cached_tokens": 42432,
+      "input_tokens": 186328,
+      "p50_generate_ms": 122.108045,
+      "p95_generate_ms": 126.50067,
+      "sum_generate_ms": 12719.660641
+    },
+    "initial-timeout": {
+      "status": "infrastructure_timeout",
+      "n": 71,
+      "cached_tokens": 28288,
+      "input_tokens": 103309,
+      "p50_generate_ms": 839.37248,
+      "p95_generate_ms": 849.937477,
+      "sum_generate_ms": 57887.379351
+    }
+  },
+  "pairs": [
+    {
+      "stock": "0-hot_scan-short-stock",
+      "reuse2": "0-hot_scan-short-reuse2",
+      "cached_token_gain": 17408,
+      "elapsed_change_percent": -8.766669463635923,
+      "output_token_hash_matches": 128,
+      "n": 128
+    },
+    {
+      "stock": "0-hot_scan-stock",
+      "reuse2": "0-hot_scan-reuse2",
+      "cached_token_gain": 17408,
+      "elapsed_change_percent": -4.070099841586172,
+      "output_token_hash_matches": 128,
+      "n": 128
+    },
+    {
+      "stock": "0-mixed_zipf-short-stock",
+      "reuse2": "0-mixed_zipf-short-reuse2",
+      "cached_token_gain": 6528,
+      "elapsed_change_percent": -5.239235040949497,
+      "output_token_hash_matches": 128,
+      "n": 128
+    },
+    {
+      "stock": "0-mixed_zipf-stock",
+      "reuse2": "0-mixed_zipf-reuse2",
+      "cached_token_gain": 6528,
+      "elapsed_change_percent": 1.2501025680249134,
+      "output_token_hash_matches": 128,
+      "n": 128
+    },
+    {
+      "stock": "0-roomy_control-stock",
+      "reuse2": "0-roomy_control-reuse2",
+      "cached_token_gain": 0,
+      "elapsed_change_percent": 0.7536986219950803,
+      "output_token_hash_matches": 128,
+      "n": 128
+    },
+    {
+      "stock": "1-hot_scan-short-stock",
+      "reuse2": "1-hot_scan-short-reuse2",
+      "cached_token_gain": 17408,
+      "elapsed_change_percent": -10.274130574759932,
+      "output_token_hash_matches": 128,
+      "n": 128
+    },
+    {
+      "stock": "1-mixed_zipf-short-stock",
+      "reuse2": "1-mixed_zipf-short-reuse2",
+      "cached_token_gain": 1088,
+      "elapsed_change_percent": 1.2477335629485609,
+      "output_token_hash_matches": 128,
+      "n": 128
+    },
+    {
+      "stock": "2-hot_scan-short-stock",
+      "reuse2": "2-hot_scan-short-reuse2",
+      "cached_token_gain": 16320,
+      "elapsed_change_percent": -3.6980358073737896,
+      "output_token_hash_matches": 128,
+      "n": 128
+    },
+    {
+      "stock": "2-mixed_zipf-short-stock",
+      "reuse2": "2-mixed_zipf-short-reuse2",
+      "cached_token_gain": 2176,
+      "elapsed_change_percent": -1.5497541213057353,
+      "output_token_hash_matches": 128,
+      "n": 128
+    }
+  ],
+  "original_repeats": [
+    {
+      "original": "0-hot_scan-stock",
+      "repeat": "0-hot_scan-stock-repeat",
+      "elapsed_change_percent": 0.3071100582189956,
+      "cached_tokens_identical": true
+    }
+  ],
+  "repeat_summary": {
+    "hot_scan-short": {
+      "completed_pairs": 3,
+      "median_elapsed_change_percent": -8.766669463635923,
+      "elapsed_change_percent_range": [
+        -10.274130574759932,
+        -3.6980358073737896
+      ],
+      "cached_token_gains": [
+        17408,
+        17408,
+        16320
+      ]
+    },
+    "hot_scan": {
+      "completed_pairs": 1,
+      "median_elapsed_change_percent": -4.070099841586172,
+      "elapsed_change_percent_range": [
+        -4.070099841586172,
+        -4.070099841586172
+      ],
+      "cached_token_gains": [
+        17408
+      ]
+    },
+    "mixed_zipf-short": {
+      "completed_pairs": 3,
+      "median_elapsed_change_percent": -1.5497541213057353,
+      "elapsed_change_percent_range": [
+        -5.239235040949497,
+        1.2477335629485609
+      ],
+      "cached_token_gains": [
+        6528,
+        1088,
+        2176
+      ]
+    },
+    "mixed_zipf": {
+      "completed_pairs": 1,
+      "median_elapsed_change_percent": 1.2501025680249134,
+      "elapsed_change_percent_range": [
+        1.2501025680249134,
+        1.2501025680249134
+      ],
+      "cached_token_gains": [
+        6528
+      ]
+    },
+    "roomy_control": {
+      "completed_pairs": 1,
+      "median_elapsed_change_percent": 0.7536986219950803,
+      "elapsed_change_percent_range": [
+        0.7536986219950803,
+        0.7536986219950803
+      ],
+      "cached_token_gains": [
+        0
+      ]
+    }
+  },
+  "limitations": [
+    "Serial offline measurements are not TTFT or online throughput.",
+    "Explicit small KV budgets study pressure; do not represent the GPU default cache.",
+    "Report variation between independent repeats; individual requests are correlated.",
+    "Curated LooGLE excerpts are not production traces or QA accuracy evaluations.",
+    "Output hashes are a smoke check; cache reuse can cause numerical differences."
+  ]
+}

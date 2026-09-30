@@ -1,0 +1,23 @@
+{
+  "status": "completed",
+  "policy": "reuse2",
+  "kv_mib": 256,
+  "mode": "serial offline, diagnostic event hooks disabled",
+  "timing_definition": "synchronized generate call duration; NOT streaming TTFT",
+  "success_count": 128,
+  "request_count": 128,
+  "output_tokens_per_request": 1,
+  "manifest_sha256": "8d3bd14df73d3eab2d7d0eda4d541c3302b180fa356a4d3d4df59d44120cb876",
+  "versions": {
+    "vllm": "0.30.0",
+    "torch": "2.13.0+cu130"
+  },
+  "gpu": "NVIDIA GeForce RTX 4080 SUPER",
+  "wall_ms": 12570.601287,
+  "policy_diagnostics": {
+    "selection_calls": 1208,
+    "selection_cpu_ns": 17790103,
+    "reordered_calls": 331,
+    "max_scanned_blocks": 32
+  }
+}

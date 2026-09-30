@@ -1,0 +1,121 @@
+{
+  "completed_runs": 19,
+  "completed_requests": 2432,
+  "partial_requests": 71,
+  "trials": [
+    {
+      "name": "0-hot_scan-reuse2",
+      "status": "completed",
+      "requests": 128,
+      "manifest_sha256": "7551664762f6433e3887bba334ddc4b2f7b3ea5c314a668bb664cd1d666a356a"
+    },
+    {
+      "name": "0-hot_scan-short-reuse2",
+      "status": "completed",
+      "requests": 128,
+      "manifest_sha256": "7551664762f6433e3887bba334ddc4b2f7b3ea5c314a668bb664cd1d666a356a"
+    },
+    {
+      "name": "0-hot_scan-short-stock",
+      "status": "completed",
+      "requests": 128,
+      "manifest_sha256": "7551664762f6433e3887bba334ddc4b2f7b3ea5c314a668bb664cd1d666a356a"
+    },
+    {
+      "name": "0-hot_scan-stock",
+      "status": "completed",
+      "requests": 128,
+      "manifest_sha256": "7551664762f6433e3887bba334ddc4b2f7b3ea5c314a668bb664cd1d666a356a"
+    },
+    {
+      "name": "0-hot_scan-stock-repeat",
+      "status": "completed",
+      "requests": 128,
+      "manifest_sha256": "7551664762f6433e3887bba334ddc4b2f7b3ea5c314a668bb664cd1d666a356a"
+    },
+    {
+      "name": "0-mixed_zipf-reuse2",
+      "status": "completed",
+      "requests": 128,
+      "manifest_sha256": "73b4fa5642fdf1ef3cda1fb341f83fccab11b98e1941f3a1a4ee986f63e7431f"
+    },
+    {
+      "name": "0-mixed_zipf-short-reuse2",
+      "status": "completed",
+      "requests": 128,
+      "manifest_sha256": "73b4fa5642fdf1ef3cda1fb341f83fccab11b98e1941f3a1a4ee986f63e7431f"
+    },
+    {
+      "name": "0-mixed_zipf-short-stock",
+      "status": "completed",
+      "requests": 128,
+      "manifest_sha256": "73b4fa5642fdf1ef3cda1fb341f83fccab11b98e1941f3a1a4ee986f63e7431f"
+    },
+    {
+      "name": "0-mixed_zipf-stock",
+      "status": "completed",
+      "requests": 128,
+      "manifest_sha256": "73b4fa5642fdf1ef3cda1fb341f83fccab11b98e1941f3a1a4ee986f63e7431f"
+    },
+    {
+      "name": "0-roomy_control-reuse2",
+      "status": "completed",
+      "requests": 128,
+      "manifest_sha256": "73b4fa5642fdf1ef3cda1fb341f83fccab11b98e1941f3a1a4ee986f63e7431f"
+    },
+    {
+      "name": "0-roomy_control-stock",
+      "status": "completed",
+      "requests": 128,
+      "manifest_sha256": "73b4fa5642fdf1ef3cda1fb341f83fccab11b98e1941f3a1a4ee986f63e7431f"
+    },
+    {
+      "name": "1-hot_scan-short-reuse2",
+      "status": "completed",
+      "requests": 128,
+      "manifest_sha256": "7223933c034903b7594061766931c5775951c9d60d33f28e0b7775b7916cf0de"
+    },
+    {
+      "name": "1-hot_scan-short-stock",
+      "status": "completed",
+      "requests": 128,
+      "manifest_sha256": "7223933c034903b7594061766931c5775951c9d60d33f28e0b7775b7916cf0de"
+    },
+    {
+      "name": "1-mixed_zipf-short-reuse2",
+      "status": "completed",
+      "requests": 128,
+      "manifest_sha256": "8d3bd14df73d3eab2d7d0eda4d541c3302b180fa356a4d3d4df59d44120cb876"
+    },
+    {
+      "name": "1-mixed_zipf-short-stock",
+      "status": "completed",
+      "requests": 128,
+      "manifest_sha256": "8d3bd14df73d3eab2d7d0eda4d541c3302b180fa356a4d3d4df59d44120cb876"
+    },
+    {
+      "name": "2-hot_scan-short-reuse2",
+      "status": "completed",
+      "requests": 128,
+      "manifest_sha256": "0460fc1cf327d5c4524e10dba2b2f279f96248156f34793d0eac16088b8d379e"
+    },
+    {
+      "name": "2-hot_scan-short-stock",
+      "status": "completed",
+      "requests": 128,
+      "manifest_sha256": "0460fc1cf327d5c4524e10dba2b2f279f96248156f34793d0eac16088b8d379e"
+    },
+    {
+      "name": "2-mixed_zipf-short-reuse2",
+      "status": "completed",
+      "requests": 128,
+      "manifest_sha256": "186f54edbb8fd0883b3757b909b8cd9851d318f05e3a38a12d57379c6d745c69"
+    },
+    {
+      "name": "2-mixed_zipf-short-stock",
+      "status": "completed",
+      "requests": 128,
+      "manifest_sha256": "186f54edbb8fd0883b3757b909b8cd9851d318f05e3a38a12d57379c6d745c69"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "recorded_at_utc": "2026-09-30T14:15:22Z",
+  "user_authorized_shutdown": true,
+  "results_downloaded_and_validated_first": true,
+  "platform_shutdown_command": "/usr/bin/shutdown",
+  "command_exit_code": 0,
+  "post_shutdown_ssh_handshake": "failed: protocol banner unavailable",
+  "temporary_remote_public_key_removed": true,
+  "temporary_local_private_key_removed": true,
+  "platform_billing_ui_read": false,
+  "documentation": "https://api.autodl.com/docs/save_money/"
+}

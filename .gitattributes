@@ -1,0 +1,3 @@
+# Public measurement hashes must be identical across operating systems.
+data/public/** text eol=lf
+server-kit/*.sh text eol=lf

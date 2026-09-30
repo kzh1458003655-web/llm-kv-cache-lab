@@ -1,0 +1,7 @@
+{
+  "status": "infrastructure_timeout",
+  "success_count": 71,
+  "request_count": 128,
+  "policy": "stock",
+  "reason": "180-second process cap included first-time CUDA compilation; partial run not used in comparisons"
+}

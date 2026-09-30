@@ -1,0 +1,18 @@
+{
+  "status": "completed",
+  "policy": "stock",
+  "kv_mib": 128,
+  "mode": "serial offline, diagnostic event hooks disabled",
+  "timing_definition": "synchronized generate call duration; NOT streaming TTFT",
+  "success_count": 128,
+  "request_count": 128,
+  "output_tokens_per_request": 1,
+  "manifest_sha256": "0460fc1cf327d5c4524e10dba2b2f279f96248156f34793d0eac16088b8d379e",
+  "versions": {
+    "vllm": "0.30.0",
+    "torch": "2.13.0+cu130"
+  },
+  "gpu": "NVIDIA GeForce RTX 4080 SUPER",
+  "wall_ms": 11883.333764,
+  "policy_diagnostics": null
+}
