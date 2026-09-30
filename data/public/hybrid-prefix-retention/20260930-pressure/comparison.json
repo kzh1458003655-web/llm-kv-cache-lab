@@ -1,0 +1,83 @@
+{
+  "synthetic": {
+    "runs": [
+      {
+        "run": "baseline",
+        "request_count": 8,
+        "input_tokens": 11936,
+        "cached_tokens": 3264,
+        "cached_token_fraction": 0.2734584450402145,
+        "sum_elapsed_ms": 3958.846778
+      },
+      {
+        "run": "reuse2",
+        "request_count": 8,
+        "input_tokens": 11936,
+        "cached_tokens": 4352,
+        "cached_token_fraction": 0.3646112600536193,
+        "sum_elapsed_ms": 4632.127979
+      }
+    ],
+    "outputs_equal_in_this_trace": true,
+    "hot_return_cached_tokens": [
+      0,
+      1088
+    ],
+    "sum_elapsed_change_percent": 17.007003270284173,
+    "limitations": "One short pair per scene; diagnostic hooks and first-use JIT included. Not TTFT, throughput, E/P or statistically reliable performance evidence. Matching 16-token outputs is only a smoke check."
+  },
+  "loogle": {
+    "runs": [
+      {
+        "run": "loogle-stock-v2",
+        "request_count": 8,
+        "input_tokens": 11727,
+        "cached_tokens": 3264,
+        "cached_token_fraction": 0.2783320542338194,
+        "sum_elapsed_ms": 5070.44867
+      },
+      {
+        "run": "loogle-reuse2",
+        "request_count": 8,
+        "input_tokens": 11727,
+        "cached_tokens": 4352,
+        "cached_token_fraction": 0.37110940564509254,
+        "sum_elapsed_ms": 4889.559136
+      }
+    ],
+    "outputs_equal_in_this_trace": true,
+    "hot_return_cached_tokens": [
+      0,
+      1088
+    ],
+    "sum_elapsed_change_percent": -3.5675251989090717,
+    "limitations": "One short pair per scene; diagnostic hooks and first-use JIT included. Not TTFT, throughput, E/P or statistically reliable performance evidence. Matching 16-token outputs is only a smoke check."
+  },
+  "capacity_control": {
+    "runs": [
+      {
+        "run": "loogle-stock-v2",
+        "request_count": 8,
+        "input_tokens": 11727,
+        "cached_tokens": 3264,
+        "cached_token_fraction": 0.2783320542338194,
+        "sum_elapsed_ms": 5070.44867
+      },
+      {
+        "run": "loogle-stock-256mib",
+        "request_count": 8,
+        "input_tokens": 11727,
+        "cached_tokens": 4352,
+        "cached_token_fraction": 0.37110940564509254,
+        "sum_elapsed_ms": 5016.1062680000005
+      }
+    ],
+    "outputs_equal_in_this_trace": true,
+    "hot_return_cached_tokens": [
+      0,
+      1088
+    ],
+    "sum_elapsed_change_percent": -1.0717474041601838,
+    "limitations": "One short pair per scene; diagnostic hooks and first-use JIT included. Not TTFT, throughput, E/P or statistically reliable performance evidence. Matching 16-token outputs is only a smoke check."
+  }
+}

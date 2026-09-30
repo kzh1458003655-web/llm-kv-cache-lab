@@ -1,0 +1,15 @@
+{
+  "request_id": "hot_verify",
+  "doc_id": "03c1b3e8-8aba-4a59-8a56-e24c4a2b88ec",
+  "dataset_record_id": "49f85cb6-2714-48b2-80ab-3c602577f876",
+  "prompt_sha256": "19c6398828c5709db75e5d7db16c27bad110210371bc9fc98a11eae2b29d33bf",
+  "context_prefix_sha256": "bee8f78d13ea2504d96b65592f7fe3b383108274baf784e2f01c5fc97c1dbcec",
+  "question_sha256": "9794a2247ab24389ebac8ac72d80ca4b2238934b91d4a9b2040f71ad4595a6ee",
+  "engine_request_id": "7",
+  "prompt_tokens": 1474,
+  "num_cached_tokens": 1088,
+  "output_text": "\n\n<think>\nThinking Process:\n\n1.  **Analyze the Request:**",
+  "output_tokens": 16,
+  "elapsed_ms": 447.654489,
+  "status": "ok"
+}

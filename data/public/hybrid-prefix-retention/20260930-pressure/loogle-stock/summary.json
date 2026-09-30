@@ -1,0 +1,9 @@
+{
+  "mode": "offline single process; diagnostic hooks enabled",
+  "policy": "stock",
+  "status": "failed",
+  "success_count": 0,
+  "interpretation": "Synthetic availability smoke only; durations are not TTFT or stable performance measurements.",
+  "error_type": "AttributeError",
+  "error": "'tuple' object has no attribute 'pop'"
+}

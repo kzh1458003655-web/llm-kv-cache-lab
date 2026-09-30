@@ -1,0 +1,27 @@
+{
+  "mode": "offline single process; diagnostic hooks enabled",
+  "policy": "stock",
+  "status": "completed",
+  "success_count": 8,
+  "interpretation": "LooGLE document excerpts with curated hot/scan arrivals; not production traffic or original QA evaluation. Durations are not TTFT or stable performance measurements.",
+  "source_metadata": {
+    "source_sha256": "cf4e902b57b8fd1ff1fbb446330d537d8ecc988160b0ade1fcb2bf0219c6b149",
+    "complete_row_count": 595,
+    "partial_line_count": 1,
+    "doc_count": 29,
+    "source_dataset_url": "https://huggingface.co/datasets/bigainlco/LooGLE",
+    "source_revision": "4b50b4cb9333b48b3f7ddfd307c1d13369be5d1e",
+    "context_tokens": 1400
+  },
+  "workload": "loogle",
+  "request_order": [
+    "warm1",
+    "warm2",
+    "warm3",
+    "scan0",
+    "scan1",
+    "scan2",
+    "hot_return",
+    "hot_verify"
+  ]
+}

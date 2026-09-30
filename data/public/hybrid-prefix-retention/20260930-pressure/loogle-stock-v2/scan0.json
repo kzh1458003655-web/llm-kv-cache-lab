@@ -1,0 +1,15 @@
+{
+  "request_id": "scan0",
+  "doc_id": "5984f759-6d02-4c94-858c-b4ca561ca5e5",
+  "dataset_record_id": "c5b6dfcd-fcb1-4331-b7ba-fda380b71f81",
+  "prompt_sha256": "08d84750dd008a9260fc561cbf13872f48b555f7cf1d044eca46600d0b0c91d2",
+  "context_prefix_sha256": "302c3d0c03c4b4789ffee07ccb9727d2ea021cb03024d33446a3ee07c0aebffe",
+  "question_sha256": "ff4b049d2f2f3bf1ba9ae487ceaf0bc1ba39f1670ae1e2385f0d12619f6bdc4d",
+  "engine_request_id": "3",
+  "prompt_tokens": 1465,
+  "num_cached_tokens": 0,
+  "output_text": "\n\n<think>\n\n</think>\n\nAnswer: Iqbal adopted the cult of **Pan",
+  "output_tokens": 16,
+  "elapsed_ms": 629.588035,
+  "status": "ok"
+}

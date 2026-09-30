@@ -1,0 +1,32 @@
+{
+  "date": "2026-09-30",
+  "model": "Qwen/Qwen3.5-0.8B",
+  "model_revision": "2fc06364715b967f1860aea9cf38778875588b17",
+  "vllm": "0.30.0",
+  "torch": "2.13.0+cu130",
+  "transformers": "5.17.0",
+  "valid_runs": [
+    "baseline",
+    "reuse2",
+    "loogle-stock-v2",
+    "loogle-reuse2",
+    "loogle-stock-256mib"
+  ],
+  "failed_runs": [
+    "loogle-stock"
+  ],
+  "successful_requests": 40,
+  "policy": "reuse >= 2; bounded 32 free-block scan; existing cache only",
+  "scope": "Mechanism validation under a deliberately small cache budget; not production performance",
+  "end_of_session_code_sha256": {
+    "kv_cache_lab/hybrid_observer.py": "5337ddb39d9e376ae07ed173767a7aeac84fb9a9bfb6ff915f2252048a6f3212",
+    "kv_cache_lab/hybrid_retention_prototype.py": "40f34334b1d6b54e1aaee05061fe2cf95e3c319fa52a28c117a67e65ef097614",
+    "scripts/hybrid_offline_smoke.py": "aae7821af7dd842c3f361cde19f38e2139ee7bed0cb4905f24b58d5358b2d61b",
+    "scripts/hybrid_pressure_workload.py": "2887729c5d1316ecdc9555d9ff2239d0e858bf304e8019dacf8095f787135b77",
+    "scripts/hybrid_loogle_workload.py": "f9f63042cdd3e4ced9d6698299fbfda2042b27ba7c423eb37df2b17ec0458442",
+    "scripts/analyze_hybrid_pressure.py": "0fbf2a72b2a5207a63d317e6bbe90e5ba170932d98d97cb8236a5b85e988e297",
+    "scripts/compare_hybrid_pressure.py": "a53c37d31e9ce26f14ce81920383330b27e2f45e88d12badd890d15d8fb8d15a"
+  },
+  "source_evolution_note": "Synthetic pair predates CPU selection diagnostics and block-ID set filtering. Current hashes describe the final source, not a frozen source for every earlier run.",
+  "code_hash_normalization": "UTF-8 text with LF line endings, without BOM"
+}

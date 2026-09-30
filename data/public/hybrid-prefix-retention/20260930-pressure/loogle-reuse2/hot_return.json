@@ -1,0 +1,15 @@
+{
+  "request_id": "hot_return",
+  "doc_id": "03c1b3e8-8aba-4a59-8a56-e24c4a2b88ec",
+  "dataset_record_id": "7edd8db0-e420-45ea-97c5-487f401731b7",
+  "prompt_sha256": "b2b4f2829bd6235f2cbdb0a90d9165939dc410d0dbabddc4274a5a9379d6fd6e",
+  "context_prefix_sha256": "bee8f78d13ea2504d96b65592f7fe3b383108274baf784e2f01c5fc97c1dbcec",
+  "question_sha256": "0167a4eef98eb3b040a4c2cd539ca2d02ebca041a2cd6c3fa0379e0297176cfe",
+  "engine_request_id": "6",
+  "prompt_tokens": 1465,
+  "num_cached_tokens": 1088,
+  "output_text": "\n\n<think>\nThinking Process:\n\n1.  **Analyze the Request:**",
+  "output_tokens": 16,
+  "elapsed_ms": 448.497898,
+  "status": "ok"
+}

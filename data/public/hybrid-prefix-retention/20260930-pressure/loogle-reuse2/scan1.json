@@ -1,0 +1,15 @@
+{
+  "request_id": "scan1",
+  "doc_id": "96e6d71f-b8ee-4414-b62b-b83d5594ffca",
+  "dataset_record_id": "534ac08b-276d-4fba-b49e-2257dfbe2928",
+  "prompt_sha256": "ed7dbf06b049e28848547c202b982bf98870301104324d4f152fa8d435beccec",
+  "context_prefix_sha256": "4dee004c18541a3adfe29b2ec92a3f1cb87a578e2ea03c4f4356a49589127818",
+  "question_sha256": "c696146ec459140b9ab476d44804cfe170243cca571f7f41b896214646420694",
+  "engine_request_id": "4",
+  "prompt_tokens": 1461,
+  "num_cached_tokens": 0,
+  "output_text": "\n\n<think>\n\n</think>\n\nBased on the document provided, the situation of police brutality",
+  "output_tokens": 16,
+  "elapsed_ms": 622.022429,
+  "status": "ok"
+}

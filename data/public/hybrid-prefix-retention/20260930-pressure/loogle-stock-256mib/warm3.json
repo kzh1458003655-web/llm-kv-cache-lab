@@ -1,0 +1,15 @@
+{
+  "request_id": "warm3",
+  "doc_id": "03c1b3e8-8aba-4a59-8a56-e24c4a2b88ec",
+  "dataset_record_id": "8718fa97-8be3-4b4a-b1d9-15d17261678f",
+  "prompt_sha256": "6d58365b0135e5b654ba6f1a4ba09564abb5bb7d5d33971c60d7b698e340081a",
+  "context_prefix_sha256": "bee8f78d13ea2504d96b65592f7fe3b383108274baf784e2f01c5fc97c1dbcec",
+  "question_sha256": "36f2f1b4195efaf5e36040f3cf6ecdf6a2eb78eb838a3feab76a1df3d8f2cc44",
+  "engine_request_id": "2",
+  "prompt_tokens": 1469,
+  "num_cached_tokens": 1088,
+  "output_text": "\n\n<think>\n\n</think>\n\nBased on the document provided, Picardo illustrated several subjects",
+  "output_tokens": 16,
+  "elapsed_ms": 551.306058,
+  "status": "ok"
+}

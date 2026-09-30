@@ -1,0 +1,18 @@
+{
+  "mode": "offline single process; diagnostic hooks enabled",
+  "policy": "reuse2",
+  "status": "completed",
+  "success_count": 8,
+  "interpretation": "Synthetic availability smoke only; durations are not TTFT or stable performance measurements.",
+  "workload": "pressure",
+  "request_order": [
+    "warm1",
+    "warm2",
+    "warm3",
+    "scan0",
+    "scan1",
+    "scan2",
+    "hot_return",
+    "hot_verify"
+  ]
+}

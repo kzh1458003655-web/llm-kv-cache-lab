@@ -1,0 +1,83 @@
+{
+  "status": "analyzed",
+  "workload_note": "Public LooGLE excerpts with curated hot/scan arrivals; not production traffic or original QA evaluation.",
+  "interpretation_note": "The removal list contains only keys observed in warm3.lookup.hit_keys that were removed during allocation between the warm3 and hot_return lookup events. This does not compute E/P; misses alone are not counted as evictions.",
+  "request_order": [
+    "warm1",
+    "warm2",
+    "warm3",
+    "scan0",
+    "scan1",
+    "scan2",
+    "hot_return",
+    "hot_verify"
+  ],
+  "requests": [
+    {
+      "name": "warm1",
+      "engine_request_id": "0",
+      "num_cached_tokens": 0,
+      "prompt_tokens": 1462,
+      "output_text": "\n\n<think>\nThinking Process:\n\n1.  **Analyze the Request:**",
+      "elapsed_ms": 944.452502
+    },
+    {
+      "name": "warm2",
+      "engine_request_id": "1",
+      "num_cached_tokens": 1088,
+      "prompt_tokens": 1466,
+      "output_text": "\n\n<think>\nThinking Process:\n\n1.  **Analyze the Request:**",
+      "elapsed_ms": 515.356132
+    },
+    {
+      "name": "warm3",
+      "engine_request_id": "2",
+      "num_cached_tokens": 1088,
+      "prompt_tokens": 1469,
+      "output_text": "\n\n<think>\n\n</think>\n\nBased on the document provided, Picardo illustrated several subjects",
+      "elapsed_ms": 551.306058
+    },
+    {
+      "name": "scan0",
+      "engine_request_id": "3",
+      "num_cached_tokens": 0,
+      "prompt_tokens": 1465,
+      "output_text": "\n\n<think>\n\n</think>\n\nAnswer: Iqbal adopted the cult of **Pan",
+      "elapsed_ms": 687.159718
+    },
+    {
+      "name": "scan1",
+      "engine_request_id": "4",
+      "num_cached_tokens": 0,
+      "prompt_tokens": 1461,
+      "output_text": "\n\n<think>\n\n</think>\n\nBased on the document provided, the situation of police brutality",
+      "elapsed_ms": 651.484598
+    },
+    {
+      "name": "scan2",
+      "engine_request_id": "5",
+      "num_cached_tokens": 0,
+      "prompt_tokens": 1465,
+      "output_text": "\n\n<think>\n\n</think>\n\nBased on the document provided, Nagaenthran",
+      "elapsed_ms": 720.170369
+    },
+    {
+      "name": "hot_return",
+      "engine_request_id": "6",
+      "num_cached_tokens": 1088,
+      "prompt_tokens": 1465,
+      "output_text": "\n\n<think>\nThinking Process:\n\n1.  **Analyze the Request:**",
+      "elapsed_ms": 500.588564
+    },
+    {
+      "name": "hot_verify",
+      "engine_request_id": "7",
+      "num_cached_tokens": 1088,
+      "prompt_tokens": 1474,
+      "output_text": "\n\n<think>\nThinking Process:\n\n1.  **Analyze the Request:**",
+      "elapsed_ms": 445.588327
+    }
+  ],
+  "hot_return_num_cached_tokens": 1088,
+  "hot_keys_removed_during_allocation_before_hot_return_lookup": []
+}

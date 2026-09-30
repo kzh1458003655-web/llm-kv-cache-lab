@@ -1,0 +1,83 @@
+{
+  "status": "analyzed",
+  "workload_note": "Synthetic mechanism pressure only; this does not prove real-world performance or optimization benefit.",
+  "interpretation_note": "The removal list contains only keys observed in warm3.lookup.hit_keys that were removed during allocation between the warm3 and hot_return lookup events. This does not compute E/P; misses alone are not counted as evictions.",
+  "request_order": [
+    "warm1",
+    "warm2",
+    "warm3",
+    "scan0",
+    "scan1",
+    "scan2",
+    "hot_return",
+    "hot_verify"
+  ],
+  "requests": [
+    {
+      "name": "warm1",
+      "engine_request_id": "0",
+      "num_cached_tokens": 0,
+      "prompt_tokens": 1465,
+      "output_text": "\n\n<think>\nThinking Process:\n\n1.  **Analyze the Request:**",
+      "elapsed_ms": 829.644857
+    },
+    {
+      "name": "warm2",
+      "engine_request_id": "1",
+      "num_cached_tokens": 1088,
+      "prompt_tokens": 1465,
+      "output_text": " The catalog system marks uncertain details for a later human review for field notebooks from the",
+      "elapsed_ms": 484.428075
+    },
+    {
+      "name": "warm3",
+      "engine_request_id": "2",
+      "num_cached_tokens": 1088,
+      "prompt_tokens": 1464,
+      "output_text": "\n\n<think>\n\n</think>\n\nWhen two sources disagree, the catalog should keep both statements",
+      "elapsed_ms": 434.571275
+    },
+    {
+      "name": "scan0",
+      "engine_request_id": "3",
+      "num_cached_tokens": 0,
+      "prompt_tokens": 1537,
+      "output_text": "\n\n<think>\n\n</think>\n\nCold scan document 0 describes a fictional collection assembled for",
+      "elapsed_ms": 529.262175
+    },
+    {
+      "name": "scan1",
+      "engine_request_id": "4",
+      "num_cached_tokens": 0,
+      "prompt_tokens": 1537,
+      "output_text": "\n\n<think>\n\n</think>\n\nCold scan document 1 describes the preservation of dates,",
+      "elapsed_ms": 687.251936
+    },
+    {
+      "name": "scan2",
+      "engine_request_id": "5",
+      "num_cached_tokens": 0,
+      "prompt_tokens": 1537,
+      "output_text": "\n\n<think>\n\n</think>\n\nCold scan document 2 (COLD-00",
+      "elapsed_ms": 701.133703
+    },
+    {
+      "name": "hot_return",
+      "engine_request_id": "6",
+      "num_cached_tokens": 1088,
+      "prompt_tokens": 1466,
+      "output_text": " [Answer]\n\n<think>\nThinking Process:\n\n1.  **Analyze",
+      "elapsed_ms": 508.124177
+    },
+    {
+      "name": "hot_verify",
+      "engine_request_id": "7",
+      "num_cached_tokens": 1088,
+      "prompt_tokens": 1465,
+      "output_text": "\n\n<think>\nThinking Process:\n\n1.  **Analyze the Request:**",
+      "elapsed_ms": 457.711781
+    }
+  ],
+  "hot_return_num_cached_tokens": 1088,
+  "hot_keys_removed_during_allocation_before_hot_return_lookup": []
+}

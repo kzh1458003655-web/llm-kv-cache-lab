@@ -1,0 +1,15 @@
+{
+  "request_id": "warm1",
+  "doc_id": "03c1b3e8-8aba-4a59-8a56-e24c4a2b88ec",
+  "dataset_record_id": "c597bdb3-6825-466e-8309-fda4dee37e97",
+  "prompt_sha256": "b7aa966affd30dc1c21fa59b1c62a5a662fe40cb9292d6014c75fbbc4e59a31b",
+  "context_prefix_sha256": "bee8f78d13ea2504d96b65592f7fe3b383108274baf784e2f01c5fc97c1dbcec",
+  "question_sha256": "cf6b0e2e41f3a2ce504ea14417de2277e97a8c429d09d15e0676a2af8dc2d62c",
+  "engine_request_id": "0",
+  "prompt_tokens": 1462,
+  "num_cached_tokens": 0,
+  "output_text": "\n\n<think>\nThinking Process:\n\n1.  **Analyze the Request:**",
+  "output_tokens": 16,
+  "elapsed_ms": 944.452502,
+  "status": "ok"
+}

@@ -1,0 +1,15 @@
+{
+  "request_id": "scan2",
+  "doc_id": "97c994c8-806d-4ddc-bf53-24c64669d362",
+  "dataset_record_id": "39c8fdc2-947b-4d2d-8169-8bb900021e53",
+  "prompt_sha256": "d4398b124849c2f0b242f6aac05d4954ba086578fb43f94a6a9a67900a2fb634",
+  "context_prefix_sha256": "44827d925875652d9e9af27ca39dc93b15d54487640879c2fcf4cff147e86da8",
+  "question_sha256": "d1f9ef658ce3802cfe0095fb548ffecb0d9ca8a1139c3256145bef4ee7f68367",
+  "engine_request_id": "5",
+  "prompt_tokens": 1465,
+  "num_cached_tokens": 0,
+  "output_text": "\n\n<think>\n\n</think>\n\nBased on the document provided, Nagaenthran",
+  "output_tokens": 16,
+  "elapsed_ms": 720.170369,
+  "status": "ok"
+}
