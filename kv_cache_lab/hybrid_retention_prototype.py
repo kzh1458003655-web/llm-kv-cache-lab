@@ -18,6 +18,7 @@ def install(max_scan=32, reuse_threshold=2):
     lookup = KVCacheManager.get_computed_blocks
     allocate = BlockPool.get_new_blocks
     remove = BlockPool._remove_cached_block_hashes
+    reset = BlockPool.reset_prefix_cache
     diagnostics = {"selection_calls": 0, "selection_cpu_ns": 0,
                    "reordered_calls": 0, "max_scanned_blocks": 0}
 
@@ -51,6 +52,13 @@ def install(max_scan=32, reuse_threshold=2):
             counter.pop(key, None)
         return keys
 
+    @functools.wraps(reset)
+    def reset_hook(self, *args, **kwargs):
+        success = reset(self, *args, **kwargs)
+        if success:
+            counts(self).clear()
+        return success
+
     @functools.wraps(allocate)
     def allocate_hook(self, num_blocks):
         # Keep native handling for oversized allocations and live readable
@@ -83,5 +91,6 @@ def install(max_scan=32, reuse_threshold=2):
     KVCacheManager.get_computed_blocks = lookup_hook
     BlockPool.get_new_blocks = allocate_hook
     BlockPool._remove_cached_block_hashes = remove_hook
+    BlockPool.reset_prefix_cache = reset_hook
     KVCacheManager._hybrid_retention_installed = True
     return diagnostics

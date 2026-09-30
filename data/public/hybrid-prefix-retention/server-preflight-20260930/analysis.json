@@ -1,0 +1,61 @@
+{
+  "runs": {
+    "0-hot_scan-reuse2": {
+      "status": "completed",
+      "n": 128,
+      "cached_tokens": 69632,
+      "input_tokens": 186251,
+      "p50_generate_ms": 868.0545455,
+      "p95_generate_ms": 1016.19942,
+      "sum_generate_ms": 112252.102873
+    },
+    "0-hot_scan-stock": {
+      "status": "completed",
+      "n": 128,
+      "cached_tokens": 52224,
+      "input_tokens": 186251,
+      "p50_generate_ms": 879.998803,
+      "p95_generate_ms": 983.968121,
+      "sum_generate_ms": 112468.66736200001
+    },
+    "failed-startup": {
+      "status": "failed",
+      "n": 0,
+      "cached_tokens": 0,
+      "input_tokens": 0,
+      "p50_generate_ms": null,
+      "p95_generate_ms": null,
+      "sum_generate_ms": 0
+    }
+  },
+  "pairs": [
+    {
+      "stock": "0-hot_scan-stock",
+      "reuse2": "0-hot_scan-reuse2",
+      "cached_token_gain": 17408,
+      "elapsed_change_percent": -0.1925553970537952,
+      "output_token_hash_matches": 128,
+      "n": 128
+    }
+  ],
+  "repeat_summary": {
+    "hot_scan": {
+      "completed_pairs": 1,
+      "median_elapsed_change_percent": -0.1925553970537952,
+      "elapsed_change_percent_range": [
+        -0.1925553970537952,
+        -0.1925553970537952
+      ],
+      "cached_token_gains": [
+        17408
+      ]
+    }
+  },
+  "limitations": [
+    "Serial offline measurements are not TTFT or online throughput.",
+    "Explicit small KV budgets study pressure; do not represent the GPU default cache.",
+    "Report variation between independent repeats; individual requests are correlated.",
+    "Curated LooGLE excerpts are not production traces or QA accuracy evaluations.",
+    "Output hashes are a smoke check; cache reuse can cause numerical differences."
+  ]
+}

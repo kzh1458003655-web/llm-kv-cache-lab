@@ -49,6 +49,9 @@ python -m unittest discover -s tests -v
 
 ## 文档
 
+- [单卡服务器实验准备](server-kit/README.md)：固定 0.8B 模型、三场景、最多五轮成对对照；上传包在本机制作，服务器未租用时只做本地预检。
+- [固定负载审核信息](data/public/hybrid-prefix-retention/server-prepared-20260930)：完整来源哈希、种子及请求哈希，不含原始文档和完整提示。
+
 - [设计概览](docs/设计概览.md)
 - [实验方案](docs/实验方案.md)
 - [开发路线](docs/开发路线.md)

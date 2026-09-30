@@ -1,0 +1,17 @@
+{
+  "status": "completed",
+  "policy": "stock",
+  "kv_mib": 128,
+  "mode": "serial offline, diagnostic event hooks disabled",
+  "timing_definition": "synchronized generate call duration; NOT streaming TTFT",
+  "success_count": 128,
+  "request_count": 128,
+  "manifest_sha256": "7551664762f6433e3887bba334ddc4b2f7b3ea5c314a668bb664cd1d666a356a",
+  "versions": {
+    "vllm": "0.30.0",
+    "torch": "2.13.0+cu130"
+  },
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "wall_ms": 112547.690813,
+  "policy_diagnostics": null
+}

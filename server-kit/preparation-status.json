@@ -1,0 +1,31 @@
+{
+  "date": "2026-09-30",
+  "server_rented": false,
+  "remote_gpu_validation": "not performed; SSH access not supplied",
+  "model": "Qwen/Qwen3.5-0.8B",
+  "model_revision": "2fc06364715b967f1860aea9cf38778875588b17",
+  "model_weights_sha256": "04b1c301231dd422b8860db31311ab2721511346a32cb1e079c4c4e5f1fe4696",
+  "source_revision": "4b50b4cb9333b48b3f7ddfd307c1d13369be5d1e",
+  "source_sha256": "8951521e8c8340a4e6aa5ffcb2e8f058cca154251915acf946e721fcf001e8c7",
+  "source_complete_rows": 1951,
+  "source_docs": 105,
+  "source_partial_rows": 0,
+  "prepared_manifests": 15,
+  "requests_per_manifest": 128,
+  "planned_max_measured_requests": 3840,
+  "cpu_tests": {"passed": 15, "platforms": ["Windows", "WSL Linux"], "runner_tests": "mocked child processes; no GPU"},
+  "shell_syntax_check": "passed",
+  "local_gpu_preflight": {
+    "gpu": "RTX 4060 Laptop 8GB",
+    "completed_requests": 256,
+    "completed_pairs": 1,
+    "scene": "hot_scan",
+    "kv_mib": 128,
+    "cached_token_gain": 17408,
+    "output_token_hash_matches": 128,
+    "elapsed_change_percent": -0.1925553970537952,
+    "interpretation": "Cache retention reproduced; no demonstrated timing improvement from this single pair.",
+    "initial_startup_failure": "default GPU memory utilization too high; explicit 0.60 fixed it; failed artifact retained"
+  },
+  "not_yet_validated": ["remote dependency installation", "4090D execution", "all five repeats", "mixed Zipf timing", "4GiB roomy cache control", "online concurrency or streaming TTFT"]
+}
