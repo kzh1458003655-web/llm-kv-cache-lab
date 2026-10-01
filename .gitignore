@@ -5,6 +5,7 @@ __pycache__/
 htmlcov/
 .trace-output/
 .venv/
+.venv-9b/
 .env
 *.egg-info/
 build/

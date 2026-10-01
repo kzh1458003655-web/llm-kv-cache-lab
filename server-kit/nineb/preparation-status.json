@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-02",
+  "status": "local_preparation_verified_gpu_not_run",
+  "main_model": "Qwen/Qwen3.5-9B",
+  "model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "metadata_files_hash_verified": 7,
+  "weights_downloaded_locally": false,
+  "weight_shards": 4,
+  "weight_total_bytes": 19306310880,
+  "source_complete_bytes": 199281301,
+  "source_sha256": "8951521e8c8340a4e6aa5ffcb2e8f058cca154251915acf946e721fcf001e8c7",
+  "fixed_workload_files": 20,
+  "requests_per_file": 512,
+  "prepared_request_count": 10240,
+  "context_truncation_targets": [
+    2048,
+    4096
+  ],
+  "actual_input_token_range": [
+    2092,
+    4174
+  ],
+  "cpu_syntax_files_checked": 11,
+  "mock_stream_requests_ok": 4,
+  "AA_and_hot_cold_analysis_checked": true,
+  "formal_plan_max_runs": 25,
+  "public_audits_include_text_or_token_ids": false,
+  "remote_connected": false,
+  "gpu_used": false,
+  "private_upload_bundle": {
+    "relative_path": "data/raw/9b-preparation/nineb-server-ready.tar.gz",
+    "bytes": 177647899,
+    "sha256": "c3f09dfd7de5aa3c4acd625c676146e294e348808363c4502c1b9f186d4bbeb5",
+    "files_verified": 71,
+    "includes_weights": false
+  },
+  "pending": [
+    "server installation",
+    "19.31GB weight download and hash verification",
+    "actual GPU/driver and CUDA graph validation",
+    "native cache options and groups",
+    "cache quota and stock arrival-rate calibration",
+    "actual engine policy invocation",
+    "9B correctness and performance measurements"
+  ],
+  "shutdown_rule": "after raw results download and checksum verification"
+}

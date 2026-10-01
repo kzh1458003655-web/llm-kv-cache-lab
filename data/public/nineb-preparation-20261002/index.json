@@ -1,0 +1,213 @@
+{
+  "model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "protocol_sha256": "179d9d8f6826e4a0899c40ca12173f882d2afbdbb8fc7aa015a4f3773028d2a6",
+  "files": [
+    {
+      "name": "hot_scan-ctx2048-rep0",
+      "count": 512,
+      "sha256": "63f37a8b762407cddf3da1149670ad5de9169400e92b09119e65054699f379a4",
+      "scene": "hot_scan",
+      "context_tokens": 2048,
+      "rep": 0,
+      "min_input_tokens": 2092,
+      "max_input_tokens": 2121
+    },
+    {
+      "name": "hot_scan-ctx2048-rep1",
+      "count": 512,
+      "sha256": "71662fa89a8d97704e46255c91c406586a263dc14c7dcafcb7a16849edb14ed0",
+      "scene": "hot_scan",
+      "context_tokens": 2048,
+      "rep": 1,
+      "min_input_tokens": 2092,
+      "max_input_tokens": 2123
+    },
+    {
+      "name": "hot_scan-ctx2048-rep2",
+      "count": 512,
+      "sha256": "b601abcec4993766dfab8330be9432daca869f43dbeff24698423965b35fcfe6",
+      "scene": "hot_scan",
+      "context_tokens": 2048,
+      "rep": 2,
+      "min_input_tokens": 2093,
+      "max_input_tokens": 2126
+    },
+    {
+      "name": "hot_scan-ctx2048-rep3",
+      "count": 512,
+      "sha256": "2e7fc748d76589e8b1a077df25e5f47ed657d24c521b4a7ddaa10e11fc31522b",
+      "scene": "hot_scan",
+      "context_tokens": 2048,
+      "rep": 3,
+      "min_input_tokens": 2092,
+      "max_input_tokens": 2123
+    },
+    {
+      "name": "hot_scan-ctx2048-rep4",
+      "count": 512,
+      "sha256": "90ad4edf6911c1759a3454e7fb6b743805585491226b54593ab7812aa32bfc88",
+      "scene": "hot_scan",
+      "context_tokens": 2048,
+      "rep": 4,
+      "min_input_tokens": 2093,
+      "max_input_tokens": 2126
+    },
+    {
+      "name": "mixed_zipf-ctx2048-rep0",
+      "count": 512,
+      "sha256": "89d13c9477f75e5b7e12470e2d9bb11e1202450e606bc9cf4cf6ad3c33d4505c",
+      "scene": "mixed_zipf",
+      "context_tokens": 2048,
+      "rep": 0,
+      "min_input_tokens": 2093,
+      "max_input_tokens": 2123
+    },
+    {
+      "name": "mixed_zipf-ctx2048-rep1",
+      "count": 512,
+      "sha256": "71283b5eb4251d73dd24e83138e551a8ac2386176e8e7a87a5c738b7be6a0613",
+      "scene": "mixed_zipf",
+      "context_tokens": 2048,
+      "rep": 1,
+      "min_input_tokens": 2093,
+      "max_input_tokens": 2123
+    },
+    {
+      "name": "mixed_zipf-ctx2048-rep2",
+      "count": 512,
+      "sha256": "77bfdb2a50fae57080b7c005be30e8dfe1a73951bb57630987b326973c137a79",
+      "scene": "mixed_zipf",
+      "context_tokens": 2048,
+      "rep": 2,
+      "min_input_tokens": 2093,
+      "max_input_tokens": 2123
+    },
+    {
+      "name": "mixed_zipf-ctx2048-rep3",
+      "count": 512,
+      "sha256": "9ac3811533e2c4c99253bb3e63362d82a6847e7805f934472e7d51e1d35da5ae",
+      "scene": "mixed_zipf",
+      "context_tokens": 2048,
+      "rep": 3,
+      "min_input_tokens": 2093,
+      "max_input_tokens": 2123
+    },
+    {
+      "name": "mixed_zipf-ctx2048-rep4",
+      "count": 512,
+      "sha256": "8b83896420b146ae5f93111f01b09d7c9c2829702b4d69e031dcca92d5eb3f4b",
+      "scene": "mixed_zipf",
+      "context_tokens": 2048,
+      "rep": 4,
+      "min_input_tokens": 2093,
+      "max_input_tokens": 2123
+    },
+    {
+      "name": "hot_scan-ctx4096-rep0",
+      "count": 512,
+      "sha256": "d882da462d061460acc0368127d608ddadeba5b2221afd702c07d03967f720a9",
+      "scene": "hot_scan",
+      "context_tokens": 4096,
+      "rep": 0,
+      "min_input_tokens": 4141,
+      "max_input_tokens": 4169
+    },
+    {
+      "name": "hot_scan-ctx4096-rep1",
+      "count": 512,
+      "sha256": "2e8c37203ca3e2dc6c64b10708df847f3da67b2cfafe2658b43034ec069d830b",
+      "scene": "hot_scan",
+      "context_tokens": 4096,
+      "rep": 1,
+      "min_input_tokens": 4140,
+      "max_input_tokens": 4171
+    },
+    {
+      "name": "hot_scan-ctx4096-rep2",
+      "count": 512,
+      "sha256": "adfda856bc686533d72129a11bc430dbe36cd38fddfcbdf36fd736448e442b02",
+      "scene": "hot_scan",
+      "context_tokens": 4096,
+      "rep": 2,
+      "min_input_tokens": 4141,
+      "max_input_tokens": 4174
+    },
+    {
+      "name": "hot_scan-ctx4096-rep3",
+      "count": 512,
+      "sha256": "5575aa780892e345b340b01cdd3bbb9fad97d6bff1bef8f4d652f9ee8f24bcbc",
+      "scene": "hot_scan",
+      "context_tokens": 4096,
+      "rep": 3,
+      "min_input_tokens": 4140,
+      "max_input_tokens": 4171
+    },
+    {
+      "name": "hot_scan-ctx4096-rep4",
+      "count": 512,
+      "sha256": "38387a169dacf7de49a6575cf16576bc25ba5765fb1b260763d185b84f6a6008",
+      "scene": "hot_scan",
+      "context_tokens": 4096,
+      "rep": 4,
+      "min_input_tokens": 4141,
+      "max_input_tokens": 4174
+    },
+    {
+      "name": "mixed_zipf-ctx4096-rep0",
+      "count": 512,
+      "sha256": "002b66ebf93278f5f84fb0de1cc1133dc33553c7db8d545edf68ecbe7bbe0fd5",
+      "scene": "mixed_zipf",
+      "context_tokens": 4096,
+      "rep": 0,
+      "min_input_tokens": 4141,
+      "max_input_tokens": 4171
+    },
+    {
+      "name": "mixed_zipf-ctx4096-rep1",
+      "count": 512,
+      "sha256": "8fa0d27e2ae88f817b547a2a7293a25670543ff56739a3e2c0797aa5eedb0570",
+      "scene": "mixed_zipf",
+      "context_tokens": 4096,
+      "rep": 1,
+      "min_input_tokens": 4141,
+      "max_input_tokens": 4171
+    },
+    {
+      "name": "mixed_zipf-ctx4096-rep2",
+      "count": 512,
+      "sha256": "50e385291bb7afb132b753606e5623922d7797541e86a0e8847f7e6253d1e3b8",
+      "scene": "mixed_zipf",
+      "context_tokens": 4096,
+      "rep": 2,
+      "min_input_tokens": 4141,
+      "max_input_tokens": 4171
+    },
+    {
+      "name": "mixed_zipf-ctx4096-rep3",
+      "count": 512,
+      "sha256": "8a8868f5fd91f57f9ecdf0fbe401798a3e41e03869cc871dac7b64561d8777a6",
+      "scene": "mixed_zipf",
+      "context_tokens": 4096,
+      "rep": 3,
+      "min_input_tokens": 4141,
+      "max_input_tokens": 4171
+    },
+    {
+      "name": "mixed_zipf-ctx4096-rep4",
+      "count": 512,
+      "sha256": "a8e3a36df47499755fe4e97e2a26eb5adb1dcfe6361c7a80f70d2aa21f68f82b",
+      "scene": "mixed_zipf",
+      "context_tokens": 4096,
+      "rep": 4,
+      "min_input_tokens": 4141,
+      "max_input_tokens": 4171
+    }
+  ],
+  "preparation_protocol_sha256": "e6117050d5fe8d62c13bb39a5adbe885a60f8da3dac5049c00017972143edefd",
+  "protocol_metadata_update": {
+    "changed_field": "status",
+    "old": "model_revision_locked; 9B GPU execution and online runner pending",
+    "new": "model_revision_locked; local 9B kit prepared; GPU execution and online compatibility verification pending",
+    "note": "administrative readiness update only; no experiment parameter or request content changed"
+  }
+}

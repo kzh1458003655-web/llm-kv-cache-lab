@@ -1,0 +1,16 @@
+{
+  "request_rate": null,
+  "cache_budgets": {
+    "high_pressure": null,
+    "moderate_pressure": null,
+    "roomy": null
+  },
+  "native_cache_options": {
+    "mamba_cache_mode": "align"
+  },
+  "enforce_eager": false,
+  "native_options_review": "",
+  "rate_choice_reason": "",
+  "cache_pressure_evidence": "",
+  "note": "Fill only after stock GPU calibration; never reuse the old 0.8B cache quotas."
+}

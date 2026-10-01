@@ -2,6 +2,8 @@
 
 本科毕业设计项目，基于真实 vLLM 开发前缀缓存管理模块。在缓存容量有限时，根据复用价值决定哪些缓存优先保留、哪些优先回收，减少重复计算，并记录策略的开销和适用边界。
 
+**正式实验主模型固定为 Qwen3.5-9B、纯文本 BF16，权重 revision 与参数约定见[固定实验配置](docs/固定实验配置.md)。9B 尚未完成实验；下面的已有结果来自 0.8B 预实验。**
+
 > 当前状态：开题前已完成机制原型和初步实验，正式模块待开发。2026-09-30 完成 19 次独立运行、2432 个成功请求；热点场景观察到复用与耗时改善，混合负载收益不一致，并有一次 p95 退化记录。完整结果见[服务器初步实验](data/public/hybrid-prefix-retention/server-20260930/README.md)。
 
 ## 毕业设计任务书
@@ -52,7 +54,7 @@ CPU 工具需要 Python 3.10+。已有单元测试的运行命令：
 python -m unittest discover -s tests -v
 ```
 
-真实推理需要单独配置 Linux/WSL、GPU 和固定依赖；参见[单卡实验准备](server-kit/README.md)。正式计时与诊断事件采集应分开运行，逐事件日志写入会影响耗时。
+真实推理需要单独配置 Linux/WSL、GPU 和固定依赖；后续使用[固定 9B 在线实验包](server-kit/nineb/README.md)，旧 0.8B 命令见[历史单卡实验](server-kit/README.md)。正式计时与诊断事件采集应分开运行，逐事件日志写入会影响耗时。
 
 `kv_cache_lab.events` 提供标准化事件格式；`hybrid_observer` 提供真实缓存诊断；`hybrid_retention_prototype` 提供基于复用次数的原型。原型尚待整理为正式模块，具体状态见[设计概览](docs/设计概览.md)。
 
