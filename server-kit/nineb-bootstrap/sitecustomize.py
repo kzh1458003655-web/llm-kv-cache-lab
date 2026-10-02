@@ -18,6 +18,7 @@ def activate():
     if policy == 'reuse2':
         from kv_cache_lab.hybrid_retention_prototype import install
         diagnostics = install(max_scan=32, reuse_threshold=2)
+    candidate_diagnostics = diagnostics is not None
     if os.environ.get('NINEB_DIAGNOSTIC_EVENTS'):
         os.environ['HYBRID_PILOT_EVENTS'] = os.environ['NINEB_DIAGNOSTIC_EVENTS']
         from kv_cache_lab.hybrid_observer import install as install_observer
@@ -78,8 +79,25 @@ def activate():
 
     KVCacheManager.__init__ = init
     BlockPool.get_new_blocks = allocate
+    original_reset = BlockPool.reset_prefix_cache
+    counter_names = ('selection_calls', 'selection_cpu_ns', 'reordered_calls', 'max_scanned_blocks')
+    if diagnostics is None:
+        diagnostics = dict.fromkeys(counter_names, 0)
+
+    @functools.wraps(original_reset)
+    def measured_reset(self, *args, **kwargs):
+        path = output / f'policy-measurement-{os.getpid()}.json'
+        path.write_text(json.dumps({'pid': os.getpid(), 'policy': policy,
+            'vllm': vllm.__version__, 'diagnostics': dict(diagnostics)}, indent=2) + '\n', encoding='utf-8')
+        result = original_reset(self, *args, **kwargs)
+        if result:
+            for name in counter_names:
+                diagnostics[name] = 0
+        return result
+
+    BlockPool.reset_prefix_cache = measured_reset
     # Normal shutdown diagnostics are best effort; startup evidence is required.
-    if diagnostics is not None:
+    if candidate_diagnostics:
         import atexit
         atexit.register(lambda: write('policy-diagnostics', {'diagnostics': diagnostics}))
 

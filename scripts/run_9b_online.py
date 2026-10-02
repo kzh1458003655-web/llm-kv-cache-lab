@@ -20,6 +20,54 @@ from nineb_online_client import run_client
 
 ROOT = Path(__file__).resolve().parents[1]
 NATIVE_OPTIONS = {'mamba_cache_mode', 'prefix_match_unit', 'prefix_cache_retention_interval'}
+MEASUREMENT_COUNTERS = ('selection_calls', 'selection_cpu_ns', 'reordered_calls', 'max_scanned_blocks')
+
+
+def measurement_reset(base_url):
+    request = urllib.request.Request(base_url + '/reset_prefix_cache', data=b'', method='POST')
+    for attempt in range(5):
+        try:
+            with urllib.request.urlopen(request, timeout=10) as response:
+                result = json.loads(response.read())
+            if isinstance(result, dict) and result.get('success') is True:
+                return {'status': 'confirmed', 'success': True, 'attempts': attempt + 1}
+        except Exception as exc:
+            error_type = type(exc).__name__
+        else:
+            error_type = 'ResetNotConfirmed'
+        time.sleep(.2)
+    return {'status': 'failed', 'success': False, 'attempts': 5,
+            'error_type': error_type}
+
+
+def collect_policy_measurement(evidence, markers, reset_result):
+    engines = []
+    for index, marker in enumerate(markers):
+        pid = marker.get('pid')
+        path = Path(evidence) / f'policy-measurement-{pid}.json' if pid else None
+        item = {'engine_index': index, 'status': 'missing'}
+        if reset_result.get('success') and path and path.exists():
+            try:
+                value = json.loads(path.read_text(encoding='utf-8'))
+                if value.get('pid') != pid or value.get('policy') != marker.get('policy'):
+                    raise ValueError('measurement identity mismatch')
+                counts = value.get('diagnostics', {})
+                if not all(name in counts for name in MEASUREMENT_COUNTERS):
+                    raise ValueError('measurement counters incomplete')
+                item = {'engine_index': index, 'status': 'available',
+                        'policy': value['policy'],
+                        'diagnostics': {name: counts[name] for name in MEASUREMENT_COUNTERS}}
+            except Exception as exc:
+                item = {'engine_index': index, 'status': 'invalid',
+                        'error_type': type(exc).__name__}
+        engines.append(item)
+    if not reset_result.get('success'):
+        status = 'reset_failed'
+    elif not engines or any(item['status'] != 'available' for item in engines):
+        status = 'missing_or_invalid'
+    else:
+        status = 'available'
+    return {'status': status, 'engines': engines}
 
 
 def profile(protocol):
@@ -194,6 +242,14 @@ def run(args):
     record['generated_tokens_per_request'] = 16 if args.boundary_probe else protocol['online_workload']['output_tokens']
     if (ROOT / 'CODE_VERSION.json').exists():
         record['code_version'] = json.loads((ROOT / 'CODE_VERSION.json').read_text())
+    source_paths = ('scripts/run_9b_online.py', 'server-kit/nineb-bootstrap/sitecustomize.py',
+                    'kv_cache_lab/hybrid_retention_prototype.py', 'kv_cache_lab/hybrid_observer.py',
+                    'kv_cache_lab/events.py')
+    record.setdefault('code_version', {})['source_sha256'] = {
+        name: sha256(ROOT / name) for name in source_paths if (ROOT / name).is_file()}
+    provenance = ROOT / 'execution-provenance.json'
+    if provenance.is_file():
+        record['code_version']['execution_provenance_sha256'] = sha256(provenance)
     (out / 'run.json').write_text(json.dumps(record, indent=2) + '\n', encoding='utf-8')
     process = None
     base = f'http://127.0.0.1:{args.port}'
@@ -223,11 +279,14 @@ def run(args):
                 run_client(base, rows, settings['concurrency'], settings['request_rate'],
                            record['generated_tokens_per_request'], out / 'client'),
                 timeout=args.measurement_seconds))
+            reset_result = measurement_reset(base)
+            record['measurement_reset'] = reset_result
             markers = [json.loads(path.read_text()) for path in evidence.glob('engine-active-*.json')]
             if not markers or any(marker['policy'] != args.policy for marker in markers):
                 raise RuntimeError('no actual engine allocation evidence for the selected policy')
             if args.policy == 'reuse2' and not all(marker['reuse_hook_installed'] for marker in markers):
                 raise RuntimeError('candidate hook was not installed in the allocating engine')
+            record['policy_measurement'] = collect_policy_measurement(evidence, markers, reset_result)
             record['status'] = 'completed' if summary['error_count'] == 0 else 'request_errors'
             record['client_summary'] = summary
             record['engine_evidence'] = markers

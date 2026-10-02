@@ -51,6 +51,21 @@ def main():
                    'owned_server_stopped', 'client_summary', 'error_type', 'boundary_probe', 'boundary_inputs', 'code_version',
                    'trace_diagnostic', 'generated_tokens_per_request', 'startup_elapsed_s', 'total_elapsed_s')
         public = {key: value[key] for key in allowed if key in value}
+        if 'measurement_reset' in value:
+            reset = value['measurement_reset']
+            public['measurement_reset'] = {key: reset[key] for key in
+                ('status', 'success', 'attempts', 'error_type') if key in reset}
+        if 'policy_measurement' in value:
+            measurement = value['policy_measurement']
+            public['policy_measurement'] = {'status': measurement.get('status'),
+                'engines': [{key: engine[key] for key in
+                    ('engine_index', 'status', 'policy', 'diagnostics', 'error_type') if key in engine}
+                    for engine in measurement.get('engines', [])]}
+            for engine in public['policy_measurement']['engines']:
+                if 'diagnostics' in engine:
+                    engine['diagnostics'] = {key: engine['diagnostics'][key] for key in
+                        ('selection_calls', 'selection_cpu_ns', 'reordered_calls', 'max_scanned_blocks')
+                        if key in engine['diagnostics']}
         runtime = value['runtime_profile']
         public['runtime_profile'] = {'versions': runtime['versions'],
             'gpu': {key: runtime['gpu'][key] for key in ('name', 'memory_mib', 'driver')}}
