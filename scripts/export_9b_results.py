@@ -4,6 +4,36 @@ import json
 from pathlib import Path
 
 
+def export_evidence(source: Path, out: Path, value: dict) -> None:
+    evidence_out = out / 'evidence'
+    cache_files = sorted((source / 'evidence').glob('cache-groups-*.json'))
+    engine_files = sorted((source / 'evidence').glob('engine-active-*.json'))
+    if cache_files or engine_files or value.get('engine_evidence'):
+        evidence_out.mkdir(parents=True, exist_ok=True)
+    for index, path in enumerate(cache_files):
+        record = json.loads(path.read_text(encoding='utf-8'))
+        public = {key: record[key] for key in ('policy', 'vllm', 'num_blocks',
+            'resolved_prefix_cache_retention_interval', 'tensor_bytes',
+            'tensor_descriptor_size_sum', 'total_tensor_bytes', 'allocation_note',
+            ) if key in record}
+        public['groups'] = [{key: group[key] for key in
+            ('spec', 'block_size', 'page_size_bytes', 'layers') if key in group}
+            for group in record.get('groups', [])]
+        public['tensor_descriptors'] = [{key: descriptor[key] for key in
+            ('size', 'layers', 'offset', 'layer_stride', 'block_stride') if key in descriptor}
+            for descriptor in record.get('tensor_descriptors', [])]
+        (evidence_out / f'cache-groups-{index:02d}.json').write_text(
+            json.dumps(public, indent=2) + '\n', encoding='utf-8')
+    engine = value.get('engine_evidence', [])
+    if not engine:
+        engine = [json.loads(path.read_text(encoding='utf-8')) for path in engine_files]
+    for index, record in enumerate(engine):
+        public = {key: record[key] for key in ('policy', 'vllm', 'num_gpu_blocks',
+                    'hash_block_size', 'reuse_hook_installed') if key in record}
+        (evidence_out / f'engine-active-{index:02d}.json').write_text(
+            json.dumps(public, indent=2) + '\n', encoding='utf-8')
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--runs', type=Path, required=True)
@@ -25,6 +55,7 @@ def main():
         public['runtime_profile'] = {'versions': runtime['versions'],
             'gpu': {key: runtime['gpu'][key] for key in ('name', 'memory_mib', 'driver')}}
         (out / 'run.json').write_text(json.dumps(public, indent=2) + '\n', encoding='utf-8')
+        export_evidence(source.parent, out, value)
         requests = source.parent / 'client/requests.jsonl'
         if requests.exists():
             with requests.open(encoding='utf-8') as stream, (out / 'requests.jsonl').open('x', encoding='utf-8') as output:
