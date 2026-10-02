@@ -1,0 +1,212 @@
+{
+  "status": "pass",
+  "planned_run_count": 25,
+  "audited_run_count": 25,
+  "valid_run_count": 25,
+  "protocol_sha256": "179d9d8f6826e4a0899c40ca12173f882d2afbdbb8fc7aa015a4f3773028d2a6",
+  "core_source_hashes_consistent": true,
+  "findings": [],
+  "runs": [
+    {
+      "index": 0,
+      "policy": "stock",
+      "budget_bytes": 3221225472,
+      "concurrency": 8,
+      "request_count": 512,
+      "has_core_source_hashes": true
+    },
+    {
+      "index": 1,
+      "policy": "reuse2",
+      "budget_bytes": 3221225472,
+      "concurrency": 8,
+      "request_count": 512,
+      "has_core_source_hashes": true
+    },
+    {
+      "index": 2,
+      "policy": "stock",
+      "budget_bytes": 3221225472,
+      "concurrency": 8,
+      "request_count": 512,
+      "has_core_source_hashes": true
+    },
+    {
+      "index": 3,
+      "policy": "reuse2",
+      "budget_bytes": 3221225472,
+      "concurrency": 8,
+      "request_count": 512,
+      "has_core_source_hashes": true
+    },
+    {
+      "index": 4,
+      "policy": "stock",
+      "budget_bytes": 3221225472,
+      "concurrency": 8,
+      "request_count": 512,
+      "has_core_source_hashes": true
+    },
+    {
+      "index": 5,
+      "policy": "reuse2",
+      "budget_bytes": 3221225472,
+      "concurrency": 8,
+      "request_count": 512,
+      "has_core_source_hashes": true
+    },
+    {
+      "index": 6,
+      "policy": "stock",
+      "budget_bytes": 3221225472,
+      "concurrency": 8,
+      "request_count": 512,
+      "has_core_source_hashes": true
+    },
+    {
+      "index": 7,
+      "policy": "stock",
+      "budget_bytes": 3221225472,
+      "concurrency": 8,
+      "request_count": 512,
+      "has_core_source_hashes": true
+    },
+    {
+      "index": 8,
+      "policy": "stock",
+      "budget_bytes": 3221225472,
+      "concurrency": 8,
+      "request_count": 512,
+      "has_core_source_hashes": true
+    },
+    {
+      "index": 9,
+      "policy": "reuse2",
+      "budget_bytes": 3221225472,
+      "concurrency": 8,
+      "request_count": 512,
+      "has_core_source_hashes": true
+    },
+    {
+      "index": 10,
+      "policy": "stock",
+      "budget_bytes": 3221225472,
+      "concurrency": 8,
+      "request_count": 512,
+      "has_core_source_hashes": true
+    },
+    {
+      "index": 11,
+      "policy": "reuse2",
+      "budget_bytes": 3221225472,
+      "concurrency": 8,
+      "request_count": 512,
+      "has_core_source_hashes": true
+    },
+    {
+      "index": 12,
+      "policy": "stock",
+      "budget_bytes": 3221225472,
+      "concurrency": 8,
+      "request_count": 512,
+      "has_core_source_hashes": true
+    },
+    {
+      "index": 13,
+      "policy": "stock",
+      "budget_bytes": 3221225472,
+      "concurrency": 8,
+      "request_count": 512,
+      "has_core_source_hashes": true
+    },
+    {
+      "index": 14,
+      "policy": "reuse2",
+      "budget_bytes": 3221225472,
+      "concurrency": 8,
+      "request_count": 512,
+      "has_core_source_hashes": true
+    },
+    {
+      "index": 15,
+      "policy": "stock",
+      "budget_bytes": 3221225472,
+      "concurrency": 8,
+      "request_count": 512,
+      "has_core_source_hashes": true
+    },
+    {
+      "index": 16,
+      "policy": "reuse2",
+      "budget_bytes": 3221225472,
+      "concurrency": 8,
+      "request_count": 512,
+      "has_core_source_hashes": true
+    },
+    {
+      "index": 17,
+      "policy": "stock",
+      "budget_bytes": 1610612736,
+      "concurrency": 8,
+      "request_count": 512,
+      "has_core_source_hashes": true
+    },
+    {
+      "index": 18,
+      "policy": "reuse2",
+      "budget_bytes": 1610612736,
+      "concurrency": 8,
+      "request_count": 512,
+      "has_core_source_hashes": true
+    },
+    {
+      "index": 19,
+      "policy": "stock",
+      "budget_bytes": 8589934592,
+      "concurrency": 8,
+      "request_count": 512,
+      "has_core_source_hashes": true
+    },
+    {
+      "index": 20,
+      "policy": "reuse2",
+      "budget_bytes": 8589934592,
+      "concurrency": 8,
+      "request_count": 512,
+      "has_core_source_hashes": true
+    },
+    {
+      "index": 21,
+      "policy": "stock",
+      "budget_bytes": 3221225472,
+      "concurrency": 16,
+      "request_count": 512,
+      "has_core_source_hashes": true
+    },
+    {
+      "index": 22,
+      "policy": "reuse2",
+      "budget_bytes": 3221225472,
+      "concurrency": 16,
+      "request_count": 512,
+      "has_core_source_hashes": true
+    },
+    {
+      "index": 23,
+      "policy": "stock",
+      "budget_bytes": 3221225472,
+      "concurrency": 8,
+      "request_count": 512,
+      "has_core_source_hashes": true
+    },
+    {
+      "index": 24,
+      "policy": "reuse2",
+      "budget_bytes": 3221225472,
+      "concurrency": 8,
+      "request_count": 512,
+      "has_core_source_hashes": true
+    }
+  ],
+  "privacy_note": "summary contains run indices, counts, budget values, and source hashes; no local paths, prompts, token text, or GPU UUIDs"
+}

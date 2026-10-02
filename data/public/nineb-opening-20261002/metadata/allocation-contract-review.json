@@ -1,0 +1,16 @@
+{
+  "vllm": "0.30.0",
+  "files": {
+    "single_type_kv_cache_manager.py": {
+      "sha256": "0233531d85aeced9e57a38c76d83db970519c92902b7e55484390cb2b64985bf",
+      "line_start": 265,
+      "line_end": 321
+    },
+    "kv_cache_coordinator.py": {
+      "sha256": "bf342f79f2bc8d6acb69d3becefb334509e84cae888d42bbd421a8dc8ca9eca3",
+      "line_start": 251,
+      "line_end": 277
+    }
+  },
+  "finding": "Two-phase coordinator touches every local cache-hit group before any new allocation; inherited Mamba manager add_local_computed_blocks increments refs via block_pool.touch. Prototype retains native allocation and only chooses ref_cnt=0 free blocks. This source contract check does not settle numerical output differences."
+}

@@ -1,0 +1,51 @@
+{
+  "moderate": {
+    "settings": {
+      "native_cache_options": {
+        "mamba_cache_mode": "align",
+        "prefix_cache_retention_interval": 0
+      },
+      "enforce_eager": false,
+      "request_rate": 4.0,
+      "concurrency": 1,
+      "kv_cache_memory_bytes": 3221225472,
+      "workload_variant": "shared"
+    },
+    "request_count": 64,
+    "cached_tokens": 129360,
+    "input_tokens": 265662,
+    "allocation_removed_hash_entries_by_group": {
+      "3": 133,
+      "0": 15,
+      "1": 14,
+      "2": 14
+    },
+    "removed_hash_registered_again_by_group": {
+      "3": 7,
+      "0": 1,
+      "1": 1,
+      "2": 1
+    },
+    "scope": "observed cache-content churn; not exact recomputed token count or an offline optimality gap"
+  },
+  "roomy": {
+    "settings": {
+      "native_cache_options": {
+        "mamba_cache_mode": "align",
+        "prefix_cache_retention_interval": 0
+      },
+      "enforce_eager": false,
+      "request_rate": 4.0,
+      "concurrency": 1,
+      "kv_cache_memory_bytes": 8589934592,
+      "workload_variant": "shared"
+    },
+    "request_count": 64,
+    "cached_tokens": 133056,
+    "input_tokens": 265662,
+    "allocation_removed_hash_entries_by_group": {},
+    "removed_hash_registered_again_by_group": {},
+    "scope": "observed cache-content churn; not exact recomputed token count or an offline optimality gap"
+  },
+  "note": "roomy is the largest tested feasible budget; inspect removals before calling it eviction-free"
+}

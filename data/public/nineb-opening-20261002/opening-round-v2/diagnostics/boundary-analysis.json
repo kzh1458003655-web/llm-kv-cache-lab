@@ -1,0 +1,242 @@
+{
+  "comparisons": [
+    {
+      "request_id": "boundary-527-suffix101",
+      "input_tokens": 528,
+      "shared_prefix_tokens": 527,
+      "full_attention_alignment_reference": 0,
+      "unreused_shared_prefix_tokens": null,
+      "output_hash_match": true,
+      "cached_tokens": {
+        "stock": 0,
+        "reuse2": 0
+      }
+    },
+    {
+      "request_id": "boundary-527-suffix102",
+      "input_tokens": 528,
+      "shared_prefix_tokens": 527,
+      "full_attention_alignment_reference": 0,
+      "unreused_shared_prefix_tokens": {
+        "stock": 527,
+        "reuse2": 527
+      },
+      "output_hash_match": true,
+      "cached_tokens": {
+        "stock": 0,
+        "reuse2": 0
+      }
+    },
+    {
+      "request_id": "boundary-528-suffix101",
+      "input_tokens": 529,
+      "shared_prefix_tokens": 528,
+      "full_attention_alignment_reference": 528,
+      "unreused_shared_prefix_tokens": null,
+      "output_hash_match": true,
+      "cached_tokens": {
+        "stock": 0,
+        "reuse2": 0
+      }
+    },
+    {
+      "request_id": "boundary-528-suffix102",
+      "input_tokens": 529,
+      "shared_prefix_tokens": 528,
+      "full_attention_alignment_reference": 528,
+      "unreused_shared_prefix_tokens": {
+        "stock": 0,
+        "reuse2": 0
+      },
+      "output_hash_match": true,
+      "cached_tokens": {
+        "stock": 528,
+        "reuse2": 528
+      }
+    },
+    {
+      "request_id": "boundary-529-suffix101",
+      "input_tokens": 530,
+      "shared_prefix_tokens": 529,
+      "full_attention_alignment_reference": 528,
+      "unreused_shared_prefix_tokens": null,
+      "output_hash_match": true,
+      "cached_tokens": {
+        "stock": 0,
+        "reuse2": 0
+      }
+    },
+    {
+      "request_id": "boundary-529-suffix102",
+      "input_tokens": 530,
+      "shared_prefix_tokens": 529,
+      "full_attention_alignment_reference": 528,
+      "unreused_shared_prefix_tokens": {
+        "stock": 1,
+        "reuse2": 1
+      },
+      "output_hash_match": true,
+      "cached_tokens": {
+        "stock": 528,
+        "reuse2": 528
+      }
+    },
+    {
+      "request_id": "boundary-1055-suffix101",
+      "input_tokens": 1056,
+      "shared_prefix_tokens": 1055,
+      "full_attention_alignment_reference": 528,
+      "unreused_shared_prefix_tokens": null,
+      "output_hash_match": true,
+      "cached_tokens": {
+        "stock": 0,
+        "reuse2": 0
+      }
+    },
+    {
+      "request_id": "boundary-1055-suffix102",
+      "input_tokens": 1056,
+      "shared_prefix_tokens": 1055,
+      "full_attention_alignment_reference": 528,
+      "unreused_shared_prefix_tokens": {
+        "stock": 527,
+        "reuse2": 527
+      },
+      "output_hash_match": true,
+      "cached_tokens": {
+        "stock": 528,
+        "reuse2": 528
+      }
+    },
+    {
+      "request_id": "boundary-1056-suffix101",
+      "input_tokens": 1057,
+      "shared_prefix_tokens": 1056,
+      "full_attention_alignment_reference": 1056,
+      "unreused_shared_prefix_tokens": null,
+      "output_hash_match": true,
+      "cached_tokens": {
+        "stock": 0,
+        "reuse2": 0
+      }
+    },
+    {
+      "request_id": "boundary-1056-suffix102",
+      "input_tokens": 1057,
+      "shared_prefix_tokens": 1056,
+      "full_attention_alignment_reference": 1056,
+      "unreused_shared_prefix_tokens": {
+        "stock": 0,
+        "reuse2": 0
+      },
+      "output_hash_match": true,
+      "cached_tokens": {
+        "stock": 1056,
+        "reuse2": 1056
+      }
+    },
+    {
+      "request_id": "boundary-1057-suffix101",
+      "input_tokens": 1058,
+      "shared_prefix_tokens": 1057,
+      "full_attention_alignment_reference": 1056,
+      "unreused_shared_prefix_tokens": null,
+      "output_hash_match": true,
+      "cached_tokens": {
+        "stock": 0,
+        "reuse2": 0
+      }
+    },
+    {
+      "request_id": "boundary-1057-suffix102",
+      "input_tokens": 1058,
+      "shared_prefix_tokens": 1057,
+      "full_attention_alignment_reference": 1056,
+      "unreused_shared_prefix_tokens": {
+        "stock": 1,
+        "reuse2": 1
+      },
+      "output_hash_match": true,
+      "cached_tokens": {
+        "stock": 1056,
+        "reuse2": 1056
+      }
+    }
+  ],
+  "native_groups": {
+    "stock": [
+      {
+        "type": "cache_config",
+        "num_pool_blocks": 496,
+        "hash_block_size": 528,
+        "groups": [
+          {
+            "id": 0,
+            "spec": "MambaSpec",
+            "block_size": 528,
+            "layer_count": 8
+          },
+          {
+            "id": 1,
+            "spec": "MambaSpec",
+            "block_size": 528,
+            "layer_count": 8
+          },
+          {
+            "id": 2,
+            "spec": "MambaSpec",
+            "block_size": 528,
+            "layer_count": 8
+          },
+          {
+            "id": 3,
+            "spec": "FullAttentionSpec",
+            "block_size": 528,
+            "layer_count": 8
+          }
+        ],
+        "relative_ns": 14194011265
+      }
+    ],
+    "reuse2": [
+      {
+        "type": "cache_config",
+        "num_pool_blocks": 496,
+        "hash_block_size": 528,
+        "groups": [
+          {
+            "id": 0,
+            "spec": "MambaSpec",
+            "block_size": 528,
+            "layer_count": 8
+          },
+          {
+            "id": 1,
+            "spec": "MambaSpec",
+            "block_size": 528,
+            "layer_count": 8
+          },
+          {
+            "id": 2,
+            "spec": "MambaSpec",
+            "block_size": 528,
+            "layer_count": 8
+          },
+          {
+            "id": 3,
+            "spec": "FullAttentionSpec",
+            "block_size": 528,
+            "layer_count": 8
+          }
+        ],
+        "relative_ns": 14600354637
+      }
+    ]
+  },
+  "hash_removals_during_allocation": {
+    "stock": 0,
+    "reuse2": 0
+  },
+  "output_hash_mismatches": 0,
+  "interpretation": "each length has an isolated cache salt; full-attention alignment reference is block geometry, not a measured full-attention model or proof of a bug; no performance claim"
+}

@@ -1,0 +1,118 @@
+[
+  {
+    "diagnostic": "boundary-stock",
+    "exit_code": 0
+  },
+  {
+    "diagnostic": "boundary-reuse2",
+    "exit_code": 0
+  },
+  {
+    "diagnostic": "pressure-moderate_pressure",
+    "exit_code": 0
+  },
+  {
+    "diagnostic": "pressure-roomy",
+    "exit_code": 0
+  },
+  {
+    "index": 0,
+    "exit_code": 0
+  },
+  {
+    "index": 1,
+    "exit_code": 0
+  },
+  {
+    "index": 2,
+    "exit_code": 0
+  },
+  {
+    "index": 3,
+    "exit_code": 0
+  },
+  {
+    "index": 4,
+    "exit_code": 0
+  },
+  {
+    "index": 5,
+    "exit_code": 0
+  },
+  {
+    "index": 6,
+    "exit_code": 0
+  },
+  {
+    "index": 7,
+    "exit_code": 0
+  },
+  {
+    "index": 8,
+    "exit_code": 0
+  },
+  {
+    "index": 9,
+    "exit_code": 0
+  },
+  {
+    "index": 10,
+    "exit_code": 0
+  },
+  {
+    "index": 11,
+    "exit_code": 0
+  },
+  {
+    "index": 12,
+    "exit_code": 0
+  },
+  {
+    "index": 13,
+    "exit_code": 0
+  },
+  {
+    "index": 14,
+    "exit_code": 0
+  },
+  {
+    "index": 15,
+    "exit_code": 0
+  },
+  {
+    "index": 16,
+    "exit_code": 0
+  },
+  {
+    "index": 17,
+    "exit_code": 0
+  },
+  {
+    "index": 18,
+    "exit_code": 0
+  },
+  {
+    "index": 19,
+    "exit_code": 0
+  },
+  {
+    "index": 20,
+    "exit_code": 0
+  },
+  {
+    "index": 21,
+    "exit_code": 0
+  },
+  {
+    "index": 22,
+    "exit_code": 0
+  },
+  {
+    "index": 23,
+    "exit_code": 0
+  },
+  {
+    "index": 24,
+    "exit_code": 0
+  }
+]

@@ -1,0 +1,4005 @@
+{
+  "status": "completed",
+  "mode": "formal",
+  "policy": "stock",
+  "settings": {
+    "native_cache_options": {
+      "mamba_cache_mode": "align",
+      "prefix_cache_retention_interval": 0
+    },
+    "enforce_eager": false,
+    "request_rate": 4.0,
+    "concurrency": 8,
+    "kv_cache_memory_bytes": 3221225472,
+    "workload_variant": "shared"
+  },
+  "model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "model_verification": {
+    "repo_id": "Qwen/Qwen3.5-9B",
+    "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+    "metadata_only": false,
+    "verified_files": [
+      {
+        "path": "chat_template.jinja",
+        "size_bytes": 7756,
+        "sha256": "a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715"
+      },
+      {
+        "path": "config.json",
+        "size_bytes": 3126,
+        "sha256": "d0883072e01861ed0b2d47be3c16c36a8e81c224c7ffaa310c6558fb3f932b05"
+      },
+      {
+        "path": "merges.txt",
+        "size_bytes": 3353259,
+        "sha256": "a9d356d7bdf1ef4949e3e748e95b8e10ad9d4e2e838eddc38a0a7b6b94d1db8d"
+      },
+      {
+        "path": "model.safetensors-00001-of-00004.safetensors",
+        "size_bytes": 5276436216,
+        "sha256": "db6f444b43d318c92f360a13a25561a6a65b10c0631b8ed305a426dbaa6c380e"
+      },
+      {
+        "path": "model.safetensors-00002-of-00004.safetensors",
+        "size_bytes": 5335161512,
+        "sha256": "31c7d7e2dd5d207840b31cc59083c8f4c4718959149e0358c0364052bb9a0330"
+      },
+      {
+        "path": "model.safetensors-00003-of-00004.safetensors",
+        "size_bytes": 5368717440,
+        "sha256": "7ec36ba3a4176a44c3c0876ad80c56a2f70c84bf008d82e9501df642f17dadec"
+      },
+      {
+        "path": "model.safetensors-00004-of-00004.safetensors",
+        "size_bytes": 3325995712,
+        "sha256": "b62b0c4cd7e44edee103ee8f4fe225f246d5e768e07bfd5f25b63a8aa1fdd0c6"
+      },
+      {
+        "path": "model.safetensors.index.json",
+        "size_bytes": 79657,
+        "sha256": "26d3539b516be613f39563617cb9d33b3f83d401298125be392c80cefb8f7fe5"
+      },
+      {
+        "path": "tokenizer.json",
+        "size_bytes": 12807982,
+        "sha256": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42"
+      },
+      {
+        "path": "tokenizer_config.json",
+        "size_bytes": 16710,
+        "sha256": "316230d6a809701f4db5ea8f8fc862bc3a6f3229c937c174e674ff3ca0a64ac8"
+      },
+      {
+        "path": "vocab.json",
+        "size_bytes": 6722759,
+        "sha256": "ce99b4cb2983d118806ce0a8b777a35b093e2000a503ebde25853284c9dfa003"
+      }
+    ],
+    "verification_mode": "reused full hash verification; file fingerprints unchanged"
+  },
+  "protocol_sha256": "179d9d8f6826e4a0899c40ca12173f882d2afbdbb8fc7aa015a4f3773028d2a6",
+  "request_file_sha256": "d882da462d061460acc0368127d608ddadeba5b2221afd702c07d03967f720a9",
+  "request_count": 512,
+  "environment_overrides": {
+    "VLLM_USE_V2_MODEL_RUNNER": "0",
+    "VLLM_USE_FLASHINFER_SAMPLER": "0",
+    "VLLM_WORKER_MULTIPROC_METHOD": "spawn",
+    "VLLM_SERVER_DEV_MODE": "1"
+  },
+  "owned_server_stopped": true,
+  "client_summary": {
+    "request_count": 512,
+    "success_count": 512,
+    "error_count": 0,
+    "duration_s": 387.0407117595896,
+    "request_rate": 4.0,
+    "concurrency_limit": 8,
+    "peak_client_active": 8,
+    "max_server_running": 8.0,
+    "max_server_waiting": 4.0,
+    "server_activity_metrics_available": true,
+    "server_activity_samples": [
+      {
+        "offset_s": 0.01378091424703598,
+        "num_requests_running": 0.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 0.5251513151451945,
+        "num_requests_running": 1.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 1.039222877472639,
+        "num_requests_running": 2.0,
+        "num_requests_waiting": 3.0
+      },
+      {
+        "offset_s": 1.5524946562945843,
+        "num_requests_running": 4.0,
+        "num_requests_waiting": 4.0
+      },
+      {
+        "offset_s": 2.066641033627093,
+        "num_requests_running": 5.0,
+        "num_requests_waiting": 3.0
+      },
+      {
+        "offset_s": 2.5848342357203364,
+        "num_requests_running": 5.0,
+        "num_requests_waiting": 3.0
+      },
+      {
+        "offset_s": 3.1027973080053926,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 3.631863249465823,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 4.152326093055308,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 4.672537833452225,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 5.1927672969177365,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 5.713438020087779,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 6.225131966173649,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 6.743004120886326,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 7.261134589090943,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 7.778873744420707,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 8.298085618764162,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 8.816141841001809,
+        "num_requests_running": 5.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 9.33399868849665,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 9.85216711089015,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 10.370540952309966,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 10.889524433761835,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 11.408651390112936,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 11.926443577744067,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 12.444827786646783,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 12.963692196644843,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 13.485759272240102,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 14.006878605112433,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 14.524688645265996,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 15.045287211425602,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 15.563442142680287,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 16.082157312892377,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 16.593794755637646,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 17.113161674700677,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 17.631628797389567,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 18.150005179457366,
+        "num_requests_running": 5.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 18.668884307146072,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 19.197956557385623,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 19.715929312631488,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 20.233978564850986,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 20.752897291444242,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 21.270748486742377,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 21.789171203039587,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 22.307028364390135,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 22.827391592785716,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 23.347586527466774,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 23.868369263596833,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 24.387926230207086,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 24.90706050209701,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 25.432082642801106,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 25.956524276174605,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 26.474612181074917,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 26.9839275078848,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 27.50624847691506,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 28.02737081795931,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 28.547279636375606,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 29.066423105075955,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 29.58893868420273,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 30.109916588291526,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 30.628447416238487,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 31.14684263896197,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 31.665552073158324,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 32.18518377933651,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 32.70381994638592,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 33.222307531163096,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 33.74360910151154,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 34.26521010603756,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 34.78631058894098,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 35.307185465469956,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 35.8270019441843,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 36.34794622287154,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 36.86840843874961,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 37.38778777606785,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 37.90604013390839,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 38.42485156096518,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 38.944611163809896,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 39.46318962890655,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 39.98154786415398,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 40.50214813742787,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 41.02249937597662,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 41.54047800228,
+        "num_requests_running": 5.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 42.05943610984832,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 42.578275956213474,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 43.09617572464049,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 43.618349727243185,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 44.1370534254238,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 44.65900192782283,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 45.18086070008576,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 45.70015336200595,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 46.20871985889971,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 46.72128279320896,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 47.229966879822314,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 47.74863593094051,
+        "num_requests_running": 5.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 48.2664956683293,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 48.78601450100541,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 49.30363334249705,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 49.82722169812769,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 50.354914581403136,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 50.873732628300786,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 51.39443508721888,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 51.912229895591736,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 52.43211394548416,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 52.95431112498045,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 53.47288264520466,
+        "num_requests_running": 5.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 53.99170224927366,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 54.51233168039471,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 55.03241521399468,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 55.5507704410702,
+        "num_requests_running": 4.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 56.06966313626617,
+        "num_requests_running": 5.0,
+        "num_requests_waiting": 3.0
+      },
+      {
+        "offset_s": 56.58804025501013,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 57.106065885163844,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 57.62368920072913,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 58.14149355888367,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 58.66123021021485,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 59.18156869802624,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 59.70039435569197,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 60.21879838127643,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 60.7376596480608,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 61.25456084497273,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 61.77225794643164,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 62.290831740014255,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 62.809463885612786,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 63.33006322849542,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 63.85065175406635,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 64.37096886336803,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 64.89027915149927,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 65.4094369970262,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 65.9277603616938,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 66.44615175761282,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 66.96446341183037,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 67.48294469341636,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 68.00095336418599,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 68.51926792040467,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 69.03792792465538,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 69.55688517726958,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 70.07624192722142,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 70.5943772494793,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 71.11137043684721,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 71.62783926073462,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 72.14571805484593,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 72.66387553047389,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 73.18308343458921,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 73.70092186704278,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 74.21828990243375,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 74.73651358298957,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 75.25552018918097,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 75.77555122226477,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 76.29388634674251,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 76.8145217038691,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 77.33556486666203,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 77.8564936760813,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 78.37798260524869,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 78.89649299625307,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 79.41578684467822,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 79.93550755642354,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 80.45776714291424,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 80.97580826096237,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 81.49444972071797,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 82.01471792347729,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 82.532505299896,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 83.04938346147537,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 83.56885214708745,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 84.08772041648626,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 84.60572541411966,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 85.12173577677459,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 85.6386574106291,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 86.15639640111476,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 86.67504728771746,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 87.19389014225453,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 87.71487375162542,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 88.2341567883268,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 88.75405504181981,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 89.27127232309431,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 89.79112031590194,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 90.3164206109941,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 90.84104376100004,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 91.355957724154,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 91.87363377865404,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 92.39516266901046,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 92.91722202114761,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 93.43892371002585,
+        "num_requests_running": 5.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 93.96841190941632,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 94.48328783735633,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 95.00154002849013,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 95.52007044292986,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 96.04185675363988,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 96.56228939909488,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 97.08236921112984,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 97.60127253364772,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 98.1191036850214,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 98.63434113748372,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 99.14947749301791,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 99.66606484726071,
+        "num_requests_running": 5.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 100.18603905662894,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 100.7048460682854,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 101.2230457784608,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 101.74294793326408,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 102.2604212211445,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 102.77899171877652,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 103.30172445997596,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 103.82375997211784,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 104.33872070163488,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 104.85562680382282,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 105.37226762250066,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 105.8855098253116,
+        "num_requests_running": 5.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 106.399238768965,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 106.91715231444687,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 107.43538484722376,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 107.95583632588387,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 108.48056837916374,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 109.00552381295711,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 109.52169646229595,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 110.04029694013298,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 110.56432809866965,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 111.09089931007475,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 111.60873804334551,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 112.12544823251665,
+        "num_requests_running": 5.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 112.64404966775328,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 113.16074051614851,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 113.6809900496155,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 114.19904137495905,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 114.71617347747087,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 115.2357330871746,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 115.74561669770628,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 116.25431747827679,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 116.7643859218806,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 117.27811095770448,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 117.7900735847652,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 118.301897902973,
+        "num_requests_running": 5.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 118.8138771019876,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 119.32504719868302,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 119.83763272035867,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 120.34566039312631,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 120.85408947896212,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 121.36112291738391,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 121.87302017118782,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 122.38427190389484,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 122.89781716559082,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 123.40989435371011,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 123.92151274811476,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 124.43292133975774,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 124.94116979278624,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 125.45022269431502,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 125.95758622605354,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 126.46526160929352,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 126.97598716244102,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 127.48983870539814,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 128.00239493325353,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 128.5152594940737,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 129.0292500909418,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 129.5399818867445,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 130.04903126880527,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 130.55812270287424,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 131.06780326087028,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 131.5790197988972,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 132.0911236796528,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 132.60280157160014,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 133.11540936678648,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 133.62771721743047,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 134.13780202064663,
+        "num_requests_running": 5.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 134.64677632041276,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 135.15394698176533,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 135.66345627605915,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 136.17431136220694,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 136.68706117663532,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 137.1997018614784,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 137.71227269805968,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 138.22395618259907,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 138.735724424012,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 139.24420832749456,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 139.75328228529543,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 140.26161002926528,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 140.7729436000809,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 141.29122935421765,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 141.801826313138,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 142.31931592151523,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 142.83023833483458,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 143.33897123578936,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 143.8469740562141,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 144.35532797686756,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 144.862791582942,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 145.37518172804266,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 145.88635618891567,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 146.39843679126352,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 146.91994668822736,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 147.4318971922621,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 147.9416322549805,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 148.45118912309408,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 148.9604357946664,
+        "num_requests_running": 5.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 149.4845865489915,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 149.9985960163176,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 150.51139120478183,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 151.02194349002093,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 151.5324679510668,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 152.0403176229447,
+        "num_requests_running": 5.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 152.54796216171235,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 153.05562038719654,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 153.56270399410278,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 154.072929315269,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 154.59427871461958,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 155.1050725588575,
+        "num_requests_running": 5.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 155.6162988524884,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 156.12687197048217,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 156.63723322283477,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 157.14744369965047,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 157.6563118007034,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 158.16452149674296,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 158.67505059577525,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 159.18555857427418,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 159.6972282687202,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 160.20853318460286,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 160.71996494475752,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 161.22991996631026,
+        "num_requests_running": 5.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 161.73973754234612,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 162.24718390777707,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 162.75729547534138,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 163.26870254334062,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 163.78126643784344,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 164.291838333942,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 164.8027491653338,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 165.31431762035936,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 165.82613104302436,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 166.33954782504588,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 166.84921110235155,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 167.3581997314468,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 167.8671479197219,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 168.37909474689513,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 168.89321820624173,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 169.4053724631667,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 169.91697409190238,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 170.42830149363726,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 170.93904760293663,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 171.4475253811106,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 171.95629896316677,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 172.4652727311477,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 172.9775096559897,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 173.4882865054533,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 173.99945577140898,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 174.51139488536865,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 175.02219735644758,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 175.53328411467373,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 176.04273195564747,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 176.55129448045045,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 177.06007892731577,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 177.5689730066806,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 178.08014378882945,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 178.59163800626993,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 179.10395553987473,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 179.6163334371522,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 180.1287228614092,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 180.6399985924363,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 181.148735743016,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 181.65849361941218,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 182.1690996903926,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 182.6806530430913,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 183.19189391471446,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 183.70371943619102,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 184.21500517148525,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 184.72692328318954,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 185.23800195287913,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 185.7471111258492,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 186.2553882189095,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 186.76543979439884,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 187.27739902492613,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 187.79209814965725,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 188.3032934172079,
+        "num_requests_running": 5.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 188.8145095864311,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 189.3266112888232,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 189.84221369959414,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 190.351233699359,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 190.85985420830548,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 191.37086321413517,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 191.89195476006716,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 192.41260000225157,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 192.93369622994214,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 193.45404175668955,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 193.97199158463627,
+        "num_requests_running": 5.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 194.49118835106492,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 195.00960216484964,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 195.53719490207732,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 196.05685649625957,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 196.5788180977106,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 197.10127928294241,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 197.6207566652447,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 198.1394027331844,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 198.65692175086588,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 199.17733789328486,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 199.69581069983542,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 200.21412741951644,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 200.73433345276862,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 201.2543016821146,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 201.76206312701106,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 202.2723977668211,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 202.78285646345466,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 203.29371724370867,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 203.80475452542305,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 204.31543731875718,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 204.82704262342304,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 205.33676657360047,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 205.84421887993813,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 206.35177767649293,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 206.85920419637114,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 207.36815289687365,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 207.8790355231613,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 208.39004800189286,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 208.9004074698314,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 209.4118265332654,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 209.92196555715054,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 210.4334812387824,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 210.94046587403864,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 211.4475694457069,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 211.95520160812885,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 212.46354245766997,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 212.97520959284157,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 213.48668223246932,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 213.99786600843072,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 214.50917919445783,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 215.020458297804,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 215.5333134792745,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 216.04458343889564,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 216.55364728718996,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 217.0628145020455,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 217.57632000092417,
+        "num_requests_running": 5.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 218.08924904745072,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 218.60186823643744,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 219.11422164551914,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 219.62608113512397,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 220.13767643086612,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 220.64959757309407,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 221.15996061917394,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 221.66931150387973,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 222.1807903861627,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 222.69132636580616,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 223.20201879460365,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 223.71441055368632,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 224.22625770047307,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 224.73791472706944,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 225.24624397233129,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 225.75426388531923,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 226.26248765084893,
+        "num_requests_running": 5.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 226.77391116600484,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 227.28526977729052,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 227.79667228180915,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 228.30793268978596,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 228.82051097601652,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 229.3314487496391,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 229.84078015387058,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 230.34920294582844,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 230.85800612159073,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 231.3666984559968,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 231.8776563424617,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 232.3896958604455,
+        "num_requests_running": 5.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 232.90228068549186,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 233.41355321742594,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 233.92497731465846,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 234.4383374163881,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 234.9468629984185,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 235.4564219582826,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 235.96493573579937,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 236.476243134588,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 236.9872246980667,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 237.4974461812526,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 238.00842606648803,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 238.52672262862325,
+        "num_requests_running": 5.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 239.03782300651073,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 239.54636173229665,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 240.05519368778914,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 240.5639348104596,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 241.0755196157843,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 241.58851317223161,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 242.10049289744347,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 242.61225273646414,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 243.1240093735978,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 243.6447774572298,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 244.16921407170594,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 244.6871930444613,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 245.20583865884691,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 245.7284138277173,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 246.24639932159334,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 246.76678195316344,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 247.287140481174,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 247.8105796519667,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 248.33981850929558,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 248.85903522837907,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 249.3768715430051,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 249.90283101703972,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 250.42819227743894,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 250.95861641317606,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 251.47781452536583,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 251.9966353531927,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 252.5059475088492,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 253.02693375293165,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 253.54686443693936,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 254.05769441090524,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 254.56773459538817,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 255.07825829926878,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 255.58925039414316,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 256.1009405013174,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 256.6129440376535,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 257.12563513219357,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 257.63939218223095,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 258.147881468758,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 258.65734530519694,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 259.16745424829423,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 259.67858046945184,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 260.1900930115953,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 260.70071313530207,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 261.21169280447066,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 261.72184820845723,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 262.23247294314206,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 262.7402372295037,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 263.24815611727536,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 263.75684335269034,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 264.268103425391,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 264.7790213720873,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 265.29158248659223,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 265.80350592546165,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 266.3142775828019,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 266.82565063703805,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 267.33594516292214,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 267.8459676010534,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 268.35398021619767,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 268.86205220688134,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 269.3763236263767,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 269.8882785728201,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 270.40064653381705,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 270.91153402626514,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 271.4213628442958,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 271.9323595203459,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 272.4417027104646,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 272.9492331780493,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 273.45608014333993,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 273.9632235635072,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 274.4737362470478,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 274.98439360875636,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 275.49565228261054,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 276.00566387176514,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 276.5156682776287,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 277.0257690809667,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 277.53440198581666,
+        "num_requests_running": 5.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 278.0427155280486,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 278.56036272551864,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 279.07911160588264,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 279.59784357529134,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 280.116508201696,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 280.6411629477516,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 281.16190616134554,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 281.680687607266,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 282.1999981040135,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 282.71213232632726,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 283.22393628489226,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 283.73532442189753,
+        "num_requests_running": 5.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 284.243802761659,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 284.75390895828605,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 285.2632850911468,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 285.77506452519447,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 286.28643875196576,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 286.79789466410875,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 287.3090024953708,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 287.8201936101541,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 288.3326892051846,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 288.84234845545143,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 289.353111255914,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 289.8646781332791,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 290.37634614575654,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 290.88979324139655,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 291.4007010916248,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 291.9112312588841,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 292.4224518481642,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 292.9355795048177,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 293.4452839884907,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 293.9549966836348,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 294.46451035514474,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 294.97572532482445,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 295.4872527094558,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 295.99889392219484,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 296.5099668363109,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 297.02189871575683,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 297.53205381706357,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 298.0421601869166,
+        "num_requests_running": 5.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 298.55195333343,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 299.0715060951188,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 299.5843551326543,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 300.09615321084857,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 300.60734413191676,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 301.12045106105506,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 301.63872124813497,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 302.1561911823228,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 302.67584523465484,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 303.19702285993844,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 303.71538555715233,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 304.23634799569845,
+        "num_requests_running": 5.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 304.7550657140091,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 305.27934862859547,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 305.7968982961029,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 306.31189628038555,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 306.8273745076731,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 307.3453219141811,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 307.85969619173557,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 308.37906717322767,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 308.89561283029616,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 309.4147860687226,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 309.9332255590707,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 310.4492486519739,
+        "num_requests_running": 5.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 310.96717517543584,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 311.492400739342,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 312.0122230509296,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 312.53369095362723,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 313.05214965250343,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 313.5700457971543,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 314.0884048026055,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 314.61070827394724,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 315.1292927823961,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 315.64782070275396,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 316.166028149426,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 316.68422719091177,
+        "num_requests_running": 5.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 317.2103859204799,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 317.718892224133,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 318.2400083700195,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 318.76096928678453,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 319.2809137403965,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 319.7988854544237,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 320.3167635342106,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 320.83544370997697,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 321.35463176947087,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 321.87283303402364,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 322.3918246254325,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 322.91150528378785,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 323.4312299285084,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 323.9493168173358,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 324.4671685276553,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 324.98852444346994,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 325.5068719862029,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 326.025010635145,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 326.5437866244465,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 327.06291616894305,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 327.5812180871144,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 328.0991998882964,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 328.6290796082467,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 329.14872939512134,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 329.66678990703076,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 330.18761139921844,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 330.70889462996274,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 331.22937253676355,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 331.74748916924,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 332.2658150214702,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 332.7842954713851,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 333.3026663158089,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 333.8211154816672,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 334.3391398433596,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 334.8590851984918,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 335.37733602151275,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 335.89758270792663,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 336.4183824220672,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 336.9377056937665,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 337.45727089140564,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 337.97544431779534,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 338.4940178291872,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 339.01338777225465,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 339.52690118085593,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 340.03962825238705,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 340.5543049322441,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 341.0685616862029,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 341.58264457061887,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 342.10842610895634,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 342.63404499925673,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 343.16089681722224,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 343.68597305659205,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 344.19911327864975,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 344.7125050537288,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 345.23028934933245,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 345.7430105069652,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 346.2574153477326,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 346.7712596161291,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 347.2845529578626,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 347.80805938784033,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 348.3322571031749,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 348.85343189537525,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 349.3795952592045,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 349.89361379109323,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 350.4071404468268,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 350.9331032792106,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 351.44615113083273,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 351.9594518598169,
+        "num_requests_running": 5.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 352.47309799678624,
+        "num_requests_running": 5.0,
+        "num_requests_waiting": 3.0
+      },
+      {
+        "offset_s": 352.9859457248822,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 353.4988098423928,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 354.0170270623639,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 354.53578993771225,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 355.0557925971225,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 355.5767589053139,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 356.0960976295173,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 356.61500120535493,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 357.13441488705575,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 357.6532728364691,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 358.1721496777609,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 358.6901292083785,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 359.2085092132911,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 359.72757784835994,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 360.2473932188004,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 360.7654016362503,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 361.2859955932945,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 361.8041835911572,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 362.3222515825182,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 362.84131694119424,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 363.3613252863288,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 363.8804015442729,
+        "num_requests_running": 4.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 364.39889866672456,
+        "num_requests_running": 5.0,
+        "num_requests_waiting": 3.0
+      },
+      {
+        "offset_s": 364.9173224521801,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 365.43601661361754,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 365.95838496275246,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 366.47798581048846,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 366.9967702832073,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 367.51596865803003,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 368.03587781637907,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 368.55500233825296,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 369.075880613178,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 369.59666100516915,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 370.11644210573286,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 370.6338982237503,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 371.15219768323004,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 371.6721293143928,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 372.1899820100516,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 372.7086089234799,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 373.22727195639163,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 373.74800459016114,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 374.2662516850978,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 374.78500284347683,
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 1.0
+      },
+      {
+        "offset_s": 375.3040440380573,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 375.82199998013675,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 376.3402095576748,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 376.8585935132578,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 377.396194065921,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 377.91492598317564,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 378.43488488625735,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 378.95448804367334,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 379.4763364419341,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 379.99450355768204,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 380.52876730263233,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 381.0473639210686,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 381.56582162808627,
+        "num_requests_running": 6.0,
+        "num_requests_waiting": 2.0
+      },
+      {
+        "offset_s": 382.0842443658039,
+        "num_requests_running": 5.0,
+        "num_requests_waiting": 3.0
+      },
+      {
+        "offset_s": 382.6028479197994,
+        "num_requests_running": 5.0,
+        "num_requests_waiting": 3.0
+      },
+      {
+        "offset_s": 383.12142182607204,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 383.6410728218034,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 384.16160548105836,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 384.6714643770829,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 385.18450483493507,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 385.70550014823675,
+        "num_requests_running": 8.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 386.22456214390695,
+        "num_requests_running": 5.0,
+        "num_requests_waiting": 0.0
+      },
+      {
+        "offset_s": 386.74377684108913,
+        "num_requests_running": 4.0,
+        "num_requests_waiting": 0.0
+      }
+    ],
+    "output_tokens_per_s": 169.32585645074903,
+    "throughput_note": "achieved throughput at this arrival rate; not maximum serving capacity",
+    "timing_note": "TTFT = first streamed token-ID chunk minus send; TPOT = first-to-last token-ID chunk interval / (N-1)",
+    "percentile_definition": "sorted[floor(p*(n-1))]",
+    "metrics_before": {
+      "status": "ok",
+      "lines": [
+        "vllm:num_requests_running{engine=\"0\",model_name=\"thesis-9b\"} 0.0",
+        "vllm:num_requests_waiting{engine=\"0\",model_name=\"thesis-9b\"} 0.0",
+        "vllm:num_requests_waiting_by_reason{engine=\"0\",model_name=\"thesis-9b\",reason=\"capacity\"} 0.0",
+        "vllm:num_requests_waiting_by_reason{engine=\"0\",model_name=\"thesis-9b\",reason=\"deferred\"} 0.0",
+        "vllm:kv_cache_usage_perc{engine=\"0\",model_name=\"thesis-9b\"} 0.0",
+        "vllm:prefix_cache_queries_total{engine=\"0\",model_name=\"thesis-9b\"} 8298.0",
+        "vllm:prefix_cache_queries_created{engine=\"0\",model_name=\"thesis-9b\"} 1.7909404685258262e+09",
+        "vllm:prefix_cache_hits_total{engine=\"0\",model_name=\"thesis-9b\"} 0.0",
+        "vllm:prefix_cache_hits_created{engine=\"0\",model_name=\"thesis-9b\"} 1.7909404685258596e+09",
+        "vllm:external_prefix_cache_queries_total{engine=\"0\",model_name=\"thesis-9b\"} 0.0",
+        "vllm:external_prefix_cache_queries_created{engine=\"0\",model_name=\"thesis-9b\"} 1.7909404685258904e+09",
+        "vllm:external_prefix_cache_hits_total{engine=\"0\",model_name=\"thesis-9b\"} 0.0",
+        "vllm:external_prefix_cache_hits_created{engine=\"0\",model_name=\"thesis-9b\"} 1.7909404685259235e+09",
+        "vllm:num_preemptions_total{engine=\"0\",model_name=\"thesis-9b\"} 0.0",
+        "vllm:num_preemptions_created{engine=\"0\",model_name=\"thesis-9b\"} 1.790940468526014e+09",
+        "vllm:request_num_preemptions_bucket{engine=\"0\",le=\"1.0\",model_name=\"thesis-9b\"} 2.0",
+        "vllm:request_num_preemptions_bucket{engine=\"0\",le=\"2.0\",model_name=\"thesis-9b\"} 2.0",
+        "vllm:request_num_preemptions_bucket{engine=\"0\",le=\"3.0\",model_name=\"thesis-9b\"} 2.0",
+        "vllm:request_num_preemptions_bucket{engine=\"0\",le=\"4.0\",model_name=\"thesis-9b\"} 2.0",
+        "vllm:request_num_preemptions_bucket{engine=\"0\",le=\"5.0\",model_name=\"thesis-9b\"} 2.0",
+        "vllm:request_num_preemptions_bucket{engine=\"0\",le=\"10.0\",model_name=\"thesis-9b\"} 2.0",
+        "vllm:request_num_preemptions_bucket{engine=\"0\",le=\"20.0\",model_name=\"thesis-9b\"} 2.0",
+        "vllm:request_num_preemptions_bucket{engine=\"0\",le=\"+Inf\",model_name=\"thesis-9b\"} 2.0",
+        "vllm:request_num_preemptions_count{engine=\"0\",model_name=\"thesis-9b\"} 2.0",
+        "vllm:request_num_preemptions_sum{engine=\"0\",model_name=\"thesis-9b\"} 0.0",
+        "vllm:request_num_preemptions_created{engine=\"0\",model_name=\"thesis-9b\"} 1.790940468527879e+09",
+        "vllm:cache_config_info{_block_size_resolved=\"True\",block_size=\"528\",cache_dtype=\"auto\",enable_mamba_fine_grained_prefix_cache=\"False\",enable_prefix_caching=\"True\",engine=\"0\",gpu_memory_utilization=\"0.9\",is_attention_free=\"False\",kv_cache_dtype_skip_layers=\"[]\",kv_cache_layout=\"None\",kv_cache_max_concurrency=\"8.454545454545455\",kv_cache_memory_bytes=\"3221225472\",kv_cache_size_tokens=\"69259\",kv_offloading_backend=\"native\",kv_offloading_size=\"None\",kv_sharing_fast_prefill=\"False\",mamba_block_size=\"528\",mamba_cache_dtype=\"auto\",mamba_cache_mode=\"align\",mamba_page_size_padded=\"None\",mamba_ssm_cache_dtype=\"float32\",num_cpu_blocks=\"None\",num_gpu_blocks=\"186\",num_gpu_blocks_override=\"None\",prefix_cache_retention_interval=\"0\",prefix_caching_hash_algo=\"sha256\",prefix_match_unit=\"None\",replayssm_buffer_len=\"16\",skip_page_size_padded=\"None\",sliding_window=\"None\",use_kda_recoverssm=\"False\",use_replayssm=\"False\",user_specified_block_size=\"False\",user_specified_mamba_block_size=\"False\"} 1.0"
+      ]
+    },
+    "metrics_after": {
+      "status": "ok",
+      "lines": [
+        "vllm:num_requests_running{engine=\"0\",model_name=\"thesis-9b\"} 0.0",
+        "vllm:num_requests_waiting{engine=\"0\",model_name=\"thesis-9b\"} 0.0",
+        "vllm:num_requests_waiting_by_reason{engine=\"0\",model_name=\"thesis-9b\",reason=\"capacity\"} 0.0",
+        "vllm:num_requests_waiting_by_reason{engine=\"0\",model_name=\"thesis-9b\",reason=\"deferred\"} 0.0",
+        "vllm:kv_cache_usage_perc{engine=\"0\",model_name=\"thesis-9b\"} 0.0",
+        "vllm:prefix_cache_queries_total{engine=\"0\",model_name=\"thesis-9b\"} 2.133718e+06",
+        "vllm:prefix_cache_queries_created{engine=\"0\",model_name=\"thesis-9b\"} 1.7909404685258262e+09",
+        "vllm:prefix_cache_hits_total{engine=\"0\",model_name=\"thesis-9b\"} 1.020096e+06",
+        "vllm:prefix_cache_hits_created{engine=\"0\",model_name=\"thesis-9b\"} 1.7909404685258596e+09",
+        "vllm:external_prefix_cache_queries_total{engine=\"0\",model_name=\"thesis-9b\"} 0.0",
+        "vllm:external_prefix_cache_queries_created{engine=\"0\",model_name=\"thesis-9b\"} 1.7909404685258904e+09",
+        "vllm:external_prefix_cache_hits_total{engine=\"0\",model_name=\"thesis-9b\"} 0.0",
+        "vllm:external_prefix_cache_hits_created{engine=\"0\",model_name=\"thesis-9b\"} 1.7909404685259235e+09",
+        "vllm:num_preemptions_total{engine=\"0\",model_name=\"thesis-9b\"} 0.0",
+        "vllm:num_preemptions_created{engine=\"0\",model_name=\"thesis-9b\"} 1.790940468526014e+09",
+        "vllm:request_num_preemptions_bucket{engine=\"0\",le=\"1.0\",model_name=\"thesis-9b\"} 514.0",
+        "vllm:request_num_preemptions_bucket{engine=\"0\",le=\"2.0\",model_name=\"thesis-9b\"} 514.0",
+        "vllm:request_num_preemptions_bucket{engine=\"0\",le=\"3.0\",model_name=\"thesis-9b\"} 514.0",
+        "vllm:request_num_preemptions_bucket{engine=\"0\",le=\"4.0\",model_name=\"thesis-9b\"} 514.0",
+        "vllm:request_num_preemptions_bucket{engine=\"0\",le=\"5.0\",model_name=\"thesis-9b\"} 514.0",
+        "vllm:request_num_preemptions_bucket{engine=\"0\",le=\"10.0\",model_name=\"thesis-9b\"} 514.0",
+        "vllm:request_num_preemptions_bucket{engine=\"0\",le=\"20.0\",model_name=\"thesis-9b\"} 514.0",
+        "vllm:request_num_preemptions_bucket{engine=\"0\",le=\"+Inf\",model_name=\"thesis-9b\"} 514.0",
+        "vllm:request_num_preemptions_count{engine=\"0\",model_name=\"thesis-9b\"} 514.0",
+        "vllm:request_num_preemptions_sum{engine=\"0\",model_name=\"thesis-9b\"} 0.0",
+        "vllm:request_num_preemptions_created{engine=\"0\",model_name=\"thesis-9b\"} 1.790940468527879e+09",
+        "vllm:cache_config_info{_block_size_resolved=\"True\",block_size=\"528\",cache_dtype=\"auto\",enable_mamba_fine_grained_prefix_cache=\"False\",enable_prefix_caching=\"True\",engine=\"0\",gpu_memory_utilization=\"0.9\",is_attention_free=\"False\",kv_cache_dtype_skip_layers=\"[]\",kv_cache_layout=\"None\",kv_cache_max_concurrency=\"8.454545454545455\",kv_cache_memory_bytes=\"3221225472\",kv_cache_size_tokens=\"69259\",kv_offloading_backend=\"native\",kv_offloading_size=\"None\",kv_sharing_fast_prefill=\"False\",mamba_block_size=\"528\",mamba_cache_dtype=\"auto\",mamba_cache_mode=\"align\",mamba_page_size_padded=\"None\",mamba_ssm_cache_dtype=\"float32\",num_cpu_blocks=\"None\",num_gpu_blocks=\"186\",num_gpu_blocks_override=\"None\",prefix_cache_retention_interval=\"0\",prefix_caching_hash_algo=\"sha256\",prefix_match_unit=\"None\",replayssm_buffer_len=\"16\",skip_page_size_padded=\"None\",sliding_window=\"None\",use_kda_recoverssm=\"False\",use_replayssm=\"False\",user_specified_block_size=\"False\",user_specified_mamba_block_size=\"False\"} 1.0"
+      ]
+    },
+    "ttft_ms": {
+      "p50": 937.9670079797506,
+      "p95": 1866.0960402339697,
+      "p99": 1870.8935528993607
+    },
+    "tpot_ms": {
+      "p50": 39.98315887980339,
+      "p95": 41.6278587360903,
+      "p99": 42.14327478062684
+    },
+    "elapsed_ms": {
+      "p50": 6202.728272415698,
+      "p95": 6861.162059940398,
+      "p99": 6926.928644999862
+    },
+    "arrival_to_first_token_ms": {
+      "p50": 125653.92645432091,
+      "p95": 244247.93688323654,
+      "p99": 257046.0226021047
+    },
+    "client_wait_ms": {
+      "p50": 123955.81367984414,
+      "p95": 242815.32332114875,
+      "p99": 256102.44365688413
+    },
+    "cached_tokens": 1020096,
+    "input_tokens": 2125420
+  },
+  "boundary_probe": false,
+  "code_version": {
+    "base_commit": "1149ba34e160d4f33b9b080ed8c40ca4927f594c",
+    "working_tree_diff_sha256": null,
+    "note": "exact bundled source is identified by CHECKSUMS.json; base commit alone is not the artifact identity",
+    "source_sha256": {
+      "scripts/run_9b_online.py": "160e449b649cc25e5bd02e354c9fc081e0e2fc971b52b9315885e5fbd29f3217",
+      "server-kit/nineb-bootstrap/sitecustomize.py": "e706d83438eb039743763b88a16b4e97e84bb8e5a0a513a24904387ac2ea49ad",
+      "kv_cache_lab/hybrid_retention_prototype.py": "608b4d2e45c140ecfc3788cc8a8da60512710443b3a9adb7b23579a52239d908",
+      "kv_cache_lab/hybrid_observer.py": "5337ddb39d9e376ae07ed173767a7aeac84fb9a9bfb6ff915f2252048a6f3212",
+      "kv_cache_lab/events.py": "3ce6f9338bc759c26ff2abd64eff9205a91c07123a8438731357781d962d4a0d"
+    },
+    "execution_provenance_sha256": "cec6e2c7320a6c4ed0a50946f2830f6dc73fa89543060b96f8911c98a137a3cc"
+  },
+  "trace_diagnostic": false,
+  "generated_tokens_per_request": 128,
+  "startup_elapsed_s": 39.721829233691096,
+  "total_elapsed_s": 435.44182803854346,
+  "measurement_reset": {
+    "status": "confirmed",
+    "success": true,
+    "attempts": 1
+  },
+  "policy_measurement": {
+    "status": "available",
+    "engines": [
+      {
+        "engine_index": 0,
+        "status": "available",
+        "policy": "stock",
+        "diagnostics": {
+          "selection_calls": 0,
+          "selection_cpu_ns": 0,
+          "reordered_calls": 0,
+          "max_scanned_blocks": 0
+        }
+      }
+    ]
+  },
+  "runtime_profile": {
+    "versions": {
+      "vllm": "0.30.0",
+      "torch": "2.13.0",
+      "transformers": "5.17.0"
+    },
+    "gpu": {
+      "name": "NVIDIA GeForce RTX 4080 SUPER",
+      "memory_mib": 32760,
+      "driver": "595.71.05"
+    }
+  }
+}

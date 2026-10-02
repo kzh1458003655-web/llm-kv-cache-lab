@@ -1,0 +1,5 @@
+{
+  "files_scanned": 193,
+  "finding_count": 0,
+  "scope": "recursive JSON/JSONL scan for credential fields, private paths, machine UUID/PID and raw prompt/token arrays"
+}

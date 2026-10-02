@@ -3,3 +3,8 @@ data/public/** text eol=lf
 server-kit/*.sh text eol=lf
 server-kit/**/*.sh text eol=lf
 configs/*.json text eol=lf
+# Preserve the measured protocol/source bytes, including original line endings.
+data/public/nineb-opening-20261002/metadata/protocol.json -text
+data/public/nineb-opening-20261002/metadata/model-manifest.json -text
+data/public/nineb-opening-20261002/metadata/calibration-settings.json -text
+data/public/nineb-opening-20261002/source-snapshot/** -text

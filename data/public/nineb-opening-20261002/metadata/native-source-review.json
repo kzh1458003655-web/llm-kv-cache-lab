@@ -1,0 +1,18 @@
+{
+  "vllm": "0.30.0",
+  "source_files": {
+    "config/cache.py": "f1c226ba679c884930dbfcaf41a57248b137a9a20d3ed8e3d3b31752bb484c07",
+    "model_executor/models/qwen3_5.py": "3abeac36180df7bd1bd96b1a7c698a8f212d92c063026420cbdd16d1980e90e6",
+    "v1/worker/utils.py": "0ca3ec6bf4d20076145b7fe64e564962adebedc8f75a856b517ba0b2f2d77acf",
+    "entrypoints/launchers/api_server/routers.py": "c2f1bb2708f44f0fe24f3d8ab8f884c7262e551c6557ebc606263abc4d7b1db1"
+  },
+  "findings": {
+    "mamba_cache_mode_all": "Qwen3.5 model rejects all and requires align",
+    "fine_grained_checkpoint_flag": "only takes effect for align plus EAGLE on Mamba group; speculative decoding disabled in protocol",
+    "prefix_match_unit": "actual groups have block_size 528; 16 divides it and is tested against default 528",
+    "retention_default": 0,
+    "periodic_retention": "positive interval must be a multiple of scheduler block size; adds intermediate checkpoint storage",
+    "kv_allocation": "allocate_kv_cache asserts equal descriptor backing sizes and creates one shared torch buffer",
+    "reset_route": "registered only with VLLM_SERVER_DEV_MODE=1; both policies use localhost development routes"
+  }
+}

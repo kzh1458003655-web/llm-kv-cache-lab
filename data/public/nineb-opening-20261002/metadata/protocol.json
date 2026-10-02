@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-01",
+  "status": "model_revision_locked; local 9B kit prepared; GPU execution and online compatibility verification pending",
+  "main_model": {
+    "repository": "Qwen/Qwen3.5-9B",
+    "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+    "revision_source": "https://huggingface.co/api/models/Qwen/Qwen3.5-9B",
+    "language_model_only": true,
+    "dtype": "bfloat16",
+    "weight_quantization": null,
+    "weights_sha256_status": "record and verify exact downloaded files before execution"
+  },
+  "runtime": {
+    "vllm": "0.30.0",
+    "torch": "2.13.0",
+    "transformers": "5.17.0",
+    "max_model_len": 8192,
+    "max_num_seqs": 16,
+    "max_num_batched_tokens": 1024,
+    "enable_prefix_caching": true,
+    "initial_mamba_cache_mode": "align",
+    "speculative_decoding": false,
+    "cuda_graph_target": "native supported mode; validate at initial preflight and record actual mode",
+    "hardware_target": "single GPU with at least approximately 32 GiB visible VRAM",
+    "hardware_actual": null
+  },
+  "source": {
+    "repository": "bigainlco/LooGLE",
+    "revision": "4b50b4cb9333b48b3f7ddfd307c1d13369be5d1e",
+    "file": "shortdep_qa.jsonl",
+    "sha256": "8951521e8c8340a4e6aa5ffcb2e8f058cca154251915acf946e721fcf001e8c7",
+    "fresh_tokenization_required": true
+  },
+  "online_workload": {
+    "input_token_targets": [
+      2048,
+      4096
+    ],
+    "output_tokens": 128,
+    "temperature": 0,
+    "ignore_eos": true,
+    "client_concurrency_levels": [
+      8,
+      16
+    ],
+    "diagnostic_preflight_concurrency": 4,
+    "requests_per_measured_run": 512,
+    "arrival_distribution": "Poisson; save and replay the same arrival schedule per A/B pair",
+    "request_rate": null,
+    "request_rate_freeze_rule": "calibrate using stock only before formal runs; record rate and actual concurrency"
+  },
+  "cache_budget": {
+    "levels": [
+      "high_pressure",
+      "moderate_pressure",
+      "roomy"
+    ],
+    "bytes_per_level": null,
+    "freeze_rule": "choose feasible budgets from 9B measured cache groups and active-request requirements before formal A/B; preserve all calibration results",
+    "obsolete_0_8b_limits_not_reused": [
+      134217728,
+      268435456
+    ]
+  },
+  "comparisons": {
+    "original": "stock vLLM with supported native cache options checked",
+    "prototype": "reuse2 with max_scan=32 and reuse_threshold=2",
+    "independent_pairs_for_representative_configuration": 5,
+    "original_same_workload_independent_runs": 3,
+    "p95_definition": "sorted sample at floor(0.95*(n-1))",
+    "confirm_on_9b": [
+      "prefix-sharing lookup and checkpoint-boundary behavior",
+      "hot content plus one-time scan",
+      "mixed document popularity",
+      "roomy-cache control",
+      "cold-request and tail-latency overhead"
+    ],
+    "baseline_options_status": "check applicability and fix selected native options during initial calibration"
+  },
+  "historical_experiments": [
+    {
+      "date": "2026-09-27",
+      "model": "Qwen/Qwen3-1.7B",
+      "role": "earlier full-attention feasibility and two-class pilot; identified from local model card and config"
+    },
+    {
+      "date": "2026-09-30",
+      "model": "Qwen/Qwen3.5-0.8B",
+      "role": "hybrid prototype and server preliminary measurements",
+      "server_completed_runs": 19,
+      "server_successful_requests": 2432
+    }
+  ],
+  "execution": {
+    "previous_server": "shut down after verified result download on 2026-09-30",
+    "server_available": false,
+    "old_server_benchmark": "legacy serial 0.8B protocol; not an executable entry for this 9B online protocol",
+    "shutdown_after_download_and_verification": true
+  }
+}

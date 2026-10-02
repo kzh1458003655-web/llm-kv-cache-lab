@@ -1,0 +1,54 @@
+{
+  "mode": "serial_correctness_diagnostic",
+  "pairs": [
+    {
+      "comparison": "stock_repeat",
+      "request_count": 64,
+      "output_hash_mismatches": 0
+    },
+    {
+      "comparison": "stock_vs_reuse2",
+      "request_count": 64,
+      "output_hash_mismatches": 0
+    }
+  ],
+  "policy_measurement": {
+    "stock": {
+      "status": "available",
+      "engines": [
+        {
+          "engine_index": 0,
+          "status": "available",
+          "policy": "stock",
+          "diagnostics": {
+            "selection_calls": 0,
+            "selection_cpu_ns": 0,
+            "reordered_calls": 0,
+            "max_scanned_blocks": 0
+          }
+        }
+      ]
+    },
+    "reuse2": {
+      "status": "available",
+      "engines": [
+        {
+          "engine_index": 0,
+          "status": "available",
+          "policy": "reuse2",
+          "diagnostics": {
+            "selection_calls": 1324,
+            "selection_cpu_ns": 41362674,
+            "reordered_calls": 139,
+            "max_scanned_blocks": 32
+          }
+        }
+      ]
+    }
+  },
+  "cached_tokens": {
+    "stock": 129360,
+    "reuse2": 129360
+  },
+  "interpretation": "Controlled serial hash agreement does not establish online batch invariance or general correctness."
+}

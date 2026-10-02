@@ -1,0 +1,106 @@
+{
+  "status": "frozen",
+  "protocol_sha256": "179d9d8f6826e4a0899c40ca12173f882d2afbdbb8fc7aa015a4f3773028d2a6",
+  "runtime_profile": {
+    "versions": {
+      "vllm": "0.30.0",
+      "torch": "2.13.0",
+      "transformers": "5.17.0"
+    },
+    "gpu": {
+      "name": "NVIDIA GeForce RTX 4080 SUPER",
+      "memory_mib": 32760,
+      "driver": "595.71.05"
+    }
+  },
+  "model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "request_rate": 4.0,
+  "cache_budgets": {
+    "high_pressure": 1610612736,
+    "moderate_pressure": 3221225472,
+    "roomy": 8589934592
+  },
+  "native_cache_options": {
+    "mamba_cache_mode": "align",
+    "prefix_cache_retention_interval": 0
+  },
+  "enforce_eager": false,
+  "native_options_review": {
+    "source_review": "data/acquisition/native-source-review.json",
+    "comparison": "On this boot, 64-request default and prefix_match_unit=16 stock runs both cached 129360 tokens; duration 36.7674 vs 36.9573 seconds. Keep default; this is a bounded applicability check, not proof of a globally optimal baseline.",
+    "not_applicable": "mamba all mode rejected by Qwen3.5; fine-grained mamba cache needs speculative EAGLE, disabled in fixed protocol."
+  },
+  "rate_choice_reason": "4 requests/s reaches client 16 and server 16 on moderate/roomy, with sampled server queue up to 9. Use the same arrival sequence/rate for both policies; report client-side admission delay as well.",
+  "cache_pressure_evidence": {
+    "high_pressure": {
+      "request_count": 64,
+      "cached_tokens": 96096,
+      "input_tokens": 265662,
+      "num_blocks": 93,
+      "physical_bytes": 1609039872,
+      "running_max": 12.0,
+      "waiting_max": 10.0,
+      "duration_s": 64.3571313386783
+    },
+    "moderate_pressure": {
+      "request_count": 64,
+      "cached_tokens": 129360,
+      "input_tokens": 265662,
+      "num_blocks": 186,
+      "physical_bytes": 3218079744,
+      "running_max": 16.0,
+      "waiting_max": 9.0,
+      "duration_s": 36.76742541883141
+    },
+    "roomy": {
+      "request_count": 64,
+      "cached_tokens": 133056,
+      "input_tokens": 265662,
+      "num_blocks": 496,
+      "physical_bytes": 8581545984,
+      "running_max": 16.0,
+      "waiting_max": 9.0,
+      "duration_s": 36.21925043780357
+    }
+  },
+  "note": "All selected calibration runs are from the same current GPU UUID. Earlier boot runs are retained as diagnostics, excluded from the lock.",
+  "request_files": {
+    "hot_scan-ctx2048-rep0.jsonl": "63f37a8b762407cddf3da1149670ad5de9169400e92b09119e65054699f379a4",
+    "hot_scan-ctx2048-rep1.jsonl": "71662fa89a8d97704e46255c91c406586a263dc14c7dcafcb7a16849edb14ed0",
+    "hot_scan-ctx2048-rep2.jsonl": "b601abcec4993766dfab8330be9432daca869f43dbeff24698423965b35fcfe6",
+    "hot_scan-ctx2048-rep3.jsonl": "2e7fc748d76589e8b1a077df25e5f47ed657d24c521b4a7ddaa10e11fc31522b",
+    "hot_scan-ctx2048-rep4.jsonl": "90ad4edf6911c1759a3454e7fb6b743805585491226b54593ab7812aa32bfc88",
+    "hot_scan-ctx4096-rep0.jsonl": "d882da462d061460acc0368127d608ddadeba5b2221afd702c07d03967f720a9",
+    "hot_scan-ctx4096-rep1.jsonl": "2e8c37203ca3e2dc6c64b10708df847f3da67b2cfafe2658b43034ec069d830b",
+    "hot_scan-ctx4096-rep2.jsonl": "adfda856bc686533d72129a11bc430dbe36cd38fddfcbdf36fd736448e442b02",
+    "hot_scan-ctx4096-rep3.jsonl": "5575aa780892e345b340b01cdd3bbb9fad97d6bff1bef8f4d652f9ee8f24bcbc",
+    "hot_scan-ctx4096-rep4.jsonl": "38387a169dacf7de49a6575cf16576bc25ba5765fb1b260763d185b84f6a6008",
+    "mixed_zipf-ctx2048-rep0.jsonl": "89d13c9477f75e5b7e12470e2d9bb11e1202450e606bc9cf4cf6ad3c33d4505c",
+    "mixed_zipf-ctx2048-rep1.jsonl": "71283b5eb4251d73dd24e83138e551a8ac2386176e8e7a87a5c738b7be6a0613",
+    "mixed_zipf-ctx2048-rep2.jsonl": "77bfdb2a50fae57080b7c005be30e8dfe1a73951bb57630987b326973c137a79",
+    "mixed_zipf-ctx2048-rep3.jsonl": "9ac3811533e2c4c99253bb3e63362d82a6847e7805f934472e7d51e1d35da5ae",
+    "mixed_zipf-ctx2048-rep4.jsonl": "8b83896420b146ae5f93111f01b09d7c9c2829702b4d69e031dcca92d5eb3f4b",
+    "mixed_zipf-ctx4096-rep0.jsonl": "002b66ebf93278f5f84fb0de1cc1133dc33553c7db8d545edf68ecbe7bbe0fd5",
+    "mixed_zipf-ctx4096-rep1.jsonl": "8fa0d27e2ae88f817b547a2a7293a25670543ff56739a3e2c0797aa5eedb0570",
+    "mixed_zipf-ctx4096-rep2.jsonl": "50e385291bb7afb132b753606e5623922d7797541e86a0e8847f7e6253d1e3b8",
+    "mixed_zipf-ctx4096-rep3.jsonl": "8a8868f5fd91f57f9ecdf0fbe401798a3e41e03869cc871dac7b64561d8777a6",
+    "mixed_zipf-ctx4096-rep4.jsonl": "a8e3a36df47499755fe4e97e2a26eb5adb1dcfe6361c7a80f70d2aa21f68f82b"
+  },
+  "calibration_records": [
+    {
+      "relative_path": "high-default-restart/run.json",
+      "sha256": "b15a01262c925d04f95a8e66dc328ac377b30bfa1ee164084541901da6bb4add",
+      "status": "completed"
+    },
+    {
+      "relative_path": "moderate-default-restart/run.json",
+      "sha256": "668a6368fb4063e2772219b13b3618bf252dbf6e14ad6c79e063931cdc27c345",
+      "status": "completed"
+    },
+    {
+      "relative_path": "roomy-default-restart/run.json",
+      "sha256": "a7f302da9c68194b53ac38b6d65dc5e45c3422e0ab8d30686817557965f183d0",
+      "status": "completed"
+    }
+  ]
+}

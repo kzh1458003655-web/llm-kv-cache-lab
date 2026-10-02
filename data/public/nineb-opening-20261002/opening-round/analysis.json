@@ -1,0 +1,87 @@
+{
+  "pairs": [
+    {
+      "label": "main-hot-0",
+      "status": "incomplete"
+    },
+    {
+      "label": "main-mixed-0",
+      "status": "incomplete"
+    },
+    {
+      "label": "no-reuse",
+      "status": "incomplete"
+    },
+    {
+      "label": "main-hot-1",
+      "status": "incomplete"
+    },
+    {
+      "label": "main-mixed-1",
+      "status": "incomplete"
+    },
+    {
+      "label": "main-hot-2",
+      "status": "incomplete"
+    },
+    {
+      "label": "main-mixed-2",
+      "status": "incomplete"
+    },
+    {
+      "label": "hot-high-pressure",
+      "status": "incomplete"
+    },
+    {
+      "label": "hot-roomy",
+      "status": "incomplete"
+    },
+    {
+      "label": "hot-concurrency16",
+      "status": "incomplete"
+    },
+    {
+      "label": "hot-input2048",
+      "status": "incomplete"
+    }
+  ],
+  "AA_runs": [],
+  "AA_range": {
+    "ttft_ms": {
+      "p95_values": [],
+      "relative_range": null
+    },
+    "tpot_ms": {
+      "p95_values": [],
+      "relative_range": null
+    }
+  },
+  "representative_independent_pairs": {
+    "hot": {
+      "ttft_ms": {
+        "paired_p95_percent_changes": [],
+        "median_percent_change": null,
+        "range_percent_change": null
+      },
+      "tpot_ms": {
+        "paired_p95_percent_changes": [],
+        "median_percent_change": null,
+        "range_percent_change": null
+      }
+    },
+    "mixed": {
+      "ttft_ms": {
+        "paired_p95_percent_changes": [],
+        "median_percent_change": null,
+        "range_percent_change": null
+      },
+      "tpot_ms": {
+        "paired_p95_percent_changes": [],
+        "median_percent_change": null,
+        "range_percent_change": null
+      }
+    }
+  },
+  "statistics_note": "opening plan uses three paired seeds per workload; report all signs and ranges, not a population confidence claim",
+  "AA_note": "three runs estimate observed variation, not a reliable population confidence interval"
+}

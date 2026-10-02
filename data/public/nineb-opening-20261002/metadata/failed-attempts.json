@@ -1,0 +1,12 @@
+[
+  {
+    "relative_run": "calibration/initial",
+    "status": "failed",
+    "error_type": "ClientResponseError"
+  },
+  {
+    "relative_run": "opening-round/diagnostics/boundary-stock",
+    "status": "failed",
+    "error_type": "RuntimeError"
+  }
+]

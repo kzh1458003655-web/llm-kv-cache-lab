@@ -1,0 +1,143 @@
+{
+  "policy": "stock",
+  "vllm": "0.30.0",
+  "num_blocks": 93,
+  "resolved_prefix_cache_retention_interval": 0,
+  "tensor_bytes": [
+    1609039872,
+    1609039872,
+    1609039872,
+    1609039872
+  ],
+  "tensor_descriptor_size_sum": 6436159488,
+  "total_tensor_bytes": 1609039872,
+  "allocation_note": "group tensor descriptors alias one backing buffer in vLLM 0.30",
+  "groups": [
+    {
+      "spec": "MambaSpec",
+      "block_size": 528,
+      "page_size_bytes": 2162688,
+      "layers": [
+        "language_model.model.layers.0.linear_attn",
+        "language_model.model.layers.4.linear_attn",
+        "language_model.model.layers.8.linear_attn",
+        "language_model.model.layers.12.linear_attn",
+        "language_model.model.layers.16.linear_attn",
+        "language_model.model.layers.20.linear_attn",
+        "language_model.model.layers.24.linear_attn",
+        "language_model.model.layers.28.linear_attn"
+      ]
+    },
+    {
+      "spec": "MambaSpec",
+      "block_size": 528,
+      "page_size_bytes": 2162688,
+      "layers": [
+        "language_model.model.layers.1.linear_attn",
+        "language_model.model.layers.5.linear_attn",
+        "language_model.model.layers.9.linear_attn",
+        "language_model.model.layers.13.linear_attn",
+        "language_model.model.layers.17.linear_attn",
+        "language_model.model.layers.21.linear_attn",
+        "language_model.model.layers.25.linear_attn",
+        "language_model.model.layers.29.linear_attn"
+      ]
+    },
+    {
+      "spec": "MambaSpec",
+      "block_size": 528,
+      "page_size_bytes": 2162688,
+      "layers": [
+        "language_model.model.layers.2.linear_attn",
+        "language_model.model.layers.6.linear_attn",
+        "language_model.model.layers.10.linear_attn",
+        "language_model.model.layers.14.linear_attn",
+        "language_model.model.layers.18.linear_attn",
+        "language_model.model.layers.22.linear_attn",
+        "language_model.model.layers.26.linear_attn",
+        "language_model.model.layers.30.linear_attn"
+      ]
+    },
+    {
+      "spec": "FullAttentionSpec",
+      "block_size": 528,
+      "page_size_bytes": 2162688,
+      "layers": [
+        "language_model.model.layers.3.self_attn.attn",
+        "language_model.model.layers.7.self_attn.attn",
+        "language_model.model.layers.11.self_attn.attn",
+        "language_model.model.layers.15.self_attn.attn",
+        "language_model.model.layers.19.self_attn.attn",
+        "language_model.model.layers.23.self_attn.attn",
+        "language_model.model.layers.27.self_attn.attn",
+        "language_model.model.layers.31.self_attn.attn"
+      ]
+    }
+  ],
+  "tensor_descriptors": [
+    {
+      "size": 1609039872,
+      "layers": [
+        "language_model.model.layers.0.linear_attn",
+        "language_model.model.layers.4.linear_attn",
+        "language_model.model.layers.8.linear_attn",
+        "language_model.model.layers.12.linear_attn",
+        "language_model.model.layers.16.linear_attn",
+        "language_model.model.layers.20.linear_attn",
+        "language_model.model.layers.24.linear_attn",
+        "language_model.model.layers.28.linear_attn"
+      ],
+      "offset": 0,
+      "layer_stride": 201129984,
+      "block_stride": 2162688
+    },
+    {
+      "size": 1609039872,
+      "layers": [
+        "language_model.model.layers.1.linear_attn",
+        "language_model.model.layers.5.linear_attn",
+        "language_model.model.layers.9.linear_attn",
+        "language_model.model.layers.13.linear_attn",
+        "language_model.model.layers.17.linear_attn",
+        "language_model.model.layers.21.linear_attn",
+        "language_model.model.layers.25.linear_attn",
+        "language_model.model.layers.29.linear_attn"
+      ],
+      "offset": 0,
+      "layer_stride": 201129984,
+      "block_stride": 2162688
+    },
+    {
+      "size": 1609039872,
+      "layers": [
+        "language_model.model.layers.2.linear_attn",
+        "language_model.model.layers.6.linear_attn",
+        "language_model.model.layers.10.linear_attn",
+        "language_model.model.layers.14.linear_attn",
+        "language_model.model.layers.18.linear_attn",
+        "language_model.model.layers.22.linear_attn",
+        "language_model.model.layers.26.linear_attn",
+        "language_model.model.layers.30.linear_attn"
+      ],
+      "offset": 0,
+      "layer_stride": 201129984,
+      "block_stride": 2162688
+    },
+    {
+      "size": 1609039872,
+      "layers": [
+        "language_model.model.layers.3.self_attn.attn",
+        "language_model.model.layers.7.self_attn.attn",
+        "language_model.model.layers.11.self_attn.attn",
+        "language_model.model.layers.15.self_attn.attn",
+        "language_model.model.layers.19.self_attn.attn",
+        "language_model.model.layers.23.self_attn.attn",
+        "language_model.model.layers.27.self_attn.attn",
+        "language_model.model.layers.31.self_attn.attn"
+      ],
+      "offset": 0,
+      "layer_stride": 201129984,
+      "block_stride": 2162688
+    }
+  ]
+}

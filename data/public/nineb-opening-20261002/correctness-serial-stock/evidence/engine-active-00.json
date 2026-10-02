@@ -1,0 +1,7 @@
+{
+  "policy": "stock",
+  "vllm": "0.30.0",
+  "num_gpu_blocks": 186,
+  "hash_block_size": 528,
+  "reuse_hook_installed": false
+}

@@ -1,0 +1,52 @@
+{
+  "request_rate": 4.0,
+  "cache_budgets": {
+    "high_pressure": 1610612736,
+    "moderate_pressure": 3221225472,
+    "roomy": 8589934592
+  },
+  "native_cache_options": {
+    "mamba_cache_mode": "align",
+    "prefix_cache_retention_interval": 0
+  },
+  "enforce_eager": false,
+  "native_options_review": {
+    "source_review": "data/acquisition/native-source-review.json",
+    "comparison": "On this boot, 64-request default and prefix_match_unit=16 stock runs both cached 129360 tokens; duration 36.7674 vs 36.9573 seconds. Keep default; this is a bounded applicability check, not proof of a globally optimal baseline.",
+    "not_applicable": "mamba all mode rejected by Qwen3.5; fine-grained mamba cache needs speculative EAGLE, disabled in fixed protocol."
+  },
+  "rate_choice_reason": "4 requests/s reaches client 16 and server 16 on moderate/roomy, with sampled server queue up to 9. Use the same arrival sequence/rate for both policies; report client-side admission delay as well.",
+  "cache_pressure_evidence": {
+    "high_pressure": {
+      "request_count": 64,
+      "cached_tokens": 96096,
+      "input_tokens": 265662,
+      "num_blocks": 93,
+      "physical_bytes": 1609039872,
+      "running_max": 12.0,
+      "waiting_max": 10.0,
+      "duration_s": 64.3571313386783
+    },
+    "moderate_pressure": {
+      "request_count": 64,
+      "cached_tokens": 129360,
+      "input_tokens": 265662,
+      "num_blocks": 186,
+      "physical_bytes": 3218079744,
+      "running_max": 16.0,
+      "waiting_max": 9.0,
+      "duration_s": 36.76742541883141
+    },
+    "roomy": {
+      "request_count": 64,
+      "cached_tokens": 133056,
+      "input_tokens": 265662,
+      "num_blocks": 496,
+      "physical_bytes": 8581545984,
+      "running_max": 16.0,
+      "waiting_max": 9.0,
+      "duration_s": 36.21925043780357
+    }
+  },
+  "note": "All selected calibration runs are from the same current GPU UUID. Earlier boot runs are retained as diagnostics, excluded from the lock."
+}

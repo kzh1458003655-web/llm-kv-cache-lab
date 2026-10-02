@@ -1,0 +1,299 @@
+{
+  "status": "planned",
+  "execute": true,
+  "items": [
+    {
+      "label": "main-hot-0",
+      "scene": "hot_scan",
+      "context": 4096,
+      "rep": 0,
+      "budget": "moderate_pressure",
+      "concurrency": 8,
+      "policy": "stock",
+      "workload_variant": "shared"
+    },
+    {
+      "label": "main-hot-0",
+      "scene": "hot_scan",
+      "context": 4096,
+      "rep": 0,
+      "budget": "moderate_pressure",
+      "concurrency": 8,
+      "policy": "reuse2",
+      "workload_variant": "shared"
+    },
+    {
+      "label": "main-mixed-0",
+      "scene": "mixed_zipf",
+      "context": 4096,
+      "rep": 0,
+      "budget": "moderate_pressure",
+      "concurrency": 8,
+      "policy": "stock",
+      "workload_variant": "shared"
+    },
+    {
+      "label": "main-mixed-0",
+      "scene": "mixed_zipf",
+      "context": 4096,
+      "rep": 0,
+      "budget": "moderate_pressure",
+      "concurrency": 8,
+      "policy": "reuse2",
+      "workload_variant": "shared"
+    },
+    {
+      "label": "no-reuse",
+      "scene": "hot_scan",
+      "context": 4096,
+      "rep": 0,
+      "budget": "moderate_pressure",
+      "concurrency": 8,
+      "policy": "stock",
+      "workload_variant": "no_reuse"
+    },
+    {
+      "label": "no-reuse",
+      "scene": "hot_scan",
+      "context": 4096,
+      "rep": 0,
+      "budget": "moderate_pressure",
+      "concurrency": 8,
+      "policy": "reuse2",
+      "workload_variant": "no_reuse"
+    },
+    {
+      "label": "AA-stock-0",
+      "scene": "hot_scan",
+      "context": 4096,
+      "rep": 0,
+      "budget": "moderate_pressure",
+      "concurrency": 8,
+      "policy": "stock",
+      "workload_variant": "shared"
+    },
+    {
+      "label": "AA-stock-1",
+      "scene": "hot_scan",
+      "context": 4096,
+      "rep": 0,
+      "budget": "moderate_pressure",
+      "concurrency": 8,
+      "policy": "stock",
+      "workload_variant": "shared"
+    },
+    {
+      "label": "AA-stock-2",
+      "scene": "hot_scan",
+      "context": 4096,
+      "rep": 0,
+      "budget": "moderate_pressure",
+      "concurrency": 8,
+      "policy": "stock",
+      "workload_variant": "shared"
+    },
+    {
+      "label": "main-hot-1",
+      "scene": "hot_scan",
+      "context": 4096,
+      "rep": 1,
+      "budget": "moderate_pressure",
+      "concurrency": 8,
+      "policy": "reuse2",
+      "workload_variant": "shared"
+    },
+    {
+      "label": "main-hot-1",
+      "scene": "hot_scan",
+      "context": 4096,
+      "rep": 1,
+      "budget": "moderate_pressure",
+      "concurrency": 8,
+      "policy": "stock",
+      "workload_variant": "shared"
+    },
+    {
+      "label": "main-mixed-1",
+      "scene": "mixed_zipf",
+      "context": 4096,
+      "rep": 1,
+      "budget": "moderate_pressure",
+      "concurrency": 8,
+      "policy": "reuse2",
+      "workload_variant": "shared"
+    },
+    {
+      "label": "main-mixed-1",
+      "scene": "mixed_zipf",
+      "context": 4096,
+      "rep": 1,
+      "budget": "moderate_pressure",
+      "concurrency": 8,
+      "policy": "stock",
+      "workload_variant": "shared"
+    },
+    {
+      "label": "main-hot-2",
+      "scene": "hot_scan",
+      "context": 4096,
+      "rep": 2,
+      "budget": "moderate_pressure",
+      "concurrency": 8,
+      "policy": "stock",
+      "workload_variant": "shared"
+    },
+    {
+      "label": "main-hot-2",
+      "scene": "hot_scan",
+      "context": 4096,
+      "rep": 2,
+      "budget": "moderate_pressure",
+      "concurrency": 8,
+      "policy": "reuse2",
+      "workload_variant": "shared"
+    },
+    {
+      "label": "main-mixed-2",
+      "scene": "mixed_zipf",
+      "context": 4096,
+      "rep": 2,
+      "budget": "moderate_pressure",
+      "concurrency": 8,
+      "policy": "stock",
+      "workload_variant": "shared"
+    },
+    {
+      "label": "main-mixed-2",
+      "scene": "mixed_zipf",
+      "context": 4096,
+      "rep": 2,
+      "budget": "moderate_pressure",
+      "concurrency": 8,
+      "policy": "reuse2",
+      "workload_variant": "shared"
+    },
+    {
+      "label": "hot-high-pressure",
+      "scene": "hot_scan",
+      "context": 4096,
+      "rep": 0,
+      "budget": "high_pressure",
+      "concurrency": 8,
+      "policy": "stock",
+      "workload_variant": "shared"
+    },
+    {
+      "label": "hot-high-pressure",
+      "scene": "hot_scan",
+      "context": 4096,
+      "rep": 0,
+      "budget": "high_pressure",
+      "concurrency": 8,
+      "policy": "reuse2",
+      "workload_variant": "shared"
+    },
+    {
+      "label": "hot-roomy",
+      "scene": "hot_scan",
+      "context": 4096,
+      "rep": 0,
+      "budget": "roomy",
+      "concurrency": 8,
+      "policy": "stock",
+      "workload_variant": "shared"
+    },
+    {
+      "label": "hot-roomy",
+      "scene": "hot_scan",
+      "context": 4096,
+      "rep": 0,
+      "budget": "roomy",
+      "concurrency": 8,
+      "policy": "reuse2",
+      "workload_variant": "shared"
+    },
+    {
+      "label": "hot-concurrency16",
+      "scene": "hot_scan",
+      "context": 4096,
+      "rep": 0,
+      "budget": "moderate_pressure",
+      "concurrency": 16,
+      "policy": "stock",
+      "workload_variant": "shared"
+    },
+    {
+      "label": "hot-concurrency16",
+      "scene": "hot_scan",
+      "context": 4096,
+      "rep": 0,
+      "budget": "moderate_pressure",
+      "concurrency": 16,
+      "policy": "reuse2",
+      "workload_variant": "shared"
+    },
+    {
+      "label": "hot-input2048",
+      "scene": "hot_scan",
+      "context": 2048,
+      "rep": 0,
+      "budget": "moderate_pressure",
+      "concurrency": 8,
+      "policy": "stock",
+      "workload_variant": "shared"
+    },
+    {
+      "label": "hot-input2048",
+      "scene": "hot_scan",
+      "context": 2048,
+      "rep": 0,
+      "budget": "moderate_pressure",
+      "concurrency": 8,
+      "policy": "reuse2",
+      "workload_variant": "shared"
+    }
+  ],
+  "protocol_sha256": "179d9d8f6826e4a0899c40ca12173f882d2afbdbb8fc7aa015a4f3773028d2a6",
+  "deadline_minutes": 240.0,
+  "opening_plan_sha256": "f838de504c99936d776f55103888eac0bc4ecb205da5d7b1712eaff5c1a4f384",
+  "short_diagnostics": [
+    {
+      "name": "boundary-stock",
+      "policy": "stock",
+      "budget": "roomy",
+      "boundary": true
+    },
+    {
+      "name": "boundary-reuse2",
+      "policy": "reuse2",
+      "budget": "roomy",
+      "boundary": true
+    },
+    {
+      "name": "pressure-moderate_pressure",
+      "policy": "stock",
+      "budget": "moderate_pressure",
+      "boundary": false
+    },
+    {
+      "name": "pressure-roomy",
+      "policy": "stock",
+      "budget": "roomy",
+      "boundary": false
+    }
+  ],
+  "total_runs": 25,
+  "shutdown_instance": false,
+  "interpretation": "25 formal runs plus four short diagnostic starts; partial coverage is saved; duration depends on GPU calibration",
+  "runtime_estimate": {
+    "status": "rough_extrapolation",
+    "baseline_minutes": 238.4980370323484,
+    "planning_minutes_with_50_percent_margin": 357.7470555485226,
+    "excludes": [
+      "installation",
+      "weight transfer",
+      "result download"
+    ],
+    "note": "startup and worst observed per-request calibration cost; longer traces and lower concurrency may take more time"
+  }
+}
