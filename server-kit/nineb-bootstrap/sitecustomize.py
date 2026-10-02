@@ -47,6 +47,7 @@ def activate():
                            'layers': list(group.layer_names)})
         tensors = getattr(config, 'kv_cache_tensors', [])
         write('cache-groups', {'num_blocks': config.num_blocks,
+                              'resolved_prefix_cache_retention_interval': getattr(config, 'prefix_cache_retention_interval', None),
                               'groups': groups,
                               'tensor_bytes': [tensor.size for tensor in tensors],
                               'total_tensor_bytes': sum(tensor.size for tensor in tensors)})

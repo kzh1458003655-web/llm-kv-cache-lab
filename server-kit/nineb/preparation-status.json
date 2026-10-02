@@ -20,7 +20,9 @@
     2092,
     4174
   ],
-  "cpu_syntax_files_checked": 11,
+  "cpu_syntax_files_checked": 12,
+  "opening_validity_regression_tests_passed": 7,
+  "short_diagnostic_runs_planned": 4,
   "mock_stream_requests_ok": 4,
   "AA_and_hot_cold_analysis_checked": true,
   "formal_plan_max_runs": 25,
@@ -28,10 +30,10 @@
   "remote_connected": false,
   "gpu_used": false,
   "private_upload_bundle": {
-    "relative_path": "data/raw/9b-preparation/nineb-server-ready.tar.gz",
-    "bytes": 177647899,
-    "sha256": "c3f09dfd7de5aa3c4acd625c676146e294e348808363c4502c1b9f186d4bbeb5",
-    "files_verified": 71,
+    "relative_path": "data/raw/9b-preparation/nineb-opening-ready.tar.gz",
+    "bytes": 177656343,
+    "sha256": "eb82baa21acb943400af2ec72de30316e69b2b2bb0d978dc8647704b9ec1c932",
+    "files_verified": 74,
     "includes_weights": false
   },
   "pending": [

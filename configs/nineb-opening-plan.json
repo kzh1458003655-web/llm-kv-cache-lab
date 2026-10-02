@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "purpose": "pre-proposal feasibility evidence; not final thesis performance claims",
+  "main_model_protocol": "thesis-9b-protocol.json",
+  "paired_repeats_per_main_workload": 3,
+  "formal_runs": 25,
+  "boundary_diagnostic_output_tokens": 16,
+  "short_diagnostics": ["isolated boundary pairs: stock/reuse2", "64-request serial pressure trace: stock at moderate/roomy capacity"],
+  "workload_controls": ["three cache budgets on the same hot workload", "unique per-request cache salt for no cross-request reuse", "concurrency cap 8/16", "document context 2048/4096"],
+  "primary_metrics": ["cached input tokens", "TTFT p50/p95", "arrival-to-first-token p95", "TPOT", "errors", "actual server running/waiting requests"],
+  "p99_role": "descriptive only with 512 correlated requests per run",
+  "baseline_review": "stock-only check of applicable prefix matching/checkpoint settings; record all tried settings before freezing",
+  "interpretation": "three paired seeds per workload support preliminary consistency only; final representative five-pair target remains in the main protocol",
+  "run_time_policy": "estimate after GPU calibration; require explicit time budget; retain every failure and partial run",
+  "pre_proposal_completion": ["9B engine and policy paths run", "serial diagnostic output hashes match or discrepancies are explained", "native hybrid cache groups and boundary losses characterized", "actual cache pressure documented", "both main workloads have three complete pairs", "same-input stock variation recorded", "no-reuse overhead and capacity/concurrency controls recorded"]
+}

@@ -18,7 +18,8 @@ def main():
         out.mkdir(parents=True, exist_ok=True)
         allowed = ('status', 'mode', 'policy', 'settings', 'model_revision', 'model_verification',
                    'protocol_sha256', 'request_file_sha256', 'request_count', 'environment_overrides',
-                   'owned_server_stopped', 'client_summary', 'error_type', 'boundary_probe', 'boundary_inputs', 'code_version')
+                   'owned_server_stopped', 'client_summary', 'error_type', 'boundary_probe', 'boundary_inputs', 'code_version',
+                   'trace_diagnostic', 'generated_tokens_per_request', 'startup_elapsed_s', 'total_elapsed_s')
         public = {key: value[key] for key in allowed if key in value}
         runtime = value['runtime_profile']
         public['runtime_profile'] = {'versions': runtime['versions'],
@@ -42,10 +43,11 @@ def main():
                             raise ValueError('unexpected diagnostic text')
                         output.write(json.dumps(record, separators=(',', ':')) + '\n')
         exported.append(str(relative))
-    for name in ('plan.json', 'progress.json', 'analysis.json'):
-        source = args.runs / name
-        if source.exists():
-            (args.output / name).write_text(source.read_text(encoding='utf-8'), encoding='utf-8')
+    for name in ('plan.json', 'progress.json', 'analysis.json', 'boundary-analysis.json', 'pressure-analysis.json'):
+        for source in args.runs.rglob(name):
+            destination = args.output / source.relative_to(args.runs)
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            destination.write_text(source.read_text(encoding='utf-8'), encoding='utf-8')
     (args.output / 'export.json').write_text(json.dumps({'runs': exported, 'raw_logs_exported': False}, indent=2) + '\n')
 
 

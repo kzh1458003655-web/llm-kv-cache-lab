@@ -27,6 +27,7 @@ def main():
     candidates = [value for _, value in records
                   if value.get('status') == 'completed' and value.get('policy') == 'stock'
                   and value['settings']['request_rate'] == settings['request_rate']
+                  and value['settings'].get('workload_variant', 'shared') == 'shared'
                   and value['settings']['native_cache_options'] == settings['native_cache_options']
                   and value['settings']['enforce_eager'] == settings['enforce_eager']]
     if not candidates:
@@ -39,9 +40,15 @@ def main():
                     and value['runtime_profile'] == runtime
                     and value['protocol_sha256'] == protocol_hash
                     and value['settings']['concurrency'] >= 16
-                    and value['client_summary']['peak_client_active'] >= 8]
+                    and value['client_summary']['peak_client_active'] >= 8
+                    and value['client_summary'].get('server_activity_metrics_available')
+                    and value['client_summary']['max_server_running'] >= 2]
         if not matching:
             raise ValueError(f'cache budget {budget} lacks a successful stock calibration at concurrency cap 16')
+    if not any(value['settings']['kv_cache_memory_bytes'] == budgets['moderate_pressure']
+               and value['runtime_profile'] == runtime and value['protocol_sha256'] == protocol_hash
+               and value['client_summary'].get('max_server_waiting', 0) > 0 for value in candidates):
+        raise ValueError('moderate-pressure calibration has no observed server queue; review arrival rate and sampling')
     value = {'status': 'frozen', 'protocol_sha256': protocol_hash,
              'runtime_profile': runtime, 'model_revision': candidates[0]['model_revision'],
              **settings,

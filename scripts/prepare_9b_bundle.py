@@ -12,6 +12,7 @@ from prepare_9b_model_manifest import SMALL_FILES
 ROOT = Path(__file__).resolve().parents[1]
 FILES = [
     'configs/thesis-9b-protocol.json',
+    'configs/nineb-opening-plan.json',
     'kv_cache_lab/__init__.py', 'kv_cache_lab/hybrid_retention_prototype.py',
     'kv_cache_lab/hybrid_observer.py',
     'scripts/prepare_9b_model_manifest.py', 'scripts/nineb_artifacts.py',
@@ -19,7 +20,9 @@ FILES = [
     'scripts/nineb_online_client.py', 'scripts/run_9b_online.py',
     'scripts/run_9b_round.py', 'scripts/freeze_9b_calibration.py',
     'scripts/analyze_9b_boundaries.py',
+    'scripts/analyze_9b_traces.py',
     'scripts/export_9b_results.py', 'scripts/prepare_9b_bundle.py',
+    'tests/test_nineb_opening.py',
     'server-kit/nineb-bootstrap/sitecustomize.py',
     'server-kit/nineb/setup.sh', 'server-kit/nineb/README.md',
     'server-kit/nineb/calibration-settings.template.json',

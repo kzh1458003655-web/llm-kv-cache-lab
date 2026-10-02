@@ -38,6 +38,7 @@ async def stream_one(session, base_url, row, output_tokens, timeout):
               'prompt_sha256': row['prompt_sha256'],
               'input_token_ids_sha256': row['input_token_ids_sha256'],
               'expected_prompt_tokens': row['expected_prompt_tokens'],
+              'cache_salt_sha256': hashlib.sha256(row['cache_salt'].encode()).hexdigest() if row.get('cache_salt') else None,
               'status': 'failed'}
     payload = {'model': 'thesis-9b', 'prompt': row['prompt_token_ids'],
                'request_id': 'measure-' + row['request_id'],
@@ -45,6 +46,8 @@ async def stream_one(session, base_url, row, output_tokens, timeout):
                'ignore_eos': True, 'add_special_tokens': False,
                'return_token_ids': True, 'stream_interval': 1,
                'stream': True, 'stream_options': {'include_usage': True}}
+    if row.get('cache_salt'):
+        payload['cache_salt'] = row['cache_salt']
     try:
         async with session.post(base_url + '/v1/completions', json=payload, timeout=timeout) as response:
             result['http_status'] = response.status
@@ -111,15 +114,23 @@ async def run_client(base_url, rows, concurrency, rate, output_tokens, output_di
     async with aiohttp.ClientSession(connector=connector, timeout=timeout) as session:
         if warmup:
             for row in rows[:2]:
-                warmup_row = {**row, 'request_id': 'warmup-' + row['request_id']}
+                warmup_row = {**row, 'request_id': 'warmup-' + row['request_id'],
+                              'cache_salt': 'nineb-warmup-' + row['request_id']}
                 result = await stream_one(session, base_url, warmup_row, output_tokens, timeout)
                 if result['status'] != 'ok':
                     (out / 'warmup-failure.json').write_text(json.dumps(result, indent=2) + '\n')
                     raise RuntimeError('streaming warmup failed; see warmup-failure.json')
         if reset_cache:
-            async with session.post(base_url + '/reset_prefix_cache', timeout=30) as response:
-                response.raise_for_status()
-                await response.read()
+            for attempt in range(5):
+                async with session.post(base_url + '/reset_prefix_cache', timeout=10) as response:
+                    response.raise_for_status()
+                    reset_value = await response.json()
+                # The pinned vLLM version returns HTTP 200 even on failure.
+                if isinstance(reset_value, dict) and reset_value.get('success') is True:
+                    break
+                if attempt == 4:
+                    raise RuntimeError('engine did not confirm prefix cache reset')
+                await asyncio.sleep(0.2)
         before = await metrics(session, base_url)
         start = time.perf_counter()
         semaphore = asyncio.Semaphore(concurrency)
@@ -171,7 +182,8 @@ async def run_client(base_url, rows, concurrency, rate, output_tokens, output_di
         finally:
             finished.set()
             await monitor_task
-        duration = time.perf_counter() - start
+        # Use the actual last request end; monitor shutdown may take longer.
+        duration = max(row['actual_send_offset_s'] + row['elapsed_ms'] / 1000 for row in results)
         after = await metrics(session, base_url)
     ok = [row for row in results if row['status'] == 'ok']
     summary = {'request_count': len(rows), 'success_count': len(ok),
@@ -179,6 +191,7 @@ async def run_client(base_url, rows, concurrency, rate, output_tokens, output_di
         'request_rate': rate, 'concurrency_limit': concurrency, 'peak_client_active': peak,
         'max_server_running': max((sample.get('num_requests_running', 0) for sample in samples), default=0),
         'max_server_waiting': max((sample.get('num_requests_waiting', 0) for sample in samples), default=0),
+        'server_activity_metrics_available': any('num_requests_running' in sample and 'num_requests_waiting' in sample for sample in samples),
         'server_activity_samples': samples,
         'output_tokens_per_s': sum(row['output_tokens'] for row in ok) / duration,
         'throughput_note': 'achieved throughput at this arrival rate; not maximum serving capacity',

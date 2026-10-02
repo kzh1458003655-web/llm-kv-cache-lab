@@ -84,13 +84,25 @@ def boundary_rows(rows, evidence, max_model_len):
             requests.append({'request_id': f'boundary-{length}-suffix{suffix}',
                              'doc_id': f'prefix-length-{length}', 'prompt_sha256': None,
                              'prompt_token_ids': ids, 'input_token_ids_sha256': digest,
+                             'shared_prefix_tokens': length,
+                             'cache_salt': f'nineb-boundary-{length}',
                              'expected_prompt_tokens': len(ids), 'arrival_units': 0})
     if not requests:
         raise ValueError('no group boundaries fit in the prepared prefix')
     return requests
 
 
+def apply_workload_variant(rows, variant):
+    if variant == 'shared':
+        return rows
+    if variant != 'no_reuse':
+        raise ValueError('unknown workload variant')
+    return [{**row, 'cache_salt': 'nineb-isolated-' + hashlib.sha256(
+        (row['request_id'] + ':' + row['input_token_ids_sha256']).encode()).hexdigest()} for row in rows]
+
+
 def run(args):
+    run_started = time.monotonic()
     if os.name != 'posix':
         raise ValueError('GPU runner requires Linux')
     protocol = json.loads(args.protocol.read_text(encoding='utf-8'))
@@ -112,9 +124,9 @@ def run(args):
                          'enforce_eager': lock['enforce_eager'],
                          'request_rate': lock['request_rate'],
                          'kv_cache_memory_bytes': lock['cache_budgets'][args.budget]})
-        if args.boundary_probe:
+        if args.boundary_probe and args.mode == 'formal':
             raise ValueError('boundary diagnostics run separately from formal latency runs')
-        if args.concurrency not in protocol['online_workload']['client_concurrency_levels']:
+        if args.mode == 'formal' and args.concurrency not in protocol['online_workload']['client_concurrency_levels']:
             raise ValueError('formal concurrency is outside the fixed protocol')
     elif args.mode == 'formal':
         raise ValueError('formal run requires --lock; initial runs must use --mode calibration')
@@ -126,6 +138,10 @@ def run(args):
         if args.native_options:
             settings['native_cache_options'] = json.loads(args.native_options.read_text(encoding='utf-8'))
         settings['enforce_eager'] = args.enforce_eager
+    if args.mode == 'diagnostic' and args.count:
+        rows = rows[:args.count]
+    rows = apply_workload_variant(rows, args.workload_variant)
+    settings['workload_variant'] = args.workload_variant
     if not settings['request_rate'] or settings['request_rate'] <= 0:
         raise ValueError('a positive calibrated request rate is required')
     if set(settings['native_cache_options']) - NATIVE_OPTIONS:
@@ -159,7 +175,7 @@ def run(args):
                 'VLLM_WORKER_MULTIPROC_METHOD': 'spawn', 'HF_HUB_OFFLINE': '1',
                 'PYTHONPATH': os.pathsep.join([str(ROOT / 'server-kit/nineb-bootstrap'), str(ROOT),
                                              env.get('PYTHONPATH', '')])})
-    if args.boundary_probe:
+    if args.boundary_probe or args.trace_diagnostic:
         env['NINEB_DIAGNOSTIC_EVENTS'] = str(out / 'diagnostic-events.jsonl')
         settings['concurrency'] = 1
     record = {'status': 'starting', 'mode': args.mode, 'policy': args.policy,
@@ -170,6 +186,8 @@ def run(args):
               'environment_overrides': {key: env[key] for key in ('VLLM_USE_V2_MODEL_RUNNER', 'VLLM_USE_FLASHINFER_SAMPLER', 'VLLM_WORKER_MULTIPROC_METHOD')},
               'shutdown_note': 'owned serving process is stopped; instance must be shut down after download verification'}
     record['boundary_probe'] = args.boundary_probe
+    record['trace_diagnostic'] = args.trace_diagnostic
+    record['generated_tokens_per_request'] = 16 if args.boundary_probe else protocol['online_workload']['output_tokens']
     if (ROOT / 'CODE_VERSION.json').exists():
         record['code_version'] = json.loads((ROOT / 'CODE_VERSION.json').read_text())
     (out / 'run.json').write_text(json.dumps(record, indent=2) + '\n', encoding='utf-8')
@@ -196,9 +214,10 @@ def run(args):
                 record['request_count'] = len(rows)
                 record['boundary_inputs'] = [{key: value for key, value in row.items()
                                               if key != 'prompt_token_ids'} for row in rows]
+            record['startup_elapsed_s'] = time.monotonic() - run_started
             summary = asyncio.run(asyncio.wait_for(
                 run_client(base, rows, settings['concurrency'], settings['request_rate'],
-                           protocol['online_workload']['output_tokens'], out / 'client'),
+                           record['generated_tokens_per_request'], out / 'client'),
                 timeout=args.measurement_seconds))
             markers = [json.loads(path.read_text()) for path in evidence.glob('engine-active-*.json')]
             if not markers or any(marker['policy'] != args.policy for marker in markers):
@@ -214,6 +233,7 @@ def run(args):
     finally:
         stop_owned(process)
         record['owned_server_stopped'] = True
+        record['total_elapsed_s'] = time.monotonic() - run_started
         (out / 'run.json').write_text(json.dumps(record, indent=2) + '\n', encoding='utf-8')
     return 0 if record['status'] == 'completed' else 1
 
@@ -233,12 +253,14 @@ def main():
     parser.add_argument('--native-options', type=Path)
     parser.add_argument('--enforce-eager', action='store_true')
     parser.add_argument('--boundary-probe', action='store_true')
+    parser.add_argument('--trace-diagnostic', action='store_true')
+    parser.add_argument('--workload-variant', choices=('shared', 'no_reuse'), default='shared')
     parser.add_argument('--port', type=int, default=8019)
     parser.add_argument('--startup-seconds', type=int, default=480)
     parser.add_argument('--measurement-seconds', type=int, default=600)
     args = parser.parse_args()
-    if args.boundary_probe and args.mode != 'diagnostic':
-        parser.error('--boundary-probe requires --mode diagnostic')
+    if (args.boundary_probe or args.trace_diagnostic) and args.mode != 'diagnostic':
+        parser.error('event diagnostics require --mode diagnostic')
     raise SystemExit(run(args))
 
 
