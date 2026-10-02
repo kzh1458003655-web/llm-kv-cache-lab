@@ -7,4 +7,4 @@ configs/*.json text eol=lf
 data/public/nineb-opening-20261002/metadata/protocol.json -text
 data/public/nineb-opening-20261002/metadata/model-manifest.json -text
 data/public/nineb-opening-20261002/metadata/calibration-settings.json -text
-data/public/nineb-opening-20261002/source-snapshot/** -text
+data/public/nineb-opening-20261002/source-snapshot/** -text whitespace=cr-at-eol
