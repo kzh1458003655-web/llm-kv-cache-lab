@@ -28,6 +28,8 @@ bash server-kit/nineb/setup.sh
 
 下载脚本复用哈希正确的已有文件；失败的本次新文件会删除，已有错误文件会报错并保留。下载速度取决于网络。不要在租期内尝试源码编译 vLLM。
 
+网络较慢时可用 `scripts/download_9b_parallel.py --manifest model-manifest.json --model-dir model --endpoint https://modelscope.cn --workers 4 --receipt data/acquisition/download-receipt.json` 并行下载；也支持官方 Hugging Face 和 hf-mirror.com。镜像站的分支名称不代表固定 revision，只有大小及原清单的 SHA256/Git OID 全部一致才接受。下载来源与每文件核验结果写入 receipt，模型清单不改动。
+
 ## 初次校准
 
 先以原版、并发上限 4、16 个请求启动，验证模型、流式返回、输出长度、原生缓存组和 CUDA graph 能否运行：
