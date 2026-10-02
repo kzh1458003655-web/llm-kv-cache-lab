@@ -38,7 +38,7 @@ bash server-kit/nineb/setup.sh
 .venv-9b/bin/python scripts/run_9b_online.py --mode calibration --model model --manifest model-manifest.json --protocol configs/thesis-9b-protocol.json --requests prepared/hot_scan-ctx4096-rep0.jsonl --output data/runs/calibration/initial --concurrency 4 --rate 1 --count 16
 ```
 
-这次自动使用 vLLM 的可用缓存预算，记录缓存组及实际张量字节。`rate=1` 只用于启动检查，正式到达率须经原版短测确定。检查日志里 CUDA graph 实际模式、缓存块大小、前缀匹配粒度和检查点保留配置；适用的原生选项写到一个 JSON 文件，再通过 `--native-options 文件名` 传入校准。仅支持已经核对的 `mamba_cache_mode`、`prefix_match_unit`、`prefix_cache_retention_interval`。
+这次自动使用 vLLM 的可用缓存预算，记录缓存组及共享底层缓冲区字节。vLLM 0.30 的多个缓存组描述符可指向同一缓冲区，物理占用不能把描述符大小相加。入口固定设置 `VLLM_SERVER_DEV_MODE=1`，使仅监听 `127.0.0.1` 的实验服务开放缓存重置接口，并对两种策略保持一致。`rate=1` 只用于启动检查，正式到达率须经原版短测确定。检查日志里 CUDA graph 实际模式、缓存块大小、前缀匹配粒度和检查点保留配置；适用的原生选项写到一个 JSON 文件，再通过 `--native-options 文件名` 传入校准。仅支持已经核对的 `mamba_cache_mode`、`prefix_match_unit`、`prefix_cache_retention_interval`。
 
 根据可用内存、实际活跃请求和工作集选出三档可行缓存预算，再对每一档做原版校准：`--kv-cache-bytes 实际字节数 --concurrency 16 --rate 选定到达率 --count 64`。到达率应能产生实际排队，同时使客户端等待可测、运行能完成。保存失败和成功尝试；不要根据候选收益挑选参数。
 

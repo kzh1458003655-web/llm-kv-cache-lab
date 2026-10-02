@@ -171,6 +171,7 @@ def run(args):
         command.append('--enforce-eager')
     env = dict(os.environ)
     env.update({'NINEB_POLICY': args.policy, 'NINEB_EVIDENCE_DIR': str(evidence),
+                'VLLM_SERVER_DEV_MODE': '1',
                 'VLLM_USE_V2_MODEL_RUNNER': '0', 'VLLM_USE_FLASHINFER_SAMPLER': '0',
                 'VLLM_WORKER_MULTIPROC_METHOD': 'spawn', 'HF_HUB_OFFLINE': '1',
                 'PYTHONPATH': os.pathsep.join([str(ROOT / 'server-kit/nineb-bootstrap'), str(ROOT),
@@ -183,7 +184,7 @@ def run(args):
               'model_revision': verification['revision'], 'model_verification': verification,
               'protocol_sha256': sha256(args.protocol), 'request_file_sha256': sha256(args.requests),
               'request_count': len(rows), 'command': command,
-              'environment_overrides': {key: env[key] for key in ('VLLM_USE_V2_MODEL_RUNNER', 'VLLM_USE_FLASHINFER_SAMPLER', 'VLLM_WORKER_MULTIPROC_METHOD')},
+              'environment_overrides': {key: env[key] for key in ('VLLM_USE_V2_MODEL_RUNNER', 'VLLM_USE_FLASHINFER_SAMPLER', 'VLLM_WORKER_MULTIPROC_METHOD', 'VLLM_SERVER_DEV_MODE')},
               'shutdown_note': 'owned serving process is stopped; instance must be shut down after download verification'}
     record['boundary_probe'] = args.boundary_probe
     record['trace_diagnostic'] = args.trace_diagnostic

@@ -46,11 +46,23 @@ def activate():
                            'page_size_bytes': spec.page_size_bytes,
                            'layers': list(group.layer_names)})
         tensors = getattr(config, 'kv_cache_tensors', [])
+        sizes = {tensor.size for tensor in tensors}
+        # vLLM 0.30 allocate_kv_cache overlays all group views on one buffer.
+        # Summing descriptor sizes would count that buffer once per group.
+        if len(sizes) > 1:
+            raise RuntimeError('unexpected multiple backing allocation sizes')
         write('cache-groups', {'num_blocks': config.num_blocks,
                               'resolved_prefix_cache_retention_interval': getattr(config, 'prefix_cache_retention_interval', None),
                               'groups': groups,
                               'tensor_bytes': [tensor.size for tensor in tensors],
-                              'total_tensor_bytes': sum(tensor.size for tensor in tensors)})
+                              'tensor_descriptor_size_sum': sum(tensor.size for tensor in tensors),
+                              'total_tensor_bytes': next(iter(sizes), 0),
+                              'allocation_note': 'group tensor descriptors alias one backing buffer in vLLM 0.30',
+                              'tensor_descriptors': [
+                                  {'size': tensor.size, 'layers': list(tensor.layers),
+                                   'offset': tensor.offset, 'layer_stride': tensor.layer_stride,
+                                   'block_stride': tensor.block_stride}
+                                  for tensor in tensors]})
 
     original_allocate = BlockPool.get_new_blocks
 
