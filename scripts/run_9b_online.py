@@ -148,6 +148,9 @@ def run(args):
         raise ValueError('unsupported native cache option in settings')
     # Refuse to benchmark an unrelated server already using this port.
     with socket.socket() as port_check:
+        # Closed connections can remain in TIME_WAIT between successive runs.
+        # Reuse that address without permitting a second active listener.
+        port_check.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         port_check.bind(('127.0.0.1', args.port))
     out = args.output.resolve()
     out.mkdir(parents=True, exist_ok=False)
