@@ -89,7 +89,8 @@ def main():
                             raise ValueError('unexpected diagnostic text')
                         output.write(json.dumps(record, separators=(',', ':')) + '\n')
         exported.append(str(relative))
-    for name in ('plan.json', 'progress.json', 'analysis.json', 'boundary-analysis.json', 'pressure-analysis.json'):
+    for name in ('plan.json', 'progress.json', 'analysis.json', 'boundary-analysis.json',
+                 'pressure-analysis.json', 'aa-output-hash-analysis.json'):
         for source in args.runs.rglob(name):
             destination = args.output / source.relative_to(args.runs)
             destination.parent.mkdir(parents=True, exist_ok=True)
