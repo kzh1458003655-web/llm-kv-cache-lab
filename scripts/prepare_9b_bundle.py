@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 FILES = [
     'configs/thesis-9b-protocol.json',
     'configs/nineb-opening-plan.json',
-    'kv_cache_lab/__init__.py', 'kv_cache_lab/hybrid_retention_prototype.py',
+    'kv_cache_lab/__init__.py', 'kv_cache_lab/events.py', 'kv_cache_lab/hybrid_retention_prototype.py',
     'kv_cache_lab/hybrid_observer.py',
     'scripts/prepare_9b_model_manifest.py', 'scripts/nineb_artifacts.py',
     'scripts/server_workloads.py', 'scripts/prepare_9b_workloads.py',
