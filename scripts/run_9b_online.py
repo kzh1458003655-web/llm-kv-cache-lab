@@ -239,12 +239,13 @@ def run(args):
               'shutdown_note': 'owned serving process is stopped; instance must be shut down after download verification'}
     record['boundary_probe'] = args.boundary_probe
     record['trace_diagnostic'] = args.trace_diagnostic
+    record['retention_probe'] = os.environ.get('NINEB_RETENTION_PROBE')
     record['generated_tokens_per_request'] = 16 if args.boundary_probe else protocol['online_workload']['output_tokens']
     if (ROOT / 'CODE_VERSION.json').exists():
         record['code_version'] = json.loads((ROOT / 'CODE_VERSION.json').read_text())
     source_paths = ('scripts/run_9b_online.py', 'server-kit/nineb-bootstrap/sitecustomize.py',
                     'kv_cache_lab/hybrid_retention_prototype.py', 'kv_cache_lab/hybrid_observer.py',
-                    'kv_cache_lab/events.py')
+                    'kv_cache_lab/events.py', 'kv_cache_lab/retention_probe.py')
     record.setdefault('code_version', {})['source_sha256'] = {
         name: sha256(ROOT / name) for name in source_paths if (ROOT / name).is_file()}
     provenance = ROOT / 'execution-provenance.json'

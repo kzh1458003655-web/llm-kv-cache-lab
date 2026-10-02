@@ -19,6 +19,11 @@ def activate():
         from kv_cache_lab.hybrid_retention_prototype import install
         diagnostics = install(max_scan=32, reuse_threshold=2)
     candidate_diagnostics = diagnostics is not None
+    if os.environ.get('NINEB_RETENTION_PROBE'):
+        if policy != 'stock' or not os.environ.get('NINEB_DIAGNOSTIC_EVENTS'):
+            raise RuntimeError('retention probe requires stock diagnostic tracing')
+        from kv_cache_lab.retention_probe import install as install_probe
+        install_probe(os.environ['NINEB_RETENTION_PROBE'])
     if os.environ.get('NINEB_DIAGNOSTIC_EVENTS'):
         os.environ['HYBRID_PILOT_EVENTS'] = os.environ['NINEB_DIAGNOSTIC_EVENTS']
         from kv_cache_lab.hybrid_observer import install as install_observer
@@ -47,6 +52,11 @@ def activate():
                            'page_size_bytes': spec.page_size_bytes,
                            'layers': list(group.layer_names)})
         tensors = getattr(config, 'kv_cache_tensors', [])
+        if os.environ.get('NINEB_RETENTION_PROBE'):
+            if ([g['spec'] for g in groups] != ['MambaSpec'] * 3 + ['FullAttentionSpec']
+                    or any(g['block_size'] != 528 for g in groups)
+                    or config.num_blocks != 186):
+                raise RuntimeError('retention probe cache geometry differs from frozen case')
         sizes = {tensor.size for tensor in tensors}
         # vLLM 0.30 allocate_kv_cache overlays all group views on one buffer.
         # Summing descriptor sizes would count that buffer once per group.
