@@ -1,0 +1,78 @@
+{
+  "status": "completed",
+  "mode": "diagnostic",
+  "policy": "stock",
+  "settings": {
+    "native_cache_options": {
+      "mamba_cache_mode": "align",
+      "prefix_cache_retention_interval": 0
+    },
+    "enforce_eager": false,
+    "request_rate": 4.0,
+    "concurrency": 1,
+    "kv_cache_memory_bytes": 3221225472,
+    "workload_variant": "shared"
+  },
+  "model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "request_count": 64,
+  "measurement_reset": {
+    "status": "confirmed",
+    "success": true,
+    "attempts": 1
+  },
+  "trace_diagnostic": true,
+  "generated_tokens_per_request": 128,
+  "startup_elapsed_s": 39.724021004512906,
+  "total_elapsed_s": 270.07237028330564,
+  "client_summary": {
+    "request_count": 64,
+    "success_count": 64,
+    "error_count": 0,
+    "duration_s": 221.68632538616657,
+    "request_rate": 4.0,
+    "concurrency_limit": 1,
+    "peak_client_active": 1,
+    "max_server_running": 1.0,
+    "max_server_waiting": 0.0,
+    "server_activity_metrics_available": true,
+    "cached_tokens": 133056,
+    "input_tokens": 265662,
+    "ttft_ms": {
+      "p50": 135.85799559950829,
+      "p95": 786.1307505518198,
+      "p99": 788.5568235069513
+    },
+    "tpot_ms": {
+      "p50": 23.981521514750373,
+      "p95": 24.002145895162435,
+      "p99": 24.0158935950145
+    },
+    "elapsed_ms": {
+      "p50": 3180.032927542925,
+      "p95": 3831.997877918184,
+      "p99": 3838.4795458987355
+    },
+    "arrival_to_first_token_ms": {
+      "p50": 100277.8349159501,
+      "p95": 189725.736801646,
+      "p99": 199638.4355640359
+    },
+    "client_wait_ms": {
+      "p50": 100143.5331562534,
+      "p95": 189590.70230275393,
+      "p99": 199513.1070446223
+    }
+  },
+  "runtime_profile": {
+    "versions": {
+      "vllm": "0.30.0",
+      "torch": "2.13.0",
+      "transformers": "5.17.0"
+    },
+    "gpu": {
+      "name": "NVIDIA GeForce RTX 4080 SUPER",
+      "memory_mib": 32760,
+      "driver": "595.71.05"
+    }
+  }
+}

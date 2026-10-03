@@ -76,3 +76,4 @@ python -m unittest discover -s tests -v
 - [Marconi](https://arxiv.org/abs/2411.19379)：混合模型缓存的准入与淘汰思路；当前 `reuse2` 是轻量原型，完整论文复现待单独实现与验证。
 - [vLLM / PagedAttention](https://arxiv.org/abs/2309.06180)：分页式 KV Cache 和推理服务背景。
 - [SGLang / RadixAttention](https://arxiv.org/abs/2312.07104)：前缀复用与结构化推理程序背景。
+- [9B 混合缓存组联合保留诊断（同容量对照）](data/public/nineb-retention-probe-20261002/README.md)

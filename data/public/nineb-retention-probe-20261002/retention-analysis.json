@@ -1,0 +1,142 @@
+{
+  "complete": true,
+  "results": [
+    {
+      "run": "run-00-stock",
+      "mode": "stock",
+      "requests": 64,
+      "target_cached_tokens": 0,
+      "total_cached_tokens": 129360,
+      "input_tokens": 265662,
+      "captured_keys_by_group": {},
+      "forced_protected_selections": 0,
+      "changed_requests": [],
+      "output_hash_mismatches_vs_first_stock": 0,
+      "note": "Cache reuse accounting only; no scheduler execution-token instrumentation or latency claims."
+    },
+    {
+      "run": "run-01-all",
+      "mode": "all",
+      "requests": 64,
+      "target_cached_tokens": 3696,
+      "total_cached_tokens": 133056,
+      "input_tokens": 265662,
+      "captured_keys_by_group": {
+        "3": 7,
+        "0": 1,
+        "1": 1,
+        "2": 1
+      },
+      "forced_protected_selections": 0,
+      "changed_requests": [
+        {
+          "request_id": "segment007-scan0",
+          "cached_delta_vs_first_stock": 3696
+        }
+      ],
+      "output_hash_mismatches_vs_first_stock": 0,
+      "note": "Cache reuse accounting only; no scheduler execution-token instrumentation or latency claims."
+    },
+    {
+      "run": "run-02-attention",
+      "mode": "attention",
+      "requests": 64,
+      "target_cached_tokens": 0,
+      "total_cached_tokens": 129360,
+      "input_tokens": 265662,
+      "captured_keys_by_group": {
+        "3": 7
+      },
+      "forced_protected_selections": 0,
+      "changed_requests": [],
+      "output_hash_mismatches_vs_first_stock": 0,
+      "note": "Cache reuse accounting only; no scheduler execution-token instrumentation or latency claims."
+    },
+    {
+      "run": "run-03-state",
+      "mode": "state",
+      "requests": 64,
+      "target_cached_tokens": 0,
+      "total_cached_tokens": 129360,
+      "input_tokens": 265662,
+      "captured_keys_by_group": {
+        "0": 1,
+        "1": 1,
+        "2": 1
+      },
+      "forced_protected_selections": 0,
+      "changed_requests": [],
+      "output_hash_mismatches_vs_first_stock": 0,
+      "note": "Cache reuse accounting only; no scheduler execution-token instrumentation or latency claims."
+    },
+    {
+      "run": "run-04-state",
+      "mode": "state",
+      "requests": 64,
+      "target_cached_tokens": 0,
+      "total_cached_tokens": 129360,
+      "input_tokens": 265662,
+      "captured_keys_by_group": {
+        "0": 1,
+        "1": 1,
+        "2": 1
+      },
+      "forced_protected_selections": 0,
+      "changed_requests": [],
+      "output_hash_mismatches_vs_first_stock": 0,
+      "note": "Cache reuse accounting only; no scheduler execution-token instrumentation or latency claims."
+    },
+    {
+      "run": "run-05-attention",
+      "mode": "attention",
+      "requests": 64,
+      "target_cached_tokens": 0,
+      "total_cached_tokens": 129360,
+      "input_tokens": 265662,
+      "captured_keys_by_group": {
+        "3": 7
+      },
+      "forced_protected_selections": 0,
+      "changed_requests": [],
+      "output_hash_mismatches_vs_first_stock": 0,
+      "note": "Cache reuse accounting only; no scheduler execution-token instrumentation or latency claims."
+    },
+    {
+      "run": "run-06-all",
+      "mode": "all",
+      "requests": 64,
+      "target_cached_tokens": 3696,
+      "total_cached_tokens": 133056,
+      "input_tokens": 265662,
+      "captured_keys_by_group": {
+        "3": 7,
+        "0": 1,
+        "1": 1,
+        "2": 1
+      },
+      "forced_protected_selections": 0,
+      "changed_requests": [
+        {
+          "request_id": "segment007-scan0",
+          "cached_delta_vs_first_stock": 3696
+        }
+      ],
+      "output_hash_mismatches_vs_first_stock": 0,
+      "note": "Cache reuse accounting only; no scheduler execution-token instrumentation or latency claims."
+    },
+    {
+      "run": "run-07-stock",
+      "mode": "stock",
+      "requests": 64,
+      "target_cached_tokens": 0,
+      "total_cached_tokens": 129360,
+      "input_tokens": 265662,
+      "captured_keys_by_group": {},
+      "forced_protected_selections": 0,
+      "changed_requests": [],
+      "output_hash_mismatches_vs_first_stock": 0,
+      "note": "Cache reuse accounting only; no scheduler execution-token instrumentation or latency claims."
+    }
+  ],
+  "limits": "Future-informed protection of one preselected prefix; partial-group protection may induce different victims. This is not a general policy comparison or proof of optimality."
+}

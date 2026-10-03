@@ -1,0 +1,43 @@
+{
+  "runs": [
+    {
+      "rep": 0,
+      "mode": "stock"
+    },
+    {
+      "rep": 0,
+      "mode": "all"
+    },
+    {
+      "rep": 0,
+      "mode": "attention"
+    },
+    {
+      "rep": 0,
+      "mode": "state"
+    },
+    {
+      "rep": 1,
+      "mode": "state"
+    },
+    {
+      "rep": 1,
+      "mode": "attention"
+    },
+    {
+      "rep": 1,
+      "mode": "all"
+    },
+    {
+      "rep": 1,
+      "mode": "stock"
+    }
+  ],
+  "request_count": 64,
+  "concurrency": 1,
+  "cache_bytes": 3221225472,
+  "source": "segment002-scan2",
+  "target": "segment007-scan0",
+  "prefix_end": 3696,
+  "interpretation": "Future-informed diagnostic; no performance claim or online policy."
+}

@@ -1,0 +1,37 @@
+{
+  "policy": "stock",
+  "vllm": "0.30.0",
+  "num_blocks": 186,
+  "resolved_prefix_cache_retention_interval": 0,
+  "groups": [
+    {
+      "spec": "MambaSpec",
+      "block_size": 528,
+      "page_size_bytes": 2162688
+    },
+    {
+      "spec": "MambaSpec",
+      "block_size": 528,
+      "page_size_bytes": 2162688
+    },
+    {
+      "spec": "MambaSpec",
+      "block_size": 528,
+      "page_size_bytes": 2162688
+    },
+    {
+      "spec": "FullAttentionSpec",
+      "block_size": 528,
+      "page_size_bytes": 2162688
+    }
+  ],
+  "tensor_bytes": [
+    3218079744,
+    3218079744,
+    3218079744,
+    3218079744
+  ],
+  "tensor_descriptor_size_sum": 12872318976,
+  "total_tensor_bytes": 3218079744,
+  "allocation_note": "group tensor descriptors alias one backing buffer in vLLM 0.30"
+}
